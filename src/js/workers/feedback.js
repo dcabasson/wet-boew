@@ -5,8 +5,9 @@
 /*
  * Form validation plugin
  */
-/*global jQuery: false, pe: false, wet_boew_feedback: false*/
+/*global jQuery: false, pe: false*/
 (function ($) {
+	"use strict";
 	var _pe = window.pe || {
 		fn: {}
 	};
@@ -25,6 +26,7 @@
 				contact2 = contact_coord.find('#contact2'),
 				info = contact_coord.find('#info'),
 				referrerUrl = document.referrer,
+				urlParams = pe.url(window.location.href).params,
 				load;
 
 			// Web Questions
@@ -37,7 +39,10 @@
 				}
 			});
 			// Automatically select the reason if specified in the query string
-			feedback.find('option[value="' + pe.url(document.location).params.feedback + '"]').attr("selected", "selected");
+
+			if (urlParams.submit === undefined && urlParams.feedback !== undefined) {
+				feedback.find('option[value="' + urlParams.feedback + '"]').attr("selected", "selected");
+			}
 			feedback.trigger("load");
 
 			// Computer and Mobile

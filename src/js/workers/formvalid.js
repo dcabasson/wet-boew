@@ -5,8 +5,9 @@
 /*
  * Form validation plugin
  */
-/*global jQuery: false, pe: false, wet_boew_formvalid: false*/
+/*global jQuery: false, pe: false*/
 (function ($) {
+	"use strict";
 	var _pe = window.pe || {
 		fn: {}
 	};
@@ -31,6 +32,12 @@
 
 			// Add WAI-ARIA roles
 			required.attr('aria-required', 'true');
+
+			// Add space to the end of the labels (so separation between label and error when CSS turned off)
+			form.find("label").each(function () {
+				var $this = $(this);
+				$this.html($this.html() + " ");
+			});
 
 			function addValidation(target, key, value) {
 				var targetclass = target.attr('class'),
@@ -66,7 +73,7 @@
 
 			// Special handling for mobile
 			if (pe.mobile) {
-				form.attr('data-ajax', 'false').find('input:checkbox').closest('fieldset').attr('data-role', 'controlgroup');
+				form.attr('data-ajax', 'false').find('input[type="checkbox"]').closest('fieldset').attr('data-role', 'controlgroup');
 			}
 
 			// The jQuery validation plug-in in action
@@ -87,9 +94,11 @@
 				showErrors: function (errorMap, errorList) {
 					this.defaultShowErrors();
 					var errors = form.find("strong.error:not(:hidden)"),
+						errorfields = form.find("input.error, select.error, textarea.error"),
 						summaryContainer = form.find('#' + $errorFormId),
 						summary;
 
+					form.find('[aria-invalid="true"]').removeAttr("aria-invalid");
 					if (errors.length > 0) {
 						// Create our container if one doesn't already exist
 						if (summaryContainer.length === 0) {
@@ -100,13 +109,14 @@
 
 						// Post process
 						summary = $('<ul></ul>');
+						errorfields.attr("aria-invalid", "true");
 						errors.each(function (index) {
 							var $this = $(this),
 								prefix = '<span class="prefix">' + pe.dic.get("%error") + '&#160;' + (index + 1) + pe.dic.get("%colon") + ' </span>',
 								label = $this.closest("label");
 							$this.find("span.prefix").detach();
 							summary.append('<li><a href="#' + label.attr("for") + '">' + prefix + label.find('.field-name').html() + ' - ' + $this.html() + '</a></li>');
-							$this.attr("role", "alert").prepend('<span class="prefix">' + pe.dic.get("%error") + '&#160;' + (index + 1) + pe.dic.get("%colon") + ' </span>');
+							$this.prepend('<span class="prefix">' + pe.dic.get("%error") + '&#160;' + (index + 1) + pe.dic.get("%colon") + ' </span>');
 						});
 
 						// Output our error summary and place it in the error container
@@ -145,6 +155,11 @@
 			// Clear the form and remove error messages on reset
 			form.find('input[type=reset]').on('click', function () {
 				validator.resetForm();
+				var summaryContainer = form.find('#' + $errorFormId);
+				if (summaryContainer.length > 0) {
+					summaryContainer.empty();
+				}
+				form.find('[aria-invalid="true"]').removeAttr("aria-invalid");
 				form.find('#' + $errorFormId);
 			});
 

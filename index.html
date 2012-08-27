@@ -11,12 +11,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <title>Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)</title>
 
 <link rel="shortcut icon" href="build/theme-gcwu-fegc/images/favicon.ico" />
-<meta name="dcterms.description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities." />
-<meta name="dcterms.description" lang="fr" content="La Boîte à outils de l’expérience Web (BOEW) rassemble différents composants réutilisables et prêts-à-utiliser pour la conception et la mise à jour de sites Web innovateurs qui sont à la fois accessibles, conviviaux et interopérables. Tous ces composants réutilisables sont des logiciels libres mis à la disposition des ministères et des collectivités Web externes." />
 <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities." />
 <meta name="description" lang="fr" content="La Boîte à outils de l’expérience Web (BOEW) rassemble différents composants réutilisables et prêts-à-utiliser pour la conception et la mise à jour de sites Web innovateurs qui sont à la fois accessibles, conviviaux et interopérables. Tous ces composants réutilisables sont des logiciels libres mis à la disposition des ministères et des collectivités Web externes." />
-<meta name="keywords" content="Web, reusable components, toolkit, accessibility, usability, open source software" />
-<meta name="keywords" lang="fr" content="Web, composants réutilisables, boîte à outils, accessibilité, facilité d'emploi, logiciel libre" />
 <meta name="dcterms.creator" content="Government of Canada, Treasury Board of Canada Secretariat, Chief Information Officer Branch, IT Project Review and Oversight, Web Standards Office" />
 <meta name="dcterms.creator" lang="fr" content="Gouvernement du Canada, Secrétariat du Conseil du Trésor du Canada, Direction du dirigeant principal de l'information, Division de l'examen et de la supervision de projets de TI, Bureau des normes Web" />
 <meta name="dcterms.title" content="Web Experience Toolkit (WET)" />
@@ -30,12 +26,14 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <script src="build/js/jquery.min.js"></script>
-<link rel="stylesheet" href="build/grids/css/util-min.css" />
 <!--[if lte IE 8]>
+<script src="build/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="build/grids/css/util-ie-min.css" />
 <link rel="stylesheet" href="build/js/css/pe-ap-ie-min.css" />
 <link rel="stylesheet" href="build/theme-gcwu-fegc/css/theme-sp-pe-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
+<link rel="stylesheet" href="build/grids/css/util-min.css" />
 <link rel="stylesheet" href="build/js/css/pe-ap-min.css" />
 <link rel="stylesheet" href="build/theme-gcwu-fegc/css/theme-sp-pe-min.css" />
 <!--<![endif]-->
@@ -100,6 +98,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div>
 
 <!-- ScriptsStart -->
+<script src="build/theme-gcwu-fegc/js/theme-min.js"></script>
 <script src="build/js/settings.js"></script>
 <script src="build/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->

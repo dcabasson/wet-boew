@@ -7,8 +7,10 @@
  */
 /*global jQuery: false, pe: false*/
 (function ($) {
-
-	var _pe = window.pe || {fn: {} };
+	"use strict";
+	var _pe = window.pe || {
+		fn: {}
+	};
 	/* local reference */
 	_pe.fn.webwidget = {
 		type: 'plugin',
@@ -23,7 +25,7 @@
 				i = 0;
 				while (i < cap) {
 					result += "<li><a class=\"float-left\" href=\"http://www.twitter.com/";
-					result += sorted[i].user.name + "/status/" + sorted[i].user.id + "\">" + "<img class=\"widget-avatar\" src=\"" + sorted[i].user.profile_image_url + "\" /></a> ";
+					result += sorted[i].user.name + "/status/" + sorted[i].user.id + "\">" + "<img class=\"widget-avatar\" src=\"" + sorted[i].user.profile_image_url + "\" alt=\"" + sorted[i].user.name + "\" /></a> ";
 					result += pe.string.ify.clean(sorted[i].text);
 					result += " <span class=\"widget-datestamp-accent\">" + pe.dic.ago(sorted[i].created_at) + "</span></li>";
 					i += 1;

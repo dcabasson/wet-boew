@@ -3,9 +3,21 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
  */
+#gcwu-sig{
+	float:left;
+	margin:10px 0 10px 0;
+	img {
+		margin-bottom:0;
+	}
+}
+ 
 #gcwu-sig-in {
 	width: 214px;
 	height: 20px;
+}
+
+#wb-head {
+	padding: 0 5px;
 }
 
 #wb-foot, #wb-foot-in, #wb-head-in {
@@ -21,13 +33,14 @@
 	background:#fff;
 }
 
-#gcwu-title a,#gcwu-title a:visited,#gcwu-title a:hover,#gcwu-title a:focus{
-	color:#295376;
-	text-decoration:none;
-}
-
-#gcwu-title a:hover,#gcwu-title a:focus{
-	text-decoration:underline;
+#gcwu-title {
+	a,a:visited,a:hover,a:focus,a:active{
+		color:#295376;
+		text-decoration:none;
+	}
+	a:hover,a:focus,a:active{
+		text-decoration:underline;
+	}
 }
 
 #gcwu-title-left, #gcwu-title-right, .gcwu-alt-title-left, .gcwu-alt-title-right {
@@ -50,23 +63,44 @@
 	font-weight: bold;
 }
 
+#wb-main-in {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 #gcwu-bar, #wb-foot {
 	display: none;
 }
 
-.no-js #gcwu-bar, .ui-mobile #wb-foot, .no-js #wb-foot{
+.ui-mobile #wb-foot{
 	display: block;
 }
 
-.no-js #wb-head a[href]:hover,.no-js #wb-head a[href]:active,.no-js #wb-head a[href]:focus, .no-js #wb-foot a[href]:hover,.no-js#wb-foot a[href]:active,.no-js #wb-foot a[href]:focus{
-	color: #C00;
-}
-
-.no-js #gcwu-sig, .no-js #gcwu-wmms, .no-js .gcwu-tc-left, .no-js .gcwu-tc-right{
-	width: 50%;
-	float: left;
-}
-
-.no-js .gcwu-tc-right{
-	text-align: right;
+.no-js {
+	#gcwu-bar,#wb-foot{
+		display: block;
+	}
+	#wb-head,#wb-foot{
+		a[href]{
+			&:hover,&:focus,&:active{
+			color: #C00;
+			}
+		}
+	}
+	#gcwu-sig{
+		margin-top:20px;
+	}
+	#gcwu-bar{
+		margin-bottom:5px;
+	}
+	#wb-foot {
+		padding: 0 5px;
+	}
+	#gcwu-sig,#gcwu-wmms,.gcwu-tc-left,.gcwu-tc-right{
+		width: 50%;
+		float: left;
+	}
+	.gcwu-tc-right{
+		text-align: right;
+	}
 }

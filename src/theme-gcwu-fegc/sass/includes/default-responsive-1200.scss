@@ -7,21 +7,18 @@ body{
 	min-width:1200px;
 }
 
-#gcwu-title{
+#gcwu-title-in{
 	width:500px;
 }
 
-#wb-core-in,#gcwu-bc-in{
-	background-image:url(../images/content-deco-large.gif);
-}
-
-#wb-body-sec-sup #wb-main{
-	width:600px;
-	left:300px;
-}
-
-#wb-body-sec-sup #wb-main-in{
-	width:600px;
+#wb-body-sec-sup {
+	#wb-main{
+		width:600px;
+		left:300px;
+	}
+	#wb-main-in{
+		width:600px;
+	}
 }
 
 #wb-sec{
@@ -33,16 +30,13 @@ body{
 	left:600px;
 }
 
-#gcwu-sft-in{
-	background-image:url(../images/footer-deco-large.gif);
-}
-
-#gcwu-gcft li{
-	margin:12px 0 13px 88px;
-}
-
-#gcwu-gcft li:first-child{
-	margin-left:10px;
+#gcwu-gcft {
+	li{
+		margin:12px 0 13px 88px;
+		&:first-child{
+			margin-left:10px;
+		}
+	}
 }
 
 li#gcwu-gcft-ca{

@@ -7,7 +7,10 @@
  */
 /*global jQuery: false, pe: false*/
 (function ($) {
-	var _pe = window.pe || {fn: {} };
+	"use strict";
+	var _pe = window.pe || {
+		fn: {}
+	};
 	/* local reference */
 	_pe.fn.slideout = {
 		type: 'plugin',
@@ -29,14 +32,24 @@
 				ttlHeight = 0,
 				wrapper,
 				keyhandler,
-				tocLinks;
+				tocLinks,
+				documentToggle,
+				cssTest;
+
+			// Don't do anything if CSS is disabled
+			// Couldn't get _pe.cssenabled() to work
+			cssTest = $('<div style="display: none;">').appendTo('body');
+			if (cssTest.css('display') !== 'none') {
+				return;
+			}
+			cssTest.remove();
 
 			// Add the wrappers
 			wrapper = elm.wrap('<div id="slideoutWrapper" role="application" />').parent(); // This is used for overflow: hidden.
 			elm.wrap('<div id="slideoutInnerWrapper" />'); // This is used for "animate".
 
 			// Add WAI-ARIA
-			elm.attr('role', 'menu').find('li').attr('role', 'presentation');
+			elm.attr({'role':'menu', 'id':'slideout-body'}).find('li').attr('role', 'presentation');
 
 			// Remove the link off the page we're on if we're asked to
 			if (rmCurrLink) {
@@ -49,29 +62,33 @@
 			// Recalculate the slideout's position
 			reposition = function () {
 				if (!opened) { // Only when slideout is closed
-					var newPosition = $('#wb-main-in').offset().left;
+					var newPosition = $('#wb-core-in').offset().left;
 
 					if (newPosition <= borderWidth) {
 						newPosition = 0;
 					}
 
 					// Vertical
-					wrapper.css('top', $('#wb-main-in').offset().top);
+					wrapper.css('top', $('#wb-core-in').offset().top);
 					// Horizontal
 					wrapper.css('right', newPosition);
 				}
 			};
 
-			toggle = function (e) {
-				toggleLink.off('click vclick');
-				slideoutClose.off('click vclick');
+			toggle = function () {
+				toggleLink.off('click vclick', toggle);
+				tocLinks.off('click vclick', toggle);
+				slideoutClose.off('click vclick', toggle);
+				wrapper.off("keydown", keyhandler);
+				elm.off("keydown", keyhandler);
+				$(document).off("click touchstart", documentToggle);
 
 				if (!opened) {
 					var position = wrapper.position();
 					if (pe.ie === 0 || document.documentMode !== undefined) {
 						wrapper.removeClass('slideoutWrapper')
 							.addClass('slideoutWrapperRel')
-							.css({"top": position.top - $('#wb-main-in').offset().top, "right": borderWidth - 10});
+							.css({"top": position.top - $('#wb-core-in').offset().top, "right": borderWidth - 10});
 					}
 					elm.show(); // Show the widget content if it is about to be opened
 					pe.focus(tocLinks.eq(0));
@@ -89,7 +106,7 @@
 						if (pe.ie === 0 || document.documentMode !== undefined) {
 							wrapper.addClass('slideoutWrapper');
 							wrapper.removeClass('slideoutWrapperRel');
-							wrapper.css('width', (imgShow.width + focusOutlineAllowance) + 'px').css('top', $('#wb-main-in').offset().top);
+							wrapper.css('width', (imgShow.width + focusOutlineAllowance) + 'px').css('top', $('#wb-core-in').offset().top);
 							reposition();
 						}
 					} else { // Slideout just opened
@@ -98,21 +115,25 @@
 						}
 					}
 					toggleLink.on('click vclick', toggle);
+					tocLinks.on('click vclick', toggle);
 					slideoutClose.on('click vclick', toggle);
+					wrapper.on("keydown", keyhandler);
+					elm.on("keydown", keyhandler);
+					$(document).on("click touchstart", documentToggle);
 				});
 
 				if (opened) {
 					wrapper.find('#slideoutToggle a img').attr({'src': imgHide.path,
 						'title': imgHide.alt,
 						'alt': imgHide.alt});
-					wrapper.find('#slideoutToggle a').attr('aria-pressed', 'true');
+					wrapper.find('#slideoutToggle a');
 					elm.attr('aria-hidden', 'false');
 					wrapper.find('#slideoutInnerWrapper').css('width', '');
 				} else {
 					wrapper.find('#slideoutToggle a img').attr({'src': imgShow.path,
 						'title': imgShow.alt,
 						'alt': imgShow.alt});
-					wrapper.find('#slideoutToggle a').attr('aria-pressed', 'false');
+					wrapper.find('#slideoutToggle a');
 					elm.attr('aria-hidden', 'true');
 				}
 
@@ -230,26 +251,24 @@
 			};
 
 			// Close slideout after clicking on a link
-			tocLinks.on('click vclick', function () {
-				toggle(elm);
-			});
-
+			tocLinks.on('click vclick', toggle);
 			wrapper.on("keydown", keyhandler);
 			elm.on("keydown", keyhandler);
 
 			// Close slideout if clicking outside of the slideout area
-			$(document).on("click touchstart", function (e) {
+			documentToggle = function (e) {
 				if (opened && !$(e.target).is(elm) && !$(e.target).is(wrapper) && $(e.target).closest(elm).length === 0) {
 					toggle();
 				}
-			});
+			};
+			$(document).on("click touchstart", documentToggle);
 
 			// Add the "Hide" link
-			elm.append('<a href="#" id="slideoutClose">' + closeLink + '</a>');
+			elm.append('<a href="#" id="slideoutClose" role="button" aria-controls="slideout-body">' + closeLink + '</a>');
 			slideoutClose = elm.find('#slideoutClose');
 
 			// Add the slideout toggle
-			wrapper.find('#slideoutInnerWrapper').css('padding', (focusOutlineAllowance / 2) + 'px').prepend('<div id="slideoutToggle" class="slideoutToggle"><a id="toggleLink" role="button" aria-pressed="false" aria-controls="slideout" href="#" onclick="return false;"><img width="' + imgShow.width + 'px' + '" height="' + imgShow.height + 'px' + '" src="' + imgShow.path + '" alt="' + imgShow.alt + '" title="' + imgShow.alt + '" /></a></div>');
+			wrapper.find('#slideoutInnerWrapper').css('padding', (focusOutlineAllowance / 2) + 'px').prepend('<div id="slideoutToggle" class="slideoutToggle"><a id="toggleLink" role="button" aria-controls="slideout-body" href="#" onclick="return false;"><img width="' + imgShow.width + 'px' + '" height="' + imgShow.height + 'px' + '" src="' + imgShow.path + '" alt="' + imgShow.alt + '" title="' + imgShow.alt + '" /></a></div>');
 			toggleLink = wrapper.find('#toggleLink');
 			wrapper.find('#slideoutToggle').css({'width' : imgShow.width, 'height' : imgShow.height}); // Resize the toggle to correct dimensions
 
@@ -259,7 +278,7 @@
 			ttlHeight = elm.outerHeight();
 
 			// Set vertical position and hide the slideout on load -- we don't want it to animate so we can't call slideout.toggle()
-			wrapper.css('width', (imgShow.width + focusOutlineAllowance) + 'px').css('top', $('#wb-main-in').offset().top);
+			wrapper.css('width', (imgShow.width + focusOutlineAllowance) + 'px').css('top', $('#wb-core-in').offset().top);
 
 			// Hide widget content so we don't tab through the links when the slideout is closed
 			elm.hide().attr('aria-hidden', 'true');

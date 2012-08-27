@@ -6,6 +6,7 @@
 ----- Dictionary (il8n) ---
  */
 /*global jQuery: false, pe: false */
+/*jshint bitwise: false */
 (function ($) {
 	var _pe = window.pe || {
 		fn: {}
@@ -55,21 +56,24 @@
 			return r;
 		},
 		ind: {
-			"%all" : "Tous",
-			"%home" : "Accueil",
+			"%all": "Tous",
+			"%home": "Accueil",
 			"%top-of-page": "Haut de la page",
 			"%you-are-in": "Vous êtes dans :",
 			"%welcome-to": "Bienvenue à : " + $('#gcwu-title').text(),
 			"%search": "Recherche",
-			"%search-for-terms" : "Recherche de terme(s) :",
-			"%no-match-found" : "Aucune correspondance trouvée",
-			"%matches-found" : {
+			"%search-for-terms": "Recherche de terme(s) :",
+			"%no-match-found": "Aucune correspondance trouvée",
+			"%matches-found": {
 				"mixin": "[MIXIN] correspondance(s) trouvées"
 			},
 			"%menu": "Menu",
-			"%hide" : "Masquer",
-			"%error" : "Erreur",
-			"%colon" : "&#160;:",
+			"%hide": "Masquer",
+			"%error": "Erreur",
+			"%colon": "&#160;:",
+			"%start": "Lancer",
+			"%stop": "Arrêter",
+			"%back": "Précédent",
 			"%minute-ago": "il ya une minute",
 			"%couple-of-minutes": "il ya quelques minutes",
 			"%minutes-ago": {
@@ -86,7 +90,7 @@
 			/* Archived Web page template */
 			"%archived-page": "Cette page Web a été archivée dans le Web.",
 			/* Menu bar */
-			"%sub-menu-help": "(ouvrir le sous-menu avec la touche de la flèche descendante et le fermer avec la touche d'échappement)",
+			"%sub-menu-help": "(ouvrir le sous-menu avec la touche d'entrée et le fermer avec la touche d'échappement)",
 			/* Tabbed interface */
 			"%tab-rotation": {
 				"disable": "Arrêter la rotation d'onglets",
@@ -94,11 +98,11 @@
 			},
 			/* Multimedia player */
 			"%play": "Jouer",
-			"%stop": "Pause",
+			"%pause": "Pause",
 			"%close": "Fermer",
-			"%rewind": "Reculer ",
-			"%next" : "Prochaine",
-			"%previous" : "Précedent",
+			"%rewind": "Reculer",
+			"%next": "Prochaine",
+			"%previous": "Précedent",
 			"%fast-forward": "Avancer ",
 			"%mute": {
 				"enable": "Activer le mode muet",
@@ -108,6 +112,7 @@
 				"disable": "Masquer le sous-titrage",
 				"enable": "Afficher le sous-titrage"
 			},
+			"%captionserror": "Erreur dans le chargement des sous-titres",
 			"%audio-description": {
 				"enable": "Activer l'audiodescription",
 				"disable": "Désactiver l'audiodescription"
@@ -118,26 +123,59 @@
 			"%duration": "Temps total&#160;: ",
 			"%buffered": "Mis en mémoire-tampon&#160;: ",
 			/* Share widget */
-			"%favourite" : "Lien préféré",
-			"%email" : "Courriel",
-			"%share-text" : "Partagez cette page",
-			"%share-hint" : " avec {s} (Ouvre dans une nouvelle fenêtre)",
-			"%share-email-subject" : "Page qui est intéressante",
-			"%share-email-body" : "J'espère que cette page vous intéresse :\n{t} ({u})",
-			"%share-manual" : "S'il vous plaît fermer ce dialogue et\nappuyer sur Ctrl-D pour ajouter cette page à vos signets.",
-			"%share-showall" : "Tous montrer ({n})",
-			"%share-showall-title" : "Tout les sites de mise en signet",
+			"%favourite": "Lien préféré",
+			"%email": "Courriel",
+			"%share-text": "Partagez cette page",
+			"%share-hint": " avec {s} (Ouvre dans une nouvelle fenêtre)",
+			"%share-email-subject": "Page qui est intéressante",
+			"%share-email-body": "J'espère que cette page vous intéresse :\n{t} ({u})",
+			"%share-manual": "S'il vous plaît fermer ce dialogue et\nappuyer sur Ctrl-D pour ajouter cette page à vos signets.",
+			"%share-showall": "Tous montrer ({n})",
+			"%share-showall-title": "Tout les sites de mise en signet",
+			"%share-disclaimer": "Aucun appui n’est accordé, soit de façon expresse ou tacite, à aucun produit ou service.",
 			/* Form validation */
-			"%form-not-submitted" : "Le formulaire n'a pu être soumis car ",
-			"%errors-found" : " erreurs ont été trouvées.",
-			"%error-found" : " erreur a été trouvée.",
+			"%form-not-submitted": "Le formulaire n'a pu être soumis car ",
+			"%errors-found": " erreurs ont été trouvées.",
+			"%error-found": " erreur a été trouvée.",
+			/* Date picker */
+			"%datepicker-hide": "Masquer le calendrier",
+			"%datepicker-show": "Sélectionner une date à partir d'un calendrier pour le champ: ",
+			"%datepicker-selected": "Sélectionné",
+			/* Calendar */
+			"%calendar-weekDayNames": ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+			"%calendar-monthNames": ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+			"%calendar-currentDay": " (Jour courrant)",
+			"%calendar-goToLink": "Aller au <span class=\"wb-invisible\"> mois de l'année</span>",
+			"%calendar-goToTitle": "Aller au mois de l'année",
+			"%calendar-goToMonth": "Mois : ",
+			"%calendar-goToYear": "Année : ",
+			"%calendar-goToButton": "Aller",
+			"%calendar-cancelButton": "Annuler",
+			"%calendar-previousMonth": "Mois précédent : ",
+			"%calendar-nextMonth": "Mois suivant : ",
 			/* Slideout */
-			"%show-toc" : "Afficher",
-			"%show-image" : "afficher.png",
-			"%hide-image" : "cacher.png",
-			"%table-contents" : " la table des matières",
+			"%show-toc": "Afficher",
+			"%show-image": "afficher.png",
+			"%hide-image": "cacher.png",
+			"%table-contents": " la table des matières",
 			/* Lightbox */
-			"%lightbox-error" : "Le contenu demandé ne peut pas être chargé.<br />S'il vous plaît essayer encore plus tard."
+			"%lb-current": "Article {current} de {total}",
+			"%lb-next": "Article suivant",
+			"%lb-prev": "Article précédent",
+			"%lb-xhr-error": "Le chargement de ce contenu a échoué.",
+			"%lb-img-error": "Le chargement de cette image a échoué.",
+			"%lb-slideshow": "la diaporama",
+			/* jQuery Mobile */
+			"%jqm-expand": " cliquer pour afficher le contenu",
+			"%jqm-collapse": " cliquer pour masquer le contenu",
+			"%jqm-clear-search": "effacer le texte",
+			"%jqm-filter": "Filtrer des articles...",
+			/* Charts widget */
+			"%table-mention": "- Tableau",
+			"%table-following": "- Graphique. Plus de détails dans le tableau suivant.",
+			/* Disable/enable PE */
+			"%pe-disable": "Version HTML simplifiée",
+			"%pe-enable": "Version standard"
 		}
 	};
 	$(document).trigger("languageloaded");
