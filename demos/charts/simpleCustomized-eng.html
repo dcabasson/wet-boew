@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
-<title>Charts - Working examples - Web Experience Toolkit (WET)</title>
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
+<title>Charts - Customized - Working examples - Web Experience Toolkit (WET)</title>
 
-<link rel="shortcut icon" href="../../build/theme-gcwu-fegc/images/favicon.ico" />
-<meta name="dcterms.description" content="English description/Description en anglais" />
-<meta name="description" content="English description/Description en anglais" />
-<meta name="keywords" content="English keywords/Mots-clés en anglais" />
-<meta name="dcterms.creator" content="English name of the content author/Nom en anglais de l'auteur du contenu" />
-<meta name="dcterms.title" content="English title/Titre en anglais" />
-<meta name="dcterms.issued" title="W3CDTF" content="Date published (YYYY-MM-DD)/Date de publication (AAAA-MM-JJ)" />
-<meta name="dcterms.modified" title="W3CDTF" content="Date modified (YYYY-MM-DD)/Date de modification (AAAA-MM-JJ)" />
-<meta name="dcterms.subject" title="scheme" content="English subject terms/Termes de sujet en anglais" />
+<link rel="shortcut icon" href="../../dist/theme-gcwu-fegc/images/favicon.ico" />
+<meta name="description" content="English description / Description en anglais" />
+<meta name="dcterms.creator" content="English name of the content author / Nom en anglais de l'auteur du contenu" />
+<meta name="dcterms.title" content="English title / Titre en anglais" />
+<meta name="dcterms.issued" title="W3CDTF" content="Date published (YYYY-MM-DD) / Date de publication (AAAA-MM-JJ)" />
+<meta name="dcterms.modified" title="W3CDTF" content="Date modified (YYYY-MM-DD) / Date de modification (AAAA-MM-JJ)" />
+<meta name="dcterms.subject" title="scheme" content="English subject terms / Termes de sujet en anglais" />
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../../build/js/jquery.min.js"></script>
-<link rel="stylesheet" href="../../build/grids/css/util-min.css" />
+<script src="../../dist/js/jquery.min.js"></script>
 <!--[if lte IE 8]>
-<script src="../../build/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="../../build/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-ie-min.css" />
+<script src="../../dist/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="../../dist/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="../../build/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-min.css" />
+<link rel="stylesheet" href="../../dist/grids/css/util-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-min.css" />
 <!--<![endif]-->
+<noscript><link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
 
 <!-- CustomScriptsCSSStart -->
 <!-- CustomScriptsCSSEnd -->
@@ -49,18 +49,18 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
 <nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
-<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../build/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
 <ul>
 <li id="gcwu-gcnb1"><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></li>
 <li id="gcwu-gcnb2"><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
 <li id="gcwu-gcnb3"><a rel="external" href="http://www.canada.gc.ca/aboutgov-ausujetgouv/depts/menu-eng.html">Departments</a></li>
-<li id="gcwu-gcnb-lang"><a href="zebra-fra.html" lang="fr">Français</a></li>
+<li id="gcwu-gcnb-lang"><a href="#" lang="fr">Français</a></li>
 </ul>
 </div></div></div></nav>
 
 <div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
-<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../build/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
-<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../docs/index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
 
 <section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
 <form action="#" method="post"><div id="gcwu-srchbx-in">
@@ -71,9 +71,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div>
 
 <nav role="navigation">
-<div id="gcwu-psnb"><h2><span>Site</span> menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.inc">
-<li><div><a href="http://wet-boew.github.com/wet-boew/docs/index-eng.html">WET project</a></div></li>
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.txt">
+<li><div><a href="http://wet-boew.github.com/wet-boew/index-eng.html">WET project</a></div></li>
 <li><div><a href="section2/index-eng.html">Section 2</a></div></li>
 <li><div><a href="#">Section 3</a></div></li>
 <li><div><a href="#">Section 4</a></div></li>
@@ -85,9 +85,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
-<li><a href="../../docs/index-eng.html">Home</a></li>
+<li><a href="../../index-eng.html">Home</a></li>
 <li><a href="../index-eng.html">Working examples</a></li>
-<li>Zebra striping - Web Experience Toolkit (WET)</li>
+<li>Charts - Customized</li>
 </ol>
 </div></div>
 </nav>
@@ -97,8 +97,12 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-core"><div id="wb-core-in" class="equalize">
 <div id="wb-main" role="main"><div id="wb-main-in">
 <!-- MainContentStart -->
-<h1 id="wb-cont">Charts - Web Experience Toolkit (WET)</h1>
+<h1 id="wb-cont">Charts - Customized</h1>
 
+<ul class="button-group">
+<li><a href="https://github.com/wet-boew/wet-boew/wiki/Charts-and-graphs" class="button button-info">Documentation</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new" class="button">Questions or comments?</a></li>
+</ul>
 
 <h2 id="figure16">Figure 1</h2>
 
@@ -395,6 +399,57 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </details>
 
 
+<h2>Figure 6</h2>
+
+<table class="wet-boew-charts wb-charts-pie wb-charts-width-500 wb-charts-decimal-1">
+	<caption>Revenues by products and services</caption>
+    <thead>
+    	<tr>
+        	<th></th>
+        	<th>Patents</th>
+            <th>Trade-marks</th>
+            <th>Copyrights and Industrial Designs</th>
+            <th>Information</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    	<tr>
+        	<th>Revenues by products and services</th>
+            <td class="wb-charts-color-olivedrab">77.4%</td>
+            <td class="wb-charts-color-yellowgreen">19.8%</td>
+            <td class="wb-charts-color-midnightblue">2.5%</td>
+            <td class="wb-charts-color-slateblue">0.3%</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<details>
+	<summary>CSS Class Parameter</summary>
+	
+	<p>Table element (table)</p>
+	<ul>
+		<li>wet-boew-charts</li>
+		<li>wb-charts-pie</li>
+		<li>wb-charts-width-500</li>
+		<li>wb-charts-decimal-1</li>
+		<li>wb-charts-topvalue-700</li>
+		<li>wb-charts-bottomvalue-0</li>
+		<li>wb-charts-steps-60</li>
+		<li>wb-charts-nocutaxis-true</li>
+	</ul>
+      
+    <p>Cell heading element (th) associated to each bar</p>
+	
+	<ul>
+		<li>wb-charts-color-olivedrab</li>
+		<li>wb-charts-color-yellowgreen</li>
+		<li>wb-charts-color-midnightblue</li>
+		<li>wb-charts-color-slateblue</li>
+	</ul>
+</details>
 
 
 
@@ -452,7 +507,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <li><a rel="external" href="http://www.voyage.gc.ca/index-eng.asp"><span>Travel</span><br />travel.gc.ca</a></li>
 <li><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span><br />servicecanada.gc.ca</a></li>
 <li><a rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span><br />jobbank.gc.ca</a></li>
-<li><a rel="external" href="http://actionplan.gc.ca/eng/index.asp"><span>Economy</span><br />actionplan.gc.ca</a></li>
+<li><a rel="external" href="http://actionplan.gc.ca/en"><span>Economy</span><br />actionplan.gc.ca</a></li>
 <li id="gcwu-gcft-ca"><div><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></div></li>
 </ul>
 </div></div></div></nav>
@@ -461,9 +516,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div>
 
 <!-- ScriptsStart -->
-<script src="../../build/theme-gcwu-fegc/js/theme-min.js"></script>
-<script src="../../build/js/settings.js"></script>
-<script src="../../build/js/pe-ap-min.js"></script>
+<script src="../../dist/theme-gcwu-fegc/js/theme-min.js"></script>
+<script src="../../dist/js/settings.js"></script>
+<script src="../../dist/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->
 </body>
 </html>

@@ -3,6 +3,12 @@
 	<dirname property="tasks.basedir" file="${ant.file.build-tasks}"/>
 	<property file="${tasks.basedir}/build-tasks.properties"/>
 	
+	<!-- Version and build time-->
+	<property name="wet-boew-build.version" value="v3.1.0-b2"/>
+	<tstamp>
+		<format property="wet-boew-build.starttime" pattern="yyyy-MM-dd hh:mm aa" locale="en,CA"/>
+	</tstamp>
+	
 	<!-- ant contribs task definition  -->
 	<path id="antcontrib.classpath">
 		<pathelement location="${antcontribs.jar}" />
@@ -10,7 +16,9 @@
 	<taskdef resource="net/sf/antcontrib/antlib.xml">
 		<classpath refid="antcontrib.classpath" />
 	</taskdef>
-
+	
+	<extension-point name="-init"/>
+	
 	<!-- yui-compressor task definition  -->
 	<path id="yui.classpath">
 		<pathelement location="${yui-compressor.jar}" />
@@ -35,32 +43,39 @@
 		<classpath refid="jshint.classpath" />
 	</taskdef>
 	
-	<!-- Include the compiled jruby.jar file -->
-	<path id="jruby.classpath">
-		<fileset dir="${lib.dir}">
-		  <include name="jruby*.jar"/>
-		</fileset>
-	</path>
-	
 	<!-- Include jruby + gems (compass + sass) -->
-	<target name="-build-jruby" depends="-jruby.jar.check" unless="jruby.jar.exists">
+	<target name="-build-jruby" extensionOf="-init" depends="-jruby.jar.check" unless="jruby.jar.exists">
 		<mkdir dir="${lib.dir}/jruby-compiled" />
-		<get src="http://jruby.org.s3.amazonaws.com/downloads/1.6.7.2/jruby-complete-1.6.7.2.jar" dest="${lib.dir}/jruby.jar"/>
-		<get src="http://production.cf.rubygems.org/gems/sass-3.1.19.gem" dest="${lib.dir}/jruby-compiled/sass.gem"/>
-		<get src="http://production.cf.rubygems.org/gems/chunky_png-1.2.5.gem" dest="${lib.dir}/jruby-compiled/chunky_png.gem"/>
-		<get src="http://production.cf.rubygems.org/gems/fssm-0.2.9.gem" dest="${lib.dir}/jruby-compiled/fssm.gem"/>
-		<get src="http://production.cf.rubygems.org/gems/compass-0.12.1.gem" dest="${lib.dir}/jruby-compiled/compass.gem"/>
-		<java jar="${lib.dir}/jruby.jar" fork="true">
-			<arg line="-S gem install -i &quot;${lib.dir}/vendors&quot; &quot;${lib.dir}/jruby-compiled/sass.gem&quot; &quot;${lib.dir}/jruby-compiled/chunky_png.gem&quot; &quot;${lib.dir}/jruby-compiled/fssm.gem&quot; &quot;${lib.dir}/jruby-compiled/compass.gem&quot;"/>
-		</java>
-		<exec executable="jar" dir="${lib.dir}/">
-		  <arg line="-uf jruby.jar -C vendors ." />
-		</exec>
-		<delete dir="${lib.dir}/jruby-compiled" />
+		<parallel>
+			<get src="http://jruby.org.s3.amazonaws.com/downloads/${jruby.version}/${jruby.jar}" dest="${lib.dir}/${jruby.jar}" skipexisting="true"/>
+			<get src="http://production.cf.rubygems.org/gems/${sass.gem}" dest="${gem.dir}/${sass.gem}" skipexisting="true"/>
+			<get src="http://production.cf.rubygems.org/gems/${chunky_png.gem}" dest="${gem.dir}/${chunky_png.gem}" skipexisting="true"/>
+			<get src="http://production.cf.rubygems.org/gems/${fssm.gem}" dest="${gem.dir}/${fssm.gem}" skipexisting="true"/>
+			<get src="http://production.cf.rubygems.org/gems/${compass.gem}" dest="${gem.dir}/${compass.gem}" skipexisting="true"/>
+		</parallel>
+		<sequential>
+			<java jar="${lib.dir}/${jruby.jar}" fork="true">
+				<arg line="-S gem install -i &quot;${lib.dir}/vendors-${jruby.depends}&quot; &quot;${gem.dir}/${sass.gem}&quot; --local -f"/>
+			</java>
+			<java jar="${lib.dir}/${jruby.jar}" fork="true">
+				<arg line="-S gem install -i &quot;${lib.dir}/vendors-${jruby.depends}&quot; &quot;${gem.dir}/${chunky_png.gem}&quot; --local -f"/>
+			</java>
+			<java jar="${lib.dir}/${jruby.jar}" fork="true">
+				<arg line="-S gem install -i &quot;${lib.dir}/vendors-${jruby.depends}&quot; &quot;${gem.dir}/${fssm.gem}&quot; --local -f"/>
+			</java>
+			<java jar="${lib.dir}/${jruby.jar}" fork="true">
+				<arg line="-S gem install -i &quot;${lib.dir}/vendors-${jruby.depends}&quot; &quot;${gem.dir}/${compass.gem}&quot; --local -f"/>
+			</java>
+		</sequential>
 	</target>
+
 	<target name="-jruby.jar.check">
+		<checksum file="${tasks.basedir}/build-tasks.properties" property="jruby.depends"/>
 		<condition property="jruby.jar.exists">
-		  <available file="${lib.dir}/jruby.jar" type="file"/>
+			<and>
+				<available file="${lib.dir}/${jruby.jar}" type="file"/>
+				<available file="${lib.dir}/vendors-${jruby.depends}" type="dir"/>
+			</and>
 		</condition>
 	</target>
 	
@@ -73,11 +88,13 @@
 	</target>
 	
 	<target name="call.sass">
-		<java classname="org.jruby.Main" fork="true" failonerror="true" classpathref="jruby.classpath">
+		<java fork="true" failonerror="true" jar="${lib.dir}/${jruby.jar}">
+			<arg value="--1.8"/>
 			<arg path="${tasks.basedir}/compile.rb"/>
-			<arg path="${lib.dir}/vendors/gems/"/>
+			<arg path="${lib.dir}/vendors-${jruby.depends}/gems/"/>
 			<arg value="${command}"/>
 			<arg path="${src.dir}"/>
+			<arg value="${dist.dir}/css"/>
 		</java>
 	</target>
 	
@@ -90,10 +107,175 @@
 	</target>
 	
 	<target name="-jshint">
-		<jshint dir="${src.dir}" fail="${jshint.failbuild}" globalsFile="${jshint.globals.file}">
-			<report type="xml" destfile="${build.dir}/jshint.out.xml" />
+		<jshint dir="${src.dir}" fail="${jshint.failbuild}" globalsFile="${jshint.globals.file}" options="strict:false" jshintSrc="${lib.dir}/jshint.js">
+			<report type="xml" destfile="${src.dir}/jshint.out.xml" />
 			<include name="**/*.js"/>
 			<exclude name="**/*.min.js"/>
+			<exclude name="jquerymobile/jquery.mobile.js"/>
+			<exclude name="polyfills/datalist.js"/>
+			<exclude name="polyfills/detailssummary.js"/>
+			<exclude name="polyfills/html5shiv.js"/>
+			<exclude name="polyfills/localstorage.js"/>
+			<exclude name="polyfills/sessionstorage.js"/>
+			<exclude name="polyfills/slider.js"/>
+			<exclude name="dependencies/bookmark.js"/>
+			<exclude name="dependencies/browsertweaks.js"/>
+			<exclude name="dependencies/colorbox.js"/>
+			<exclude name="dependencies/easytabs.js"/>
+			<exclude name="dependencies/hashchange.js"/>
+			<exclude name="dependencies/hoverintent.js"/>
+			<exclude name="dependencies/json.js"/>
+			<exclude name="dependencies/matchMedia.js"/>
+			<exclude name="dependencies/metadata.js"/>
+			<exclude name="dependencies/outside.js"/>
+			<exclude name="dependencies/pie.js"/>
+			<exclude name="dependencies/prettify.js"/>
+			<exclude name="dependencies/prettify/**/*.js"/>
+			<exclude name="dependencies/raphael.js"/>
+			<exclude name="dependencies/resize.js"/>
+			<exclude name="dependencies/validate.js"/>
+			<exclude name="dependencies/validateAdditional.js"/>
+			<exclude name="dependencies/xregexp.js"/>
 		</jshint>
+	</target>
+
+	<property name="csslint.ignores" value="ids,important,qualified-headings,universal-selector,unqualified-attributes,star-property-hack,unique-headings,adjoining-classes,floats,overqualified-elements,font-sizes,regex-selectors,duplicate-properties,box-sizing"/>
+	<property name="csslint.errors" value="outline-none"/>
+
+	<target name="csslint" description="Runs CSSLint on CSS produced by the project's Sass files and outputs results to the console" depends="prepare-files">
+		<apply executable="java" failonerror="false" parallel="false">
+			<fileset dir="${dist.dir}/css">
+				<include name="*.css"/>
+				<exclude name="jquery.mobile.css"/>
+				<exclude name="*.min.css"/>
+				<exclude name="*-min.css"/>
+			</fileset>
+			<arg value="-jar"/>
+			<arg path="${lib.dir}/js.jar"/>
+			<arg path="${lib.dir}/csslint-rhino.js" />      
+
+			<!-- your customized arguments go here -->
+			<arg value="--format=compact"/>
+			<arg value="--ignore=${csslint.ignores}"/>
+			<arg value="--error=${csslint.errors}"/>
+			<srcfile/>
+		</apply>
+	</target>
+	
+	<target name="csslint-report" description="Produceds CSSLint XML report in the build directory for selected project" depends="prepare-files">
+		<apply executable="java" failonerror="false" parallel="true" output="${src.dir}/csslint.out.xml">
+			<fileset dir="${dist.dir}/css">
+				<include name="*.css"/>
+				<exclude name="jquery.mobile.css"/>
+				<exclude name="*.min.css"/>
+				<exclude name="*-min.css"/>
+			</fileset>
+			<arg value="-jar"/>
+			<arg path="${lib.dir}/js.jar"/>
+			<arg path="${lib.dir}/csslint-rhino.js" />      
+
+			<!-- your customized arguments go here -->
+			<arg value="--format=lint-xml"/>
+			<arg value="--ignore=${csslint.ignores}"/>
+			<arg value="--error=${csslint.errors}"/>
+			<srcfile/>
+		</apply>
+	</target>
+  
+	<target name="clean">
+		<delete dir="${dist.dir}" />
+	</target>
+	
+	<extension-point name="build" depends="prepare-files, encode-images, compress, finalize" description="Core build task. Subprojects should subscrib to the 'prepare-files' and 'compress'" />
+	
+	<extension-point name="prepare-files" depends="-init" />
+	
+	<extension-point name="encode-images" depends="prepare-files" />
+	
+	<target name="encode-css" extensionOf="encode-images" depends="-base64-encode"/>
+
+	<extension-point name="compress" depends="encode-images, -minify" />
+	
+	<extension-point name="finalize"/>
+	
+	<extension-point name="test" />
+	
+	<target name="lint" extensionOf="test" depends="-jshint, csslint"/>
+	
+	<target name="-base64-encode">
+		<property name="image.dir" location="${dist.dir}/images"/>
+
+		<cssurlembed skipMissing="true" root="${image.dir}">
+			<fileset dir="${dist.dir}/css">
+				<include name="*.css"/>
+				<exclude name="*ie.css"/>
+				<!-- Because of themometer images -->
+				<exclude name="util.css"/>
+			</fileset>
+		</cssurlembed>
+	</target>
+	
+	<target name="-base64-encode-jquery">
+		<property name="jquerymobile.dir" location="${src.dir}/jquerymobile"/>
+		<cssurlembed skipMissing="false" root="${jquerymobile.dir}">
+			<fileset dir="${dist.dir}/css">
+				<include name="jquery.mobile.css"/>
+			</fileset>
+		</cssurlembed>
+	</target>
+	
+	<target name="-minify">
+		<yui-compressor warn="false" munge="true" preserveAllSemiColons="false" fromDir="${dist.dir}" toDir="${dist.dir}" charset="utf-8">
+			<include name="**/*.css" />
+			<include name="**/*.js" />
+			<exclude name="**/*-min.css" />
+			<exclude name="**/settings.js" />
+			<exclude name="**/*-min.js" />
+			<exclude name="**/*.min.js" />
+		</yui-compressor>
+		<delete>
+			<fileset dir="${dist.dir}">
+				<include name="**/*.css" />
+				<include name="**/*.js" />
+				<exclude name="**/settings.js" />
+				<exclude name="**/*-min.css" />
+				<exclude name="**/*-min.js" />
+				<exclude name="**/*.min.js" />
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="-copy-css" depends="compile.sass"/>
+	
+	<target name="-copy-jquery-css">
+		<concat dest="${dist.dir}/css/jquery.mobile.css">
+			<fileset file="${src.dir}/jquerymobile/jquery.mobile.theme.css"/>
+			<fileset file="${src.dir}/../js/jquerymobile/jquery.mobile.structure.css"/>
+		</concat>
+	</target>
+	
+	<target name="-copy-js">
+		<fixcrlf srcdir="${src.dir}" includes="**/*.js" encoding="UTF-8" outputencoding="UTF-8" tab="add" tablength="4" fixlast="false"/>
+		<copy todir="${dist.dir}" encoding="UTF-8">
+			<fileset dir="${src.dir}">
+				<include name="**/*.js"/>
+				<exclude name="workers/**"/> 
+				<exclude name="pe-ap.js"/> 
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="-copy-images">
+		<copy todir="${dist.dir}/images">
+			<fileset dir="${src.dir}/images" />
+		</copy>
+	</target>
+	
+	<target name="-update-headers" extensionOf="finalize">
+		<replace dir="${dist.dir}">
+			<include name="**/*.js"/>
+			<include name="**/*.css"/>
+			<replacefilter token="@wet-boew-build.version@" value="${wet-boew-build.version} Build: ${wet-boew-build.starttime}"/>
+		</replace>
 	</target>
 </project>

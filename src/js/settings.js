@@ -1,13 +1,17 @@
 /*!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
 /*
 WET-BOEW-Settings
  */
 var wet_boew_properties = {
 	/** global plugins are called via a array of dependency names **/
-	globals : ['equalize', 'deselectradio', 'css3ie'/*, 'toolbar'*/]
+	globals : ['equalize', 'deselectradio', 'css3ie', 'datemodified']
 };
 
 /*

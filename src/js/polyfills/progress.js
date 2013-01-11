@@ -1,12 +1,17 @@
 /*!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
 /*
  * Progress
  */
 /*global jQuery: false*/
 (function ($) {
+	"use strict";
 	$.fn.progress = function () {
 		return $(this).each(function () {
 			var $this = $(this),
@@ -40,9 +45,11 @@
 			}
 
 			$this.attr(attr);
-			$this.on('DOMAttrModified propertychange', function () {
-				$this.progress();
-			});
+			setTimeout(function () {
+				$this.on('DOMAttrModified propertychange', function () {
+					$this.progress();
+				});
+			}, 0);
 		});
 	};
 	$('progress').progress();

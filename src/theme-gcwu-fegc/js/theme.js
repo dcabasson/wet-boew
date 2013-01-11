@@ -1,9 +1,13 @@
 /*!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
 /*
- * GC Web Usability Intranet theme scripting
+ * GC Web Usability theme scripting
  */
 /*global jQuery: false, pe: false, window: false, document: false*/
 (function ($) {
@@ -12,7 +16,6 @@
 	/**
 	* wet_boew_theme object
 	* @namespace wet_boew_theme
-	* @version 3.0
 	*/
 	wet_boew_theme = (typeof window.wet_boew_theme !== "undefined" && window.wet_boew_theme !== null) ? window.wet_boew_theme : {
 		fn: {}
@@ -26,6 +29,7 @@
 		sft: null,
 		gcft: null,
 		wmms: $('#gcwu-wmms'),
+		menu: null,
 		init: function () {
 			wet_boew_theme.psnb = pe.header.find('#gcwu-psnb');
 			wet_boew_theme.menubar = wet_boew_theme.psnb.find('.wet-boew-menubar');
@@ -39,144 +43,174 @@
 				submenu = current.parents('div.mb-sm');
 
 			// If the link with class="nav-current" is in the submenu, then move the class up to the associated menu bar link
-			if (submenu.length > 0) {
+			if (submenu.length !== 0) {
 				submenu.prev().children('a').addClass('nav-current');
 			}
-			pe.theme = wet_boew_theme.theme;
-			$('html').addClass(wet_boew_theme.theme);
-			if (pe.secnav.length > 0) {
+			if (pe.secnav.length !== 0) {
 				pe.menu.navcurrent(pe.secnav, wet_boew_theme.bcrumb);
 			}
 
 			// If no search is provided, then make the site menu link 100% wide
-			if (wet_boew_theme.psnb.length > 0 && wet_boew_theme.search.length === 0) {
-				wet_boew_theme.psnb.css('width', '100%');
-			} else if (wet_boew_theme.psnb.length === 0 && wet_boew_theme.search.length > 0) {
-				wet_boew_theme.search.css('width', '100%');
+			if (wet_boew_theme.psnb.length !== 0 && wet_boew_theme.search.length === 0) {
+				wet_boew_theme.psnb.addClass('mobile-change');
+			} else if (wet_boew_theme.psnb.length === 0 && wet_boew_theme.search.length !== 0) {
+				wet_boew_theme.search.addClass('mobile-change');
 			}
 		},
 		mobileview: function () {
-			var mb_dialogue,
-				mb_header,
+			var mb_popup,
 				mb_header_html,
-				srch_head,
+				mb_menu = '',
+				mb_btn_txt = pe.dic.get('%menu'),
+				srch_btn_txt = pe.dic.get('%search'),
 				secnav_h2,
-				nav,
-				s_dialogue,
-				_list = $('<ul></ul>').hide(),
+				s_popup,
+				bodyAppend = '',
+				popup_role = 'data-role="popup" data-overlay-theme="a"',
+				popup_close = '<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">' + pe.dic.get('%close') + '</a>',
+				_list = '',
+				navbar,
 				links,
+				link,
 				footer1,
-				ul,
 				lang_links,
 				lang_nav,
 				mb_li,
-				target;
+				target,
+				i,
+				len,
+				node;
 
-			if (wet_boew_theme.menubar.length > 0 || pe.secnav.length > 0 || wet_boew_theme.search.length > 0) {
-				// @TODO: optimize the dom manipulation routines - there is alot of DOM additions that should be keep as a document frag and replaced with .innerHTML as the end. // jsperf - 342% increase
-				// lets transform the menu to a dialog box
+			if (wet_boew_theme.menubar.length !== 0 || pe.secnav.length !== 0 || wet_boew_theme.search.length !== 0) {
+				// Transform the menu to a popup
 				mb_li = wet_boew_theme.menubar.find('ul.mb-menu li');
-				mb_dialogue = '<div data-role="page" id="jqm-wb-mb"><div data-role="header">';
-				secnav_h2 = (pe.secnav.length > 0 ? pe.secnav.find('h2').eq(0) : "");
-				mb_header = (wet_boew_theme.menubar.length > 0 ? wet_boew_theme.psnb.children(':header') : (pe.secnav.length > 0 ? secnav_h2 : wet_boew_theme.bcrumb.children(':header')));
-				mb_header_html = mb_header.html();
-				mb_dialogue += "<h1>" + mb_header_html + '</h1></div>';
-				mb_dialogue += '<div data-role="content" data-inset="true"><nav role="navigation">';
+				mb_popup = '<div ' + popup_role + ' id="jqm-wb-mb"><div data-role="header">';
+				secnav_h2 = (pe.secnav.length !== 0 ? pe.secnav[0].getElementsByTagName('h2')[0] : '');
+				mb_header_html = (wet_boew_theme.menubar.length !== 0 ? wet_boew_theme.psnb.children(':header')[0] : (pe.secnav.length !== 0 ? secnav_h2 : wet_boew_theme.bcrumb.children(':header')[0])).innerHTML;
+				mb_popup += '<h1>' + mb_btn_txt + '</h1>' + popup_close + '</div><div data-role="content" data-inset="true"><nav role="navigation">';
 
-				if (wet_boew_theme.bcrumb.length > 0) {
-					mb_dialogue += '<section><div id="jqm-mb-location-text">' + wet_boew_theme.bcrumb.html() + '</div></section>';
-					wet_boew_theme.bcrumb.remove();
+				if (wet_boew_theme.bcrumb.length !== 0) {
+					node = wet_boew_theme.bcrumb[0];
+					mb_popup += '<section><div id="jqm-mb-location-text">' + node.innerHTML + '</div></section>';
+					node.parentNode.removeChild(node);
 				} else {
-					mb_dialogue += '<div id="jqm-mb-location-text"></div>';
+					mb_popup += '<div id="jqm-mb-location-text"></div>';
 				}
 
-				if (pe.secnav.length > 0) {
-					nav = pe.menu.buildmobile(pe.secnav.find('.wb-sec-def'), 3, "c", false, true);
-					pe.menu.expandcollapsemobile(nav, (pe.secnav.find('h3.top-section').length > 0 ? "h4" : "h3"), true, false);
-					pe.menu.expandcollapsemobile(nav, ".nav-current", false, true);
-					mb_dialogue += $('<section><h2>' + secnav_h2.html() + '</h2></section>').append(nav).html();
-					pe.secnav.remove();
+				// Build the menu
+				if (pe.secnav.length !== 0) {
+					mb_menu += '<section><div><h2>' + secnav_h2.innerHTML + '</h2><div data-role="controlgroup">' + pe.menu.buildmobile(pe.secnav.find('.wb-sec-def'), 3, 'b', false, true, 'c', true, true) + '</div></div></section>';
+					node = pe.secnav[0];
+					node.parentNode.removeChild(node);
 				}
-
-				if (wet_boew_theme.menubar.length > 0) {
-					nav = pe.menu.buildmobile(mb_li, 3, "a", true, true);
-					pe.menu.expandcollapsemobile(nav, "h3", true, false);
-					pe.menu.expandcollapsemobile(nav, ".nav-current", false, true);
-					mb_dialogue += $('<section><h2>' + mb_header_html + '</h2></section>').append(nav).html();
+				if (wet_boew_theme.menubar.length !== 0) {
+					mb_menu += '<section><div><h2>' + mb_header_html + '</h2><div data-role="controlgroup">' + pe.menu.buildmobile(mb_li, 3, 'a', true, true, 'c', true, true) + '</div></div></section>';
 				}
-				mb_dialogue += '</nav></div></div></div>';
-				pe.pagecontainer().append(mb_dialogue);
-				mb_header.wrapInner('<a href="#jqm-wb-mb" data-rel="dialog"></a>');
-				_list.append('<li><a data-rel="dialog" data-theme="b"  data-icon="grid" href="#jqm-wb-mb">' + mb_header.find('a').text() + "</a></li>");
+				
+				// Append the popup/dialog container and store the menu for appending later
+				mb_popup += '<div id="jqm-mb-menu"></div></nav></div></div></div>';
+				bodyAppend += mb_popup;
+				wet_boew_theme.menu = mb_menu;
+				_list += '<li><a data-rel="popup" data-theme="a" data-icon="site-menu" href="#jqm-wb-mb">' + mb_btn_txt + '</a></li>';
 			}
-			if (wet_boew_theme.search.length > 0) {
-				// :: Search box transform lets transform the search box to a dialog box
-				srch_head = wet_boew_theme.search.find(':header');
-				s_dialogue = $('<div data-role="page" id="jqm-wb-search"></div>');
-				s_dialogue.append($('<div data-role="header"><h1>' + srch_head.text() + '</h1></div>')).append($('<div data-role="content"></div>').append(wet_boew_theme.search.find('form')));
-				pe.pagecontainer().append(s_dialogue);
-				srch_head.wrapInner('<a href="#jqm-wb-search" data-rel="dialog"></a>');
-				_list.append('<li><a data-rel="dialog" data-theme="b" data-icon="search" href="#jqm-wb-search">' + srch_head.find('a').text() + "</a></li>");
+			if (wet_boew_theme.search.length !== 0) {
+				// :: Search box transform lets transform the search box to a popup
+				s_popup = '<div ' + popup_role + ' id="jqm-wb-search"><div data-role="header"><h1>' + srch_btn_txt + '</h1>' + popup_close + '</div><div data-role="content"><div>' + wet_boew_theme.search[0].getElementsByTagName('form')[0].innerHTML + '</div></div></div>';
+				bodyAppend += s_popup;
+				_list += '<li><a data-rel="popup" data-theme="a" data-icon="search" href="#jqm-wb-search">' + srch_btn_txt + '</a></li>';
 			}
-			if (_list.children().length > 0) {
-				wet_boew_theme.title.after($('<div data-role="navbar" data-iconpos="right"></div>').append(_list));
-			}
-
-			lang_links = $('#gcwu-lang');
-			if (lang_links.length > 0) {
-				links = lang_links.find('a').attr("data-theme", "a");
-				lang_nav = $('<div data-role="navbar"><ul></ul></div>');
-				ul = lang_nav.children();
-				links.each(function () {
-					ul.append($('<li/>').append(this));
-				});
-				lang_links.find('#gcwu-ef-lang').replaceWith(lang_nav.children().end());
-				lang_links.find('#gcwu-other-lang').remove();
+			pe.bodydiv.append(bodyAppend);
+			
+			if (_list.length !== 0) {
+				navbar = $('<div data-role="navbar" data-iconpos="right"><ul class="wb-hide">' + _list + '</ul></div>');
+				wet_boew_theme.title.after(navbar);
 			}
 
-			if (wet_boew_theme.sft.length > 0) {
-				// transform the footer into mobile nav bar
-				links = wet_boew_theme.sft.find('#gcwu-tctr a, .gcwu-col-head a').attr("data-theme", "b");
-				footer1 = $('<div data-role="navbar"><ul></ul></div>');
-				ul = footer1.children();
-				links.each(function () {
-					ul.append($('<li/>').append(this));
-				});
-				wet_boew_theme.sft.children('#gcwu-sft-in').replaceWith(footer1.children().end());
-				wet_boew_theme.gcft.parent().remove();
+			lang_links = document.getElementById('gcwu-lang');
+			if (lang_links !== null) {
+				links = lang_links.getElementsByTagName('a');
+				lang_nav = '<div data-role="navbar"><ul>';
+				for (i = 0, len = links.length; i < len; i += 1) {
+					link = links[i];
+					lang_nav += '<li><a href="' + link.href + '" data-theme="a">' + link.innerHTML + '</a></li>';
+				}
+				lang_nav += '</ul></div>';
+				lang_links = document.getElementById('gcwu-ef-lang').parentNode.innerHTML = lang_nav;
+				lang_links = document.getElementById('gcwu-other-lang');
+				if (lang_links !== null) {
+					lang_links.parentNode.removeChild(lang_links);
+				}
+			}
+			if (wet_boew_theme.sft.length !== 0) {
+				links = wet_boew_theme.sft.find('#gcwu-tctr a, .gcwu-col-head a').get();
+				target = document.getElementById('gcwu-sft-in');
+				if (wet_boew_theme.gcft.length !== 0) {
+					node = wet_boew_theme.gcft[0];
+					node.parentNode.removeChild(node);
+				}
 			} else {
-				target = pe.footer.find('#gcwu-tc');
-				if (target.length > 0) {
-					// transform the footer into mobile nav bar
-					links = target.find('a').attr("data-theme", "b");
-					footer1 = $('<div data-role="navbar"><ul></ul></div>');
-					ul = footer1.children();
-					links.each(function () {
-						ul.append($('<li/>').append(this));
-					});
-					target.replaceWith(footer1.children().end());
+				target = document.getElementById('gcwu-tc');
+				if (target !== null) {
+					links = target.getElementsByTagName('a');
 				}
 			}
-			pe.footer.find('footer').append(wet_boew_theme.wmms.detach());
+			if (target !== null) {
+				// transform the footer into mobile nav bar
+				footer1 = '<ul class="ui-grid-a">';
+				for (i = 0, len = links.length; i < len; i += 1) {
+					link = links[i];
+					footer1 += '<li class="ui-block-' + (i % 2 !== 0 ? 'b' : 'a') + '"><a href="' + link.href + '" data-role="button" data-theme="c" data-corners="false">' + link.innerHTML + '</a></li>';
+				}
+				footer1 += '</ul>';
+				target.id = '';
+				target.className = '';
+				target.setAttribute('data-role', 'footer');
+				target.innerHTML = footer1;
+			}
+			if (wet_boew_theme.wmms.length !== 0) {
+				node = wet_boew_theme.wmms[0];
+				pe.footer[0].getElementsByTagName('footer')[0].appendChild(node.cloneNode(true));
+				node.parentNode.removeChild(node);
+			}
 
-			// jquery mobile has loaded
-			$(document).on("pagecreate", function () {
-				if (wet_boew_theme.menubar.length > 0) {
-					wet_boew_theme.psnb.parent().remove();
+			// jQuery mobile has loaded
+			$(document).on('pagecreate', function () {
+				if (wet_boew_theme.menubar.length !== 0) {
+					node = wet_boew_theme.psnb[0];
+					node.parentNode.removeChild(node);
 				}
-				if (wet_boew_theme.search.length > 0) {
-					wet_boew_theme.search.parent().remove();
+				if (wet_boew_theme.search.length !== 0) {
+					node = wet_boew_theme.search[0];
+					node.parentNode.removeChild(node);
 				}
-				if (_list.children().length > 0) {
-					_list.show();
+				if (_list.length !== 0) {
+					navbar.children().removeClass('wb-hide');
+
+					// Defer appending of menu until after page is enhanced by jQuery Mobile, and
+					// defer enhancing of menu until it is opened the first time (all to reduce initial page load time)
+					var menu = pe.bodydiv.find('#jqm-mb-menu');
+					if (menu.length !== 0) {
+						menu.append(wet_boew_theme.menu);
+						navbar.find('a[href="#jqm-wb-mb"]').one('click vclick', function () {
+							menu.trigger('create');
+							pe.menu.correctmobile(menu);
+						});
+					}
 				}
+
+				// Transition to show loading icon on transition
+				function loadingTransition(name, reverse, $to, $from) {
+					var r;
+
+					$.mobile.showPageLoadingMsg();
+					r = $.mobile.transitionHandlers.simultaneous('pop', reverse, $to, $from);
+					r.done(function(){$.mobile.hidePageLoadingMsg();});
+					return r;
+				}
+				$.mobile.transitionHandlers.loadingTransition = loadingTransition;
+				$.mobile.defaultDialogTransition = 'loadingTransition';
 			});
-			// preprocessing before mobile page is enhanced
-			$(document).on("pageinit", function () {
-				// Correct the corners for each of the site menu/secondary menu sections and sub-sections
-				pe.menu.correctmobile($('#jqm-wb-mb'));
-			});
-			$(document).trigger("mobileviewloaded");
+			$(document).trigger('mobileviewloaded');
 			return;
 		}
 	};

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
-<title>Forms - CSS Grid System - Working examples - Web Experience Toolkit (WET)</title>
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
+<title>Forms - CSS grid system - Working examples - Web Experience Toolkit (WET)</title>
 
-<link rel="shortcut icon" href="../../build/theme-gcwu-fegc/images/favicon.ico" />
+<link rel="shortcut icon" href="../../dist/theme-gcwu-fegc/images/favicon.ico" />
 <meta name="description" content="English description / Description en anglais" />
 <meta name="dcterms.creator" content="English name of the content author / Nom en anglais de l'auteur du contenu" />
 <meta name="dcterms.title" content="English title / Titre en anglais" />
@@ -20,34 +20,21 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../../build/js/jquery.min.js"></script>
+<script src="../../dist/js/jquery.min.js"></script>
 <!--[if lte IE 8]>
-<script src="../../build/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="../../build/grids/css/util-ie-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-ie-min.css" />
+<script src="../../dist/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="../../dist/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="../../build/grids/css/util-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-min.css" />
+<link rel="stylesheet" href="../../dist/grids/css/util-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-min.css" />
 <!--<![endif]-->
+<noscript><link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
 
 <!-- CustomScriptsCSSStart -->
-<style>
-.form-radio.form-label-inline,
-.form-checkbox.form-label-inline {
-  display: inline-block;
-  padding-top: 5px;
-  margin-bottom: 0;
-  vertical-align: middle;
-}
-
-.form-radio.form-label-inline + .form-radio.form-label-inline,
-.form-checkbox.form-label-inline + .form-checkbox.form-label-inline {
-  margin-left: 10px;
-}
-</style>
 <!-- CustomScriptsCSSEnd -->
 </head>
 
@@ -62,18 +49,18 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
 <nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
-<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../build/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
 <ul>
 <li id="gcwu-gcnb1"><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></li>
 <li id="gcwu-gcnb2"><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
 <li id="gcwu-gcnb3"><a rel="external" href="http://www.canada.gc.ca/aboutgov-ausujetgouv/depts/menu-eng.html">Departments</a></li>
-<li id="gcwu-gcnb-lang"><a href="grid-form-fra.html" lang="fr">Français</a></li>
+<li id="gcwu-gcnb-lang"><a href="#" lang="fr">Français</a></li>
 </ul>
 </div></div></div></nav>
 
 <div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
-<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../build/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
-<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../docs/index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
 
 <section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
 <form action="#" method="post"><div id="gcwu-srchbx-in">
@@ -84,9 +71,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div>
 
 <nav role="navigation">
-<div id="gcwu-psnb"><h2><span>Site</span> menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.inc">
-<li><div><a href="http://wet-boew.github.com/wet-boew/docs/index-eng.html">WET project</a></div></li>
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.txt">
+<li><div><a href="http://wet-boew.github.com/wet-boew/index-eng.html">WET project</a></div></li>
 <li><div><a href="section2/index-eng.html">Section 2</a></div></li>
 <li><div><a href="#">Section 3</a></div></li>
 <li><div><a href="#">Section 4</a></div></li>
@@ -98,10 +85,10 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
-<li><a href="../../docs/index-eng.html">Home</a></li>
+<li><a href="../../index-eng.html">Home</a></li>
 <li><a href="../index-eng.html">Working examples</a></li>
 <li><a href="grid-base-eng.html">CSS Grid System</a></li>
-<li>Forms</li>
+<li>Images</li>
 </ol>
 </div></div>
 </nav>
@@ -115,7 +102,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div class="wet-boew-prettify all-pre linenums">
 <div class="span-4 module-table-contents">
-<p>Table of contents</p>
+<h2>Table of contents</h2>
 <ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#checkboxes">Checkboxes and radio buttons</a></li>
@@ -128,9 +115,23 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 </ul>
 </div>
+<div class="span-2">
+<div class="span-2 module-related">
+<h2 class="background-accent">Related accessibility topics</h2>
+<ul>
+<li><a href="../opt-cont/frm-eng.html">Forms - Optimal Content Examples</a></li>
+<li><a href="../opt-cont/kb-cv-eng.html">Keyboard and User Controls - Optimal Content Examples</a></li>
+</ul>
+</div>
+<div class="span-2 module-info">
+<h2>Design  add-on</h2>
+<p>Consider restyling the default button effect.</p>
+<p><a href="grid-button-eng.html" class="button button-info">Button CSS</a></p>
+</div>
+</div>
 <div class="clear"></div>
 <h2 id="overview">Overview</h2>
-<p>All form classes are based on <a href="http://formalize.me/">formalize.me</a> and <a href="http://twitter.github.com/bootstrap">Twitter Bootstrap</a>.</p>
+<p>All form classes are based on <a href="http://formalize.me/" rel="external">formalize.me</a> and <a href="http://twitter.github.com/bootstrap" rel="external">Twitter Bootstrap</a>.</p>
 <p>There are three styles of common web forms:</p>
 <table class="table-simplify span-6">
    <thead>
@@ -288,7 +289,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 		<input type="submit" class="button button-accent" value="Sign in">
 	</form>
     <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>&lt;form&gt;
     &lt;label for=&quot;home-mail&quot;&gt;E-mail:&lt;/label&gt;
     &lt;input type=&quot;text&quot; id=&quot;home-mail&quot; size=&quot;30&quot; /&gt;
@@ -318,7 +319,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 		<input type="submit" class="button button-accent" value="Sign in">
 	</form>
     <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>&lt;form class=&quot;background-light&quot;&gt;
     &lt;label for=&quot;home-mail2&quot;&gt;E-mail:&lt;/label&gt;
     &lt;input type=&quot;text&quot; id=&quot;home-mail2&quot; size=&quot;30&quot; /&gt;
@@ -341,7 +342,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <h2 id="inline">Inline form</h2>
 <p>Inputs are block level to start. For <code>.form-inline</code> forms, we force all elements to be inline-block.</p>
-<div class="span-1"><p class="badge-intro">Example 1</p></div>
+<div class="span-1 margin-bottom-none"><p class="badge-intro">Example 1</p></div>
 	<form class="form-inline span-5 margin-bottom-none">
 	   <label for="email1" class="wb-invisible">Email</label> <input type="text" id="email1" class="width-20" placeholder="Email" />
 	   <label for="pword1" class="wb-invisible">Password</label> <input type="password" id="pword1" class="width-20" placeholder="Password" />
@@ -354,7 +355,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
     <div class="clear"></div>
 <div class="span-1"></div>
 <details class="span-5">
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>
 &lt;form class="form-inline span-5"&gt;
    &lt;label for="email1" class="wb-invisible"&gt;Email&lt;/label&gt;l &lt;input type="text" id="email1" class="width-20" placeholder="Email" /&gt;
@@ -372,7 +373,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div class="span-1"><p class="badge-intro">Example 2</p></div>
 
 	<form class="form-inline background-light span-5 margin-bottom-none">
-	   <label for="email2" class="wb-invisible">Email</label> <input type="text" id="email2" class="width-20" placeholder="Email" />">
+	   <label for="email2" class="wb-invisible">Email</label> <input type="text" id="email2" class="width-20" placeholder="Email" />
 	   <label for="pword2" class="wb-invisible">Password</label> <input type="password" id="pword2" class="width-20" placeholder="Password" />
 	   <label class="form-checkbox" for="inline-check2">
 	      <input type="checkbox" id="inline-check2" />
@@ -381,7 +382,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 	</form>
 <div class="span-1"></div>
 <details class="span-5">
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>
 &lt;form class="form-inline span-5 background-light"&gt;
    &lt;label for="email2" class="wb-invisible"&gt;Email&lt;/label&gt;l &lt;input type="text" id="email2" class="width-20" placeholder="Email" /&gt;
@@ -389,12 +390,29 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
    &lt;label class="form-checkbox2"&gt;
       &lt;input type="checkbox2"&gt;
       Remember me &lt;/label&gt;
-   &lt;button type="submit" class="button button-accent"&gt;Sign in&lt;/buttonv
+   &lt;button type="submit" class="button button-accent"&gt;Sign in&lt;/button&gt;
 &lt;/form&gt;</pre>
 </details>
 <div class="clear"></div>
 
-
+<div class="span-1 margin-bottom-none"><p class="badge-intro">Example 3</p></div>
+<div class="span-5 margin-top-medium  margin-bottom-none">
+	<form>
+	   <div class="form-inline"><input type="submit" class="button button-accent" value="Submit feedback" id="submit" name="submit"> <input type="reset" class="button" value="Reset"></div>
+	</form>
+    </div>
+    <div class="clear"></div>
+<div class="span-1"></div>
+<details class="span-5">
+	<summary>View code</summary>
+	<pre>
+&lt;form&gt;
+   &lt;div class=&quot;form-inline&quot;&gt;
+	&lt;input type=&quot;submit&quot; class=&quot;button button-accent&quot; value=&quot;Submit feedback&quot; id=&quot;submit&quot; name=&quot;submit&quot;&gt; &lt;input type=&quot;reset&quot; class=&quot;button&quot; value=&quot;Reset&quot;&gt;
+   &lt;/div&gt;
+&lt;/form&gt;</pre>
+</details>
+<div class="clear"></div>
 <h2 id="horizontal">Horizontal form</h2>
 <div class="span-6 module-note">
 <h3>The <code>form-horizontal</code> class behaves like a grid parent.</h3>
@@ -408,10 +426,10 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div class="span-5">
 	
 	<form class="form-horizontal">
-	  <div class="span-1 row-start margin-top-large">
+	  <div class="span-1 row-start">
 	     <label for="hor-01">E-mail</label>
 	  </div>
-	  <div class="span-4 row-end margin-top-large">
+	  <div class="span-4 row-end">
 	     <input type="text" id="hor-01" class="width-70" />
 	  </div>
 	  <div class="clear"></div>
@@ -437,13 +455,13 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 	</form>
 
 <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>
 &lt;form class=&quot;form-horizontal&quot;&gt;
-   &lt;div class=&quot;span-1 row-start margin-top-large&quot;&gt;
+   &lt;div class=&quot;span-1 row-start&quot;&gt;
       &lt;label for=&quot;hor-01&quot;&gt;E-mail&lt;/label&gt;
    &lt;/div&gt;
-   &lt;div class=&quot;span-4 row-end margin-top-large&quot;&gt;
+   &lt;div class=&quot;span-4 row-end&quot;&gt;
       &lt;input type=&quot;text&quot; id=&quot;hor-01&quot; class=&quot;width-70&quot; /&gt;
    &lt;/div&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
@@ -474,10 +492,10 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div class="span-5">
 	
 	<form class="form-horizontal background-light">
-	  <div class="span-1 row-start margin-top-large">
+	  <div class="span-1 row-start margin-top-medium">
 	     <label for="hor-01-2">E-mail</label>
 	  </div>
-	  <div class="span-4 row-end margin-top-large">
+	  <div class="span-4 row-end margin-top-medium">
 	     <input type="text" id="hor-01-2" class="width-70" />
 	  </div>
 	  <div class="clear"></div>
@@ -503,13 +521,13 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 	</form>
 
 <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>
 &lt;form class=&quot;form-horizontal background-light&quot;&gt;
-   &lt;div class=&quot;span-1 row-start margin-top-large&quot;&gt;
+   &lt;div class=&quot;span-1 row-start margin-top-medium&quot;&gt;
       &lt;label for=&quot;hor-01-2&quot;&gt;E-mail&lt;/label&gt;
    &lt;/div&gt;
-   &lt;div class=&quot;span-4 row-end margin-top-large&quot;&gt;
+   &lt;div class=&quot;span-4 row-end margin-top-medium&quot;&gt;
       &lt;input type=&quot;text&quot; id=&quot;hor-01-2&quot; class=&quot;width-70&quot; /&gt;
    &lt;/div&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
@@ -546,7 +564,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
   <div class="span-4 row-end">
      <input type="text" value="This is focused…" id="focusedInput" class="width-80 focused" />
      <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;input type=&quot;text&quot; value=&quot;This is focused…&quot; id=&quot;focusedInput&quot; class=&quot;width-80 focused&quot; /&gt;</pre>
     
     </details>
@@ -559,7 +577,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
   <div class="span-4 row-end"> <input type="text" id="uneditable" placeholder="Some value here" disabled="disabled" class="width-80 form-uneditable-input" />
   
   <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;input type=&quot;text&quot; id="uneditable" placeholder=&quot;Some value here&quot; disabled=&quot;disabled&quot; class=&quot;width-80 form-uneditable-input&quot; /&gt;</pre>
     
     </details></div>
@@ -571,7 +589,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
   <div class="span-4 row-end">
      <input type="text" disabled="disabled" placeholder="Disabled input here…" id="disabledInput" class="width-80 button-disabled" />
   <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;input type=&quot;text&quot; disabled=&quot;disabled&quot; placeholder=&quot;Disabled input here…&quot; id=&quot;disabledInput&quot; class=&quot;width-80 button-disabled&quot; /&gt;</pre>    
     </details></div>
   <div class="clear"></div>
@@ -583,7 +601,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
         <input type="checkbox" disabled="disabled" value="option1" id="optionsform-checkbox2" />
         This is a disabled checkbox </label>
   <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;label class=&quot;form-checkbox&quot;&gt;
 &lt;input type=&quot;checkbox&quot; disabled=&quot;disabled&quot; value=&quot;option1&quot; id=&quot;optionsform-checkbox2&quot; /&gt;
 This is a disabled checkbox &lt;/label&gt;</pre>
@@ -597,7 +615,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
   <div class="span-4 row-end form-alert">
      <input type="text" id="inputWarning" />
      <span class="form-text-inline">Something may have gone wrong</span> <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;div class=&quot;span-2 form-alert row-start&quot;&gt;
 	&lt;label for=&quot;inputWarning&quot; &gt;Input with warning&lt;/label&gt;&lt;/div&gt;
 &lt;div class=&quot;span-4 form-alert row-end&quot;&gt;
@@ -615,7 +633,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
      <input type="text" id="inputError">
      <span class="form-text-inline">Please correct the error</span> 
      <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre> &lt;div class=&quot;span-2 row-start form-attention&quot;&gt;
 	&lt;label for=&quot;inputError&quot; &gt;Input with error&lt;/label&gt;
 &lt;/div&gt;
@@ -634,7 +652,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
      <input type="text" id="inputSuccess">
      <span class="form-text-inline">Woohoo!</span> 
      <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;div class=&quot;span-2 row-start form-confirm&quot;&gt;
 	&lt;label for=&quot;inputSuccess&quot; &gt;Input with success&lt;/label&gt;
 &lt;/div&gt;
@@ -658,7 +676,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
      </select>
      <span class="form-text-inline">Woohoo!</span>
      <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
     <pre>&lt;div class=&quot;span-2 row-start form-confirm&quot;&gt;
 	&lt;label for=&quot;selectError&quot; &gt;Select with success&lt;/label&gt;
 &lt;/div&gt;
@@ -718,7 +736,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
             <option>5</option>
          </select>
          <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>&lt;input type=&quot;text&quot; id=&quot;span1&quot; placeholder=&quot;.span-1&quot; class=&quot;span-1 margin-bottom-medium&quot; /&gt;
 &lt;br /&gt;
 &lt;input type=&quot;text&quot; id=&quot;span2&quot; placeholder=&quot;.span-2&quot; class=&quot;span-2 margin-bottom-medium&quot; /&gt;
@@ -739,7 +757,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
          <label for="opt2w90" class="wb-invisible">Width CSS option 2 - .width-90</label> <input type="text" id="opt2w90" placeholder=".width-90" class="width-90 margin-bottom-medium" />
          
          <details>
-	<summary>Source Code</summary>
+	<summary>View code</summary>
 	<pre>&lt;label for=&quot;opt2w20&quot; class=&quot;wb-invisible&quot;&gt;Width CSS option 2 - .width-20&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;opt2w20&quot; placeholder=&quot;.width-20&quot; class=&quot;width-20 margin-bottom-medium&quot; /&gt;
 &lt;label for=&quot;opt2w30&quot; class=&quot;wb-invisible&quot;&gt;Width CSS option 2 - .width-30&lt;/label&gt; &lt;input type=&quot;text&quot; id=&quot;opt2w30&quot; placeholder=&quot;.width-30&quot; class=&quot;width-30 margin-bottom-medium&quot; /&gt;
 ...</pre>
@@ -752,12 +770,12 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       </div>
       <div class="span-4 row-end">
 			<label for="helptext-1" class="wb-invisible">Block help option 1</label>
-            <input type="text" size="16" id="helptext-1" class="span-2" />
+            <input type="text" size="16" id="helptext-1" class="span-2 margin-bottom-none" />
             <p>Here's some help text</p>
          <details>
          <summary>View code</summary>
 <pre>&lt;label for=&quot;helptext-1&quot; class=&quot;wb-invisible&quot;&gt;Block help option 1&lt;/label&gt;<br />
-&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1&quot; class=&quot;span-2&quot;&gt;<br />
+&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1&quot; class=&quot;span-2 margin-bottom-none&quot;&gt;<br />
 &lt;p&gt;Here's some help text&lt;/p&gt;</pre></details>
       </div>
       <div class="clear"></div>
@@ -769,38 +787,38 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       <div class="span-4 row-end">
       <div class="span-4 row-end form-alert margin-bottom-none">
 			<label for="helptext-1a" class="wb-invisible">Block help option 2 - .form-alert</label>
-            <input type="text" size="16" id="helptext-1a" class="span-2" />
+            <input type="text" size="16" id="helptext-1a" class="span-2 margin-bottom-none" />
             <p class="form-help-block">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-alert&quot;&gt;
 	&lt;label for=&quot;helptext-1a&quot; class=&quot;wb-invisible&quot;&gt;Block help option 2 - .form-alert&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-help-block&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre></details>
       </div>
       <div class="span-4 row-end form-attention margin-bottom-none margin-top-large">
          <label for="helptext-1a1" class="wb-invisible">Block help option 2 - .form-attention</label>
-         <input type="text" size="16" id="helptext-1a1" class="span-2" />
+         <input type="text" size="16" id="helptext-1a1" class="span-2 margin-bottom-none" />
          <p class="form-help-block">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-attention&quot;&gt;
 	&lt;label for=&quot;helptext-1a&quot; class=&quot;wb-invisible&quot;&gt;Block help option 2 - .form-attention&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a1&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a1&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-help-block&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre>
          </details>
       </div>
       <div class="span-4 row-end form-confirm margin-bottom-none  margin-top-large">
 		 <label for="helptext-1a2" class="wb-invisible">Block help option 2 - .form-confirm</label>
-         <input type="text" size="16" id="helptext-1a2" class="span-2" />
+         <input type="text" size="16" id="helptext-1a2" class="span-2 margin-bottom-none" />
          <p class="form-help-block">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-confirm&quot;&gt;
 	&lt;label for=&quot;helptext-1a2&quot; class=&quot;wb-invisible&quot;&gt;Block help option 2 - .form-confirm&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a2&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-1a2&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-help-block&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre>
          </details>
@@ -813,12 +831,12 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       </div>
       <div class="span-4 row-end">
 		<label for="helptext-2" class="wb-invisible">Inline help option 1</label>
-        <input type="text" size="16" id="helptext-2" class="span-2" />
+        <input type="text" size="16" id="helptext-2" class="span-2 margin-bottom-none" />
         <p class="form-text-inline">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;label for=&quot;helptext-2&quot; class=&quot;wb-invisible&quot;&gt;Inline help option 1&lt;/label&gt;
-&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2&quot; class=&quot;span-2&quot; /&gt;
+&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
 &lt;p class=&quot;form-text-inline&quot;&gt;Here's some help text&lt;/p&gt;</pre></details>
       </div>
       <div class="clear"></div>
@@ -829,38 +847,38 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       <div class="span-4 row-end">
       <div class="span-4 row-end form-alert">
 			<label for="helptext-2a" class="wb-invisible">Inline help option 2 - .form-alert</label>
-            <input type="text" size="16" id="helptext-2a" class="span-2" />
+            <input type="text" size="16" id="helptext-2a" class="span-2 margin-bottom-none" />
             <p class="form-text-inline">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-alert&quot;&gt;
 	&lt;label for=&quot;helptext-2a&quot; class=&quot;wb-invisible&quot;&gt;Inline help option 2 - .form-alert&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-text-inline&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre></details>
       </div>
       <div class="span-4 row-end form-attention">
          <label for="helptext-2a1" class="wb-invisible">Inline help option 2 - .form-attention</label>
-         <input type="text" size="16" id="helptext-2a1" class="span-2" />
+         <input type="text" size="16" id="helptext-2a1" class="span-2 margin-bottom-none" />
          <p class="form-text-inline">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-attention&quot;&gt;
 	&lt;label for=&quot;helptext-2a1&quot; class=&quot;wb-invisible&quot;&gt;Inline help option 2 - .form-attention&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a1&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a1&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-text-inline&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre>
          </details>
       </div>
       <div class="span-4 row-end form-confirm">
 		<label for="helptext-2a2" class="wb-invisible">Inline help option 2 - .form-confirm</label>
-		<input type="text" size="16" id="helptext-2a2" class="span-2" />
+		<input type="text" size="16" id="helptext-2a2" class="span-2 margin-bottom-none" />
 		<p class="form-text-inline">Here's some help text</p>
           <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-confirm&quot;&gt;
 	&lt;label for=&quot;helptext-2a2&quot; class=&quot;wb-invisible&quot;&gt;Inline help option 2 - .form-confirm&lt;/label&gt;
-    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a2&quot; class=&quot;span-2&quot; /&gt;
+    &lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;helptext-2a2&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
     &lt;p class=&quot;form-text-inline&quot;&gt;Here's some help text&lt;/p&gt;
 &lt;/div&gt;</pre>
          </details>
@@ -873,11 +891,11 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       </div>
       <div class="span-4 row-end">
          <div class="form-input-prepend">
-            <span class="form-addon">@</span><input type="text" size="16" id="prependedInput" class="span-2" />
+            <span class="form-addon">@</span><input type="text" size="16" id="prependedInput" class="span-2 margin-bottom-none" />
              <details>
          <summary>View code</summary>
          <pre>&lt;div class=&quot;form-input-prepend&quot;&gt;
-	&lt;span class=&quot;form-addon&quot;&gt;@&lt;/span&gt;&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;prependedInput&quot; class=&quot;span-2&quot; /&gt;
+	&lt;span class=&quot;form-addon&quot;&gt;@&lt;/span&gt;&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;prependedInput&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;
 &lt;/div&gt;</pre></details>
          </div>
       </div>
@@ -888,11 +906,11 @@ This is a disabled checkbox &lt;/label&gt;</pre>
       </div>
       <div class="span-4 row-end">
          <div class="form-input-append">
-            <input type="text" size="16" id="appendedInput" class="span-2" /><span class="form-addon">.00</span>
+            <input type="text" size="16" id="appendedInput" class="span-2 margin-bottom-none" /><span class="form-addon">.00</span>
              <details>
          <summary>View code</summary>
 <pre>&lt;div class=&quot;form-input-append&quot;&gt;
-	&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;appendedInput&quot; class=&quot;span-2&quot; /&gt;&lt;span class=&quot;form-addon&quot;&gt;.00&lt;/span&gt;
+	&lt;input type=&quot;text&quot; size=&quot;16&quot; id=&quot;appendedInput&quot; class=&quot;span-2 margin-bottom-none&quot; /&gt;&lt;span class=&quot;form-addon&quot;&gt;.00&lt;/span&gt;
 &lt;/div&gt;</pre></details>
          </div>
       </div>
@@ -930,7 +948,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
    </fieldset>
 </form>
 <h2 id="buttons">Buttons</h2>
-<p>Buttons are covered in the <a href="grid-button-eng.html">buttons</a> section.</p>
+<p>Refer to:  <a href="grid-button-eng.html" class="button button-accent">Buttons</a></p>
 </div>
 
 <dl id="gcwu-date-mod" role="contentinfo">
@@ -941,33 +959,40 @@ This is a disabled checkbox &lt;/label&gt;</pre>
 </div></div>
 
 <div id="wb-sec"><div id="wb-sec-in"><nav role="navigation"><h2 id="wb-nav">Secondary menu</h2>
-<div class="wb-sec-def">
-<!-- SecNavStart -->
-<section><h3><a href="#">Basic effects</a></h3>
-<ul>
-<li><a href="grid-base-eng.html">CSS Grid system</a></li>
-<li><a href="grid-text-eng.html">Text</a></li>
-<li><a href="grid-color-eng.html">Colour</a></li>
-<li><a href="grid-table-eng.html">Tables</a></li>
-<li><a href="grid-form-eng.html">Forms</a></li>
-<li><a href="grid-image-eng.html">Images</a></li>
-
-<li><a href="grid-proximity-eng.html">Proximity</a></li>
-<li><a href="grid-position-eng.html">Positioning and alignment</a></li>
-<li><a href="grid-opacity-eng.html">Opacity</a></li>
-<li><a href="grid-border-eng.html">Borders</a></li>
-<li><a href="grid-button-eng.html">Buttons</a></li>
-</ul>
-</section>
-<section><h3><a href="#">Specialty effects</a></h3>
-<ul>
-<li><a href="grid-message-eng.html">Messages</a></li>
-<li><a href="grid-module-eng.html">Modules</a></li>
-<li><a href="grid-util-eng.html">Other</a></li>
-</ul>
-</section>
-<!-- SecNavEnd -->
-</div>
+  <div class="wb-sec-def">
+    <!-- SecNavStart -->
+    <section>
+      <h3><a href="grid-structure-eng.html">Structure</a></h3>
+      <ul>
+        <li><a href="grid-base-eng.html">CSS Grid System</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3><a href="grid-basic-eng.html">Basic effects</a></h3>
+      <ul>
+        <li><a href="grid-text-eng.html">Text</a></li>
+        <li><a href="grid-table-eng.html">Tables</a></li>
+        <li><a href="grid-form-eng.html">Forms</a></li>
+        <li><a href="grid-image-eng.html">Images</a></li>
+        <li><a href="grid-color-eng.html">Colour</a></li>
+        <li><a href="grid-button-eng.html">Buttons</a></li>
+        <li><a href="grid-border-eng.html">Borders</a></li>
+        <li><a href="grid-icon-eng.html">Icons</a></li>
+        <li><a href="grid-opacity-eng.html">Opacity</a></li>
+        <li><a href="grid-proximity-eng.html">Proximity</a></li>
+        <li><a href="grid-position-eng.html">Positioning and alignment</a></li>
+      </ul>
+    </section>
+    <section>
+      <h3><a href="grid-specialty-eng.html">Specialty effects</a></h3>
+      <ul>
+        <li><a href="grid-message-eng.html">Messages</a></li>
+        <li><a href="grid-module-eng.html">Modules</a></li>
+        <li><a href="grid-other-eng.html">Other</a></li>
+      </ul>
+    </section>
+    <!-- SecNavEnd -->
+  </div>
 </nav></div></div>
 </div></div>
 
@@ -1017,7 +1042,7 @@ This is a disabled checkbox &lt;/label&gt;</pre>
 <li><a rel="external" href="http://www.voyage.gc.ca/index-eng.asp"><span>Travel</span><br />travel.gc.ca</a></li>
 <li><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span><br />servicecanada.gc.ca</a></li>
 <li><a rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span><br />jobbank.gc.ca</a></li>
-<li><a rel="external" href="http://actionplan.gc.ca/eng/index.asp"><span>Economy</span><br />actionplan.gc.ca</a></li>
+<li><a rel="external" href="http://actionplan.gc.ca/en"><span>Economy</span><br />actionplan.gc.ca</a></li>
 <li id="gcwu-gcft-ca"><div><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></div></li>
 </ul>
 </div></div></div></nav>
@@ -1026,9 +1051,9 @@ This is a disabled checkbox &lt;/label&gt;</pre>
 </div></div></div>
 
 <!-- ScriptsStart -->
-<script src="../../build/theme-gcwu-fegc/js/theme-min.js"></script>
-<script src="../../build/js/settings.js"></script>
-<script src="../../build/js/pe-ap-min.js"></script>
+<script src="../../dist/theme-gcwu-fegc/js/theme-min.js"></script>
+<script src="../../dist/js/settings.js"></script>
+<script src="../../dist/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->
 </body>
 </html>

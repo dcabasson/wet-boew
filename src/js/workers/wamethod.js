@@ -1,6 +1,6 @@
-/*!
+/*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
  */
 /*
  * Web Accessibility Assessment Methodology
@@ -32,7 +32,7 @@
 					aaeval = aa + input.filter('[id^="aaf"]:checked').length,
 					aaa = input.filter('[id^="aaap"]:checked, [id^="aaan"]:checked').length,
 					aaaeval = aaa + input.filter('[id^="aaaf"]:checked').length,
-					na = input.filter('[id^="an"]:checked, [id^="aan"]:checked, , [id^="aaan"]:checked').length;
+					na = input.filter('[id^="an"]:checked, [id^="aan"]:checked, [id^="aaan"]:checked').length;
 
 				//Update number of Success Criteria evaluated and passed
 				summarytd.attr('aria-busy', 'true');

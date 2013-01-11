@@ -1,0 +1,119 @@
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ */
+#wb-foot {
+	background: #FFF;
+
+	#gcwu-wmms {
+		img {
+			display: block;
+			margin: 5px auto;
+		}
+	}
+}
+
+#gcwu-sig {
+	float: left;
+	margin: 10px 0 10px 5px;
+	img {
+		margin-bottom: 0;
+	}
+}
+
+#gcwu-bnr {
+	width: 100%;
+}
+
+h1, #gcwu-title {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#gcwu-title-left, #gcwu-title-right, .gcwu-alt-title-left, .gcwu-alt-title-right {
+	width: 50%;
+	float: left;
+}
+
+#gcwu-title-left, .gcwu-alt-title-left {
+	clear: left;
+}
+
+#wb-main-in {
+	background: none;
+	padding-bottom: 0;
+}
+
+#gcwu-lang {
+	ul {
+		margin: 0;
+	}
+	//TODO: Is an empty href selector necessary?
+	a[href]{
+		&:hover, &:focus, &:active {
+			color: #FFF;
+		}
+	}
+}
+
+#gcwu-lang, #wb-foot {
+	display: none;
+	ul, a {
+		margin: 0;
+	}
+	li {
+		a.ui-btn {
+			border-top-width: 0;
+		}
+		&:nth-child(1), &:nth-child(2) {
+			a.ui-btn {
+				border-top-width: 1px;
+			}
+		}
+		&:not(:last-child).ui-block-a {
+			a.ui-btn {
+				border-right-width: 0;
+			}
+		}
+	}
+}
+
+#wb-foot {
+	.ui-footer {
+		border: 0;
+		background: none;
+	}
+}
+
+.ui-mobile {
+	#gcwu-lang, #wb-foot {
+		display: block;
+	}
+}
+
+.no-js  {
+	#gcwu-lang, #wb-foot {
+		display: block;
+		padding: 0 5px;
+		li {
+			margin-right: 20px;
+			width: 108px;
+		}
+	}
+	#gcwu-lang {
+		a {
+			&:hover, &:focus, &:active {
+				color: #000;
+			}
+		}
+		//TODO: Move to grid system?
+		.span-6 {
+			width: 256px;
+			float: left;
+		}
+	}
+	#gcwu-wmms {
+		float: right;
+		margin-top: 10px;
+	}
+}

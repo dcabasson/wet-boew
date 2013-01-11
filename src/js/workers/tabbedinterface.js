@@ -1,137 +1,174 @@
-/*!
+/*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
  */
 /*
  * Tabbed interface plugin
  */
-/*global jQuery: false, pe: false, wet_boew_tabbedinterface: false*/
+/*global jQuery: false, wet_boew_tabbedinterface: false*/
 (function ($) {
 	"use strict";
 	var _pe = window.pe || {
 		fn : {}
 	};
-	/* local reference */
+	
 	_pe.fn.tabbedinterface = {
 		type : 'plugin',
-		depends : (pe.mobile ? [] : ['metadata', 'easytabs', 'equalheights']),
-		mobile : function (elm) {
-			var $tabs = elm.find(".tabs > li"),
-				$panels = elm.find(".tabs-panel > div"),
-				$accordion = $('<div data-role="collapsible-set" data-content-theme="b" data-theme="b"/>'),
-				$collapsible,
-				needh = (elm.hasClass('tabs-style-4') || elm.hasClass('tabs-style-5')),
-				prevh,
+		depends : (_pe.mobile ? [] : ['metadata', 'easytabs', 'equalheights']),
+		mobile : function (elm, nested) {
+			// Process any nested tabs
+			if (typeof nested === 'undefined' || !nested) {
+				elm.find('.wet-boew-tabbedinterface').each(function () {
+					_pe.fn.tabbedinterface.mobile($(this), true);
+				});
+			}
+
+			var $tabs = elm.children('.tabs').children('li'),
+				$panels = elm.children('.tabs-panel').children('div'),
+				defaultTab = 0,
+				accordion = '<div data-role="collapsible-set" data-mini="true" data-content-theme="b" data-theme="b">',
 				hlevel,
-				defaulttab = false;
+				hopen,
+				hclose,
+				index,
+				len;
+
+			// Find the default tab
+			for (index = 0, len = $tabs.length; index < len; index += 1) {
+				if ($tabs.eq(index).hasClass('default')) {
+					defaultTab = index;
+					break;
+				}
+			}
 
 			// Convert html elements and attributes into the format the jQuery mobile accordian plugin expects.
 			// Get the content out of the html structure tabbedinterface usually expects.
 			// Create the accordion structure to move the content to.
-			elm.removeClass();
-			if (needh) {
-				prevh = elm.closest('section').find(':header:first');
-				hlevel = (prevh.length > 0 ? (parseInt(prevh.prop('tagName').substr(1), 10) + 1) : 3);
-			}
+			hlevel = this._get_heading_level(elm);
+			hopen = '<h' + hlevel + '>';
+			hclose = '</h' + hlevel + '>';
+
 			$panels.each(function (index) {
-				$collapsible = $('<div data-role="collapsible"/>');
-				if (needh) {
-					$collapsible.append('<h' + hlevel + '>' + $tabs.eq(index).children('a').html() + '</h' + hlevel + '>' + $(this).html());
-				} else {
-					$collapsible.append($(this).find(":header:first").parent().html());
+				var text = $tabs.eq(index).children('a').text();
+				if(text === ''){
+					text = $tabs.eq(index).find('span').text();					
 				}
-				if ($tabs.eq(index).hasClass('default')) {
-					$collapsible.attr('data-collapsed', 'false');
-					defaulttab = true;
-				}
-				$accordion.append($collapsible);
+				accordion += '<div data-role="collapsible"' + (index === defaultTab ? ' data-collapsed="false"' : '') + '>' + hopen + text + hclose + this.innerHTML + '</div>';
 			});
-			if (!defaulttab) {
-				$accordion.children().eq(0).attr('data-collapsed', 'false');
-			}
-			$tabs.remove();
-			elm.empty().append($accordion);
+			accordion += '</div>';
+			elm.html(accordion);
+
 			return elm;
 		},
 		_exec : function (elm) {
-			if (pe.mobile) {
+			if (_pe.mobile) {
 				return _pe.fn.tabbedinterface.mobile(elm).trigger('create');
 			}
 			var $default_tab,
-				$nav = elm.find(".tabs"),
-				$tabs = $nav.find('a:not(.tabs-toggle)'),
-				$tabsPanel = elm.find('.tabs-panel'),
+				$nav = elm.children('.tabs'),
+				$tabs = $nav.find('a').filter(':not(.tabs-toggle)'),
+				$tabsPanel = elm.children('.tabs-panel'),
+				$tabbedInterfaces = $('.wet-boew-tabbedinterface'),
+				$tabListHeading,
 				$panels = $tabsPanel.children(),
 				$toggleButton,
 				$toggleRow,
+				$viewport,
 				cycle,
 				opts,
 				overrides,
+				getMaxPanelSize,
 				getNextTab,
-				getPrevTab,
+				getPrevTab,		
+				getSlideTo,
+				isSlider,
+				positionPanels,
 				selectTab,
-				start,
-				stop,
+				stopText = _pe.dic.get('%pause'),
+				stopHiddenText = _pe.dic.get('%tab-rotation', 'disable'),
+				startText = _pe.dic.get('%play'),
+				startHiddenText = _pe.dic.get('%tab-rotation', 'enable'),
 				stopCycle,
 				toggleCycle,
-				$toggleRowPrev,
-				$toggleRowNext,
-				$toggleButtonPrev,
-				$toggleButtonNext,
-				prev,
-				next,
-				tabSuffix = "-link";
-
+				tabListCount = $tabbedInterfaces.length > 1 ? ' ' + ($tabbedInterfaces.index(elm) + 1) : '',
+				tabsPanelId,
+				tabSuffix = '-link';				
+				
 			// Defaults
 			opts = {
-				panelActiveClass : "active",
-				tabActiveClass : "active",
-				defaultTab : "li:first-child",
-				autoHeight : true,
-				cycle : false,
-				carousel : false,
-				autoPlay : false,
-				animate : false,
-				animationSpeed : "normal",
-				updateHash : false
+				panelActiveClass: 'active',
+				tabActiveClass: 'active',
+				defaultTab: 'li:first-child',
+				autoHeight: true,
+				cycle: false,
+				carousel: false,
+				autoPlay: false,
+				animate: false,
+				animationSpeed: 'normal',
+				updateHash: false,
+				transition: false
 			};
 
 			// Class-based overrides - use undefined where no override of defaults or settings.js should occur
 			overrides = {
-				defaultTab : ((elm.find(".default").length) ? ".default" : undefined),
-				autoHeight : elm.hasClass("auto-height-none") ? false : undefined,
-				cycle : (elm.hasClass("cycle-slow") ? 8000 : (elm.hasClass("cycle-fast") ? 2000 : (elm.hasClass("cycle") ? 6000 : undefined))),
-				carousel : elm.hasClass("style-carousel") ? true : undefined,
-				autoPlay : elm.hasClass("auto-play") ? true : undefined,
-				animate : (elm.hasClass("animate") || elm.hasClass("animate-slow") || elm.hasClass("animate-fast")) ? true : undefined,
-				animationSpeed : (elm.hasClass("animate-slow") ? "slow" : (elm.hasClass("animate-fast") ? "fast" : undefined))
+				defaultTab : ((elm.find('.default').length) ? '.default' : undefined),
+				autoHeight : elm.hasClass('auto-height-none') ? false : undefined,
+				cycle : (elm.hasClass('cycle-slow') ? 8000 : (elm.hasClass('cycle-fast') ? 2000 : (elm.hasClass('cycle') ? 6000 : undefined))),
+				carousel : elm.hasClass('style-carousel') ? true : undefined,
+				autoPlay : elm.hasClass('auto-play') ? true : undefined,
+				animate : (elm.hasClass('animate') || elm.hasClass('animate-slow') || elm.hasClass('animate-fast')) ? true : undefined,
+				animationSpeed : (elm.hasClass('animate-slow') ? 'slow' : (elm.hasClass('animate-fast') ? 'fast' : undefined)),
+				transition :  (elm.hasClass('fade') ? 'fade' : (elm.hasClass('slide-vert') ? 'slide-vert' : (elm.hasClass('slide-horz') ? 'slide-horz' : undefined)))
 			};
 
 			// Extend the defaults with settings passed through settings.js (wet_boew_tabbedinterface), class-based overrides and the data attribute
-			$.metadata.setType("attr", "data-wet-boew");
+			$.metadata.setType('attr', 'data-wet-boew');
 			if (typeof wet_boew_tabbedinterface !== 'undefined' && wet_boew_tabbedinterface !== null) {
 				$.extend(opts, wet_boew_tabbedinterface, overrides, elm.metadata());
 			} else {
 				$.extend(opts, overrides, elm.metadata());
 			}
 
-			$nav.attr("role", "tablist").children("li").attr("role", "presentation");
-			$tabs.attr("role", "tab").attr("aria-selected", "false").each(function () {
-				var $this = $(this),
-					href = $this.attr('href').substring(1);
-				$this.attr('aria-controls', href).attr('id', href + tabSuffix);
-			});
+			// Add hidden tab list heading
+			$tabListHeading = $('<h'+ this._get_heading_level(elm) + ' class="wb-invisible">').text(_pe.dic.get('%tab-list') + tabListCount);
+			if (_pe.ie > 0 && _pe.ie < 9) {
+				$tabListHeading.wrap('<div>'); // Stop empty text nodes from moving the tabs around
+			}
+			$tabListHeading.insertBefore($nav);
+
+			$nav.attr('role', 'tablist').children('li').attr('role', 'presentation');
+			$tabs.attr({'role': 'tab', 'aria-selected': 'false'});
 			$tabsPanel.attr('id', $panels.eq(0).attr('id') + '-parent');
-			$panels.attr('tabindex', '-1').attr("role", "tabpanel").attr("aria-hidden", "true").each(function () {
-				var $this = $(this);
-				if (pe.ie > 0) {
-					$this.attr('aria-labelledby', $this.attr('id') + tabSuffix);
+			$panels.attr({'tabindex': '-1', 'role': 'tabpanel', 'aria-hidden': 'true'}).each(function () {
+				if (_pe.ie !== 0) {
+					this.setAttribute('aria-labelledby', this.id + tabSuffix);
 				}
 			});
-			$default_tab = ($nav.find(".default").length > 0 ? $nav.find(".default") : $nav.find("li:first-child"));
-			$tabs.on("keydown click", function (e) {
+
+			// Find the default tab: give precedence to the URL hash
+			$default_tab = $tabs.filter('[href="#'+_pe.urlhash+'"]');
+			if ($default_tab.length === 0) {
+				$default_tab = $nav.find('.default a');
+				if($default_tab.length === 0) {
+					$default_tab = $nav.find('li:first-child a');
+				}
+			}
+			$default_tab.attr('aria-selected', 'true');
+			$panels.filter($default_tab.attr('href')).attr('aria-hidden', 'false');
+
+			// easytabs IE7 bug: using images as tabs breaks easytabs.activateDefaultTab().
+			if(_pe.ie > 0 && _pe.ie < 8) {
+				if($tabs.parent().hasClass('img')) {
+					$tabs.parent().removeClass('img');
+					$tabs.find('span').removeClass('wb-invisible');
+					$tabs.find('img').remove();
+				}
+			}		
+			
+			$tabs.off('click vclick').on('keydown click', function (e) {
 				var $target = $(e.target),
-					$panel;
+					$panel,
+					$link;
 				if (e.type === 'keydown') {
 					if (e.keyCode === 13 || e.keyCode === 32) {
 						if (e.stopPropagation) {
@@ -143,7 +180,7 @@
 						if (!$target.is($tabs.filter('.' + opts.tabActiveClass))) {
 							selectTab($target, $tabs, $panels, opts, false);
 						} else {
-							pe.focus($panels.filter($target.attr('href')));
+							_pe.focus($panels.filter($target.attr('href')));
 						}
 					} else if (e.keyCode === 37 || e.keyCode === 38) { // left or up
 						selectTab(getPrevTab($tabs), $tabs, $panels, opts, false);
@@ -153,160 +190,204 @@
 						e.preventDefault();
 					}
 				} else {
+					// Make sure working with a link since it's possible for an image to be the target of a mouse click
+					$link = (e.target.tagName.toLowerCase() !== 'a') ? $target.closest('a') : $target;
+
+					// Shift focus to the panel if the tab is already active
+					if ($link.is($tabs.filter('.' + opts.tabActiveClass))) {
+						_pe.focus($panels.filter($link.attr('href')));
+					}
+
 					// Workaround for broken EasyTabs getHeightForHidden function where it misreports the panel height when the panel is first shown
 					// TODO: Issue should be fixed in EasyTabs
-					$panel = $panels.filter($target.attr('href'));
-					if (!$panel.data('easytabs').lastHeight) {
+					$link.parents('a:first');		
+
+					// Get the panel to display
+					$panel = $panels.filter($link.attr('href'));
+					if ($panel.data('easytabs') && !$panel.data('easytabs').lastHeight) {
 						$panel.data('easytabs').lastHeight = $panel.outerHeight();
 					}
 				}
 			});
-			$default_tab.children("a").each(function () {
-				$(this).attr("aria-selected", "true");
-				return $("#" + $(this).attr("href").substring(1)).attr("aria-hidden", "false");
-			});
+
 			getNextTab = function ($tabs) {
 				var $next = $tabs.filter('.' + opts.tabActiveClass).parent().next(':not(.tabs-toggle)');
-				return ($next.length === 0 ? $tabs.first() : $next.children());
+				return ($next.length === 0 ? $tabs.first() : $next.children('a'));
 			};
 			getPrevTab = function ($tabs) {
 				var $prev = $tabs.filter('.' + opts.tabActiveClass).parent().prev();
-				return ($prev.length === 0 ? $tabs.last() : $prev.children());
+				return ($prev.length === 0 ? $tabs.last() : $prev.children('a'));
 			};
 			selectTab = function ($selection, $tabs, $panels, opts, keepFocus) {
 				var cycleButton, activePanel, nextPanel;
 				$panels.stop(true, true);
 				if (opts.animate) {
-					activePanel = $panels.filter("." + opts.panelActiveClass).removeClass(opts.panelActiveClass).attr("aria-hidden", "true");
-					nextPanel = $panels.filter("#" + $selection.attr("href").substr(1));
-					activePanel.fadeOut(opts.animationSpeed, function () {
-						return nextPanel.fadeIn(opts.animationSpeed, function () {
-							return $(this).addClass(opts.panelActiveClass).attr("aria-hidden", "false");
+				
+					activePanel = $panels.filter('.' + opts.panelActiveClass).removeClass(opts.panelActiveClass).attr("aria-hidden", "true");
+					nextPanel = $panels.filter($selection.attr('href'));	
+					
+					if(isSlider()){
+						$panels.show();
+						$viewport.stop().animate(getSlideTo(nextPanel), opts.animationSpeed, function(){							
+							nextPanel.addClass(opts.panelActiveClass).attr('aria-hidden', 'false');
+							$panels.filter(':not(.'+opts.panelActiveClass+')').hide();							
+						});		
+						
+					} else {					
+						activePanel.fadeOut(opts.animationSpeed, function () {
+							return nextPanel.fadeIn(opts.animationSpeed, function () {
+								return $(this).addClass(opts.panelActiveClass).attr('aria-hidden', 'false');
+							});
 						});
-					});
+					}
+					
 				} else {
-					$panels.removeClass(opts.panelActiveClass).attr("aria-hidden", "true").hide();
-					$panels.filter("#" + $selection.attr("href").substr(1)).show().addClass(opts.panelActiveClass).attr("aria-hidden", "false");
+					$panels.removeClass(opts.panelActiveClass).attr('aria-hidden', 'true').hide();
+					$panels.filter($selection.attr('href')).show().addClass(opts.panelActiveClass).attr('aria-hidden', 'false');
 				}
-				$tabs.parent().removeClass(opts.tabActiveClass).children().removeClass(opts.tabActiveClass).filter("a").attr("aria-selected", "false");
-				$selection.parent().addClass(opts.tabActiveClass).children().addClass(opts.tabActiveClass).filter("a").attr("aria-selected", "true");
-				cycleButton = $selection.parent().siblings(".tabs-toggle");
-				if (!keepFocus && (cycleButton.length === 0 || cycleButton.data("state") === "stopped")) {
-					return pe.focus($selection);
+				$tabs.removeClass(opts.tabActiveClass).attr('aria-selected', 'false').parent().removeClass(opts.tabActiveClass);
+				$selection.addClass(opts.tabActiveClass).attr('aria-selected', 'true').parent().addClass(opts.tabActiveClass);
+				cycleButton = $selection.parent().siblings('.tabs-toggle');
+				if (!keepFocus && (cycleButton.length === 0 || cycleButton.data('state') === 'stopped')) {
+					return _pe.focus($selection);
 				}
 			};
 			toggleCycle = function () {
-				if ($toggleRow.data("state") === "stopped") {
-					selectTab(getNextTab($tabs), $tabs, $panels, opts, true);
+				if ($toggleRow.data('state') === 'stopped') {
 					cycle($tabs, $panels, opts);
-					$toggleButton.removeClass(start["class"]).addClass(stop["class"]).html(stop.text + '<span class="wb-invisible">' + stop["hidden-text"] + '</span>').attr("aria-pressed", true);
-					return $(".wb-invisible", $toggleButton).text(stop["hidden-text"]);
+					$toggleButton.removeClass('tabs-start').addClass('tabs-stop').html(stopText + '<span class="wb-invisible">' + stopHiddenText + '</span>');
+					return $('.wb-invisible', $toggleButton).text(stopHiddenText);
 				}
-				if ($toggleRow.data("state") === "started") {
+				if ($toggleRow.data('state') === 'started') {
 					return stopCycle();
 				}
 			};
-			if (opts.autoHeight && !elm.hasClass("tabs-style-4") && !elm.hasClass("tabs-style-5")) {
+			getMaxPanelSize = function() {
+				var maxHeight = 0;
+				
+				// Remove position and size to allow content to determine max size of panels
+				$tabsPanel.css({width: '', height: ''});
+				$panels.css({width: '', height: ''});
+				$panels.each(function() {
+					maxHeight = Math.max(maxHeight, $(this).outerHeight());
+				});
+				return {width: $tabsPanel.width(), height: maxHeight};
+			};
+			getSlideTo = function(panel) {
+				var slideTo = {left: 0, top: 0}, pos;
+				if(panel && typeof panel.jquery !== 'undefined'){
+					pos = panel.parent().position();
+					slideTo = {left: pos.left * -1, top: pos.top * -1};
+				}				
+				return slideTo;
+			};
+			isSlider = function(){
+				return opts.transition === 'slide-horz' || opts.transition === 'slide-vert';
+			};
+			positionPanels = function() {			
+
+				var isSlideHorz = opts.transition === 'slide-horz',
+					viewportSize = {width: 0, height: 0},
+					panelSize;		
+				
+				if($viewport === undefined) {					
+					$panels.wrapAll('<div class="viewport">').wrap('<div class="panel">');
+					$viewport = $('.viewport', $tabsPanel);
+				}				
+				
+				panelSize = getMaxPanelSize();
+				$panels.each(function() {
+					$(this).parent().css($.extend({position: 'absolute', top: viewportSize.height, left: viewportSize.width}, panelSize));					
+					if(isSlideHorz){
+						viewportSize.width += panelSize.width;
+					} else {
+						viewportSize.height += panelSize.height;
+					}
+				});
+				
+				$tabsPanel.css(panelSize);
+				if(isSlideHorz) {
+					$viewport.css($.extend({width: viewportSize.width, height: panelSize.height}, getSlideTo($panels.filter('.' + opts.panelActiveClass))));					
+				} else {
+					$viewport.css($.extend({width: panelSize.width, height: viewportSize.height}, getSlideTo($panels.filter('.' + opts.panelActiveClass))));
+				}
+		
+			};
+			if (isSlider() || (opts.autoHeight && !elm.hasClass('tabs-style-4') && !elm.hasClass('tabs-style-5'))) {
 				$panels.show();
 				$tabsPanel.equalHeights(true);
 			}
+	
 			elm.easytabs($.extend({}, opts, {
 				cycle : false
 			}));
+
 			if (opts.cycle) {
 				cycle = function ($tabs, $panels, opts) {
 					var $current,
 						$pbar;
-					$current = $tabs.filter(function () {
-						return $(this).is("." + opts.tabActiveClass);
-					});
-					$tabsPanel.attr('aria-live', 'polite');
-					$pbar = $current.siblings(".tabs-roller");
-					elm.find(".tabs-toggle").data("state", "started");
+					$current = $tabs.filter('.' + opts.tabActiveClass);
+					$pbar = $current.siblings('.tabs-roller');
+					$nav.addClass('started');
+					elm.find('.tabs-toggle').data('state', 'started');
 					return $pbar.show().animate({
 						width : $current.parent().width()
-					}, opts.cycle - 200, "linear", function () {
+					}, opts.cycle - 200, 'linear', function () {
 						$(this).width(0).hide();
 						selectTab(getNextTab($tabs), $tabs, $panels, opts, true);
-						return elm.data("interval", setTimeout(function () {
+						return elm.data('interval', setTimeout(function () {
 							return cycle($tabs, $panels, opts);
 						}, 0));
 					});
 				};
 				stopCycle = function () {
-					clearTimeout(elm.data("interval"));
-					$tabsPanel.attr('aria-live', 'off');
-					elm.find(".tabs-roller").width(0).hide().stop();
-					elm.find(".tabs-toggle").data("state", "stopped");
-					$toggleButton.removeClass(stop["class"]).addClass(start["class"]).html(start.text + '<span class="wb-invisible">' + start["hidden-text"] + '</span>').attr("aria-pressed", false);
-					return $(".wb-invisible", $toggleButton).text(start["hidden-text"]);
+					clearTimeout(elm.data('interval'));
+					elm.find('.tabs-roller').width(0).hide().stop();
+					elm.find('.tabs-toggle').data('state', 'stopped');
+					$nav.removeClass('started');
+					$toggleButton.removeClass('tabs-stop').addClass('tabs-start').html(startText + '<span class="wb-invisible">' + startHiddenText + '</span>');
+					return $('.wb-invisible', $toggleButton).text(startHiddenText);
 				};
 				//
 				// creates a play/pause, prev/next buttons, and lets the user toggle the stateact as PREV button MB
-				$tabsPanel.attr('role', 'marquee').attr('aria-live', 'off');
-				$toggleRowPrev = $('<li class="tabs-toggle">');
-				prev = {
-					"class" : "tabs-prev",
-					"text" : '&nbsp;&nbsp;&nbsp;',
-					"hidden-text" : pe.dic.get('%previous')
-				};
-				$toggleButtonPrev = $('<a class="' + prev["class"] + '" href="javascript:;" role="button" aria-controls="' + $tabsPanel.attr('id') + '">' + prev.text + '<span class="wb-invisible">' + prev["hidden-text"] + '</span></a>');
-				$nav.append($toggleRowPrev.append($toggleButtonPrev));
+				tabsPanelId = $tabsPanel.attr('id');
+				$nav.append('<li class="tabs-toggle"><a class="tabs-prev" href="javascript:;" role="button">&nbsp;&nbsp;&nbsp;<span class="wb-invisible">' + _pe.dic.get('%previous') + '</span></a></li>');
 				// lets the user jump to the previous tab by clicking on the PREV button
-				$toggleButtonPrev.on("click", function () {
+				$nav.find('.tabs-prev').on('click', function () {
 					selectTab(getPrevTab($tabs), $tabs, $panels, opts, true);
 				});
 				//
 				//End PREV button
 				//Create duplicate of Play/pause button to act as NEXT button MB
 				//
-				$toggleRowNext = $("<li class='tabs-toggle'>");
-				next = {
-					"class" : "tabs-next",
-					"text" : '&nbsp;&nbsp;&nbsp;',
-					"hidden-text" : pe.dic.get('%next')
-				};
-				$toggleButtonNext = $('<a class="' + next["class"] + '" href="javascript:;" role="button" aria-controls="' + $tabsPanel.attr('id') + '">' + next.text + '<span class="wb-invisible">' + next["hidden-text"] + '</span></a>');
-				$nav.append($toggleRowNext.append($toggleButtonNext));
+				$nav.append('<li class="tabs-toggle"><a class="tabs-next" href="javascript:;" role="button">&nbsp;&nbsp;&nbsp;<span class="wb-invisible">' + _pe.dic.get('%next') + '</span></a></li>');
 				// lets the user jump to the next tab by clicking on the NEXT button
-				$toggleButtonNext.on("click", function () {
+				$nav.find('.tabs-next').on('click', function () {
 					selectTab(getNextTab($tabs), $tabs, $panels, opts, true);
 				});
 				//End animation
 				//
 				//End NEXT button
 				//
-				$toggleRow = $('<li class="tabs-toggle">');
-				stop = {
-					"class" : "tabs-stop",
-					text : pe.dic.get('%pause'),
-					"hidden-text" : pe.dic.get('%tab-rotation', 'disable')
-				};
-				start = {
-					"class" : "tabs-start",
-					text : pe.dic.get('%play'),
-					"hidden-text" : pe.dic.get('%tab-rotation', 'enable')
-				};
-				$toggleButton = $('<a class="' + stop["class"] + '" href="javascript:;" role="button" aria-pressed="true" aria-controls="' + $tabsPanel.attr('id') + '">' + stop.text + '<span class="wb-invisible">' + stop["hidden-text"] + '</span></a>');
-				$nav.append($toggleRow.append($toggleButton));
-				$toggleRow.click(toggleCycle).on("keydown", function (e) {
+				$toggleRow = $('<li class="tabs-toggle"><a class="tabs-stop" href="javascript:;" role="button">' + stopText + '<span class="wb-invisible">' + stopHiddenText + '</span></a></li>');
+				$toggleButton = $toggleRow.find('a');
+				$nav.append($toggleRow);
+				$toggleRow.click(toggleCycle).on('keydown', function (e) {
 					if (e.keyCode === 32) {
 						toggleCycle();
 						return e.preventDefault();
 					}
 				});
-				$nav.find("li a").not($toggleRow.find("a")).on('click', function () {
+				$nav.find('li a').not($toggleRow.find('a')).on('click', function () {
 					return stopCycle();
 				});
 				$tabs.each(function () {
 					var $pbar;
 					$pbar = $('<div class="tabs-roller">').hide().on('click', function () {
-						return $(this).siblings("a").trigger('click');
-					}).on('hover', function () {
-						return $(this).css("cursor", "text");
+						return $(this).siblings('a').trigger('click');
 					});
-					if (pe.ie > 0 && pe.ie < 8) {
-						$(".tabs-style-2 .tabs, .tabs-style-2 .tabs li").css("filter", "");
+					if (_pe.ie > 0 && _pe.ie < 8) {
+						$('.tabs-style-2 .tabs, .tabs-style-2 .tabs li').css('filter', '');
 					}
 					return $(this).parent().append($pbar);
 				});
@@ -314,30 +395,85 @@
 				if (!opts.autoPlay) {
 					stopCycle();
 				}
+				
+				$(document).keyup(function(e) {
+					if (e.keyCode === 27) { // Escape	
+						if(elm.find('.tabs-toggle').data('state') === 'started') {
+							elm.find('.tabs .' + opts.tabActiveClass).focus();
+						}
+						stopCycle();						
+					}
+				});	
 			}
-			elm.find('a[href^="#"]').each(function () {
-				var anchor,
+						
+			elm.find('a').filter('[href^="#"]').each(function () {
+				var $this = $(this),
+					anchor,
 					hash;
-				hash = $(this).attr("href");
+				hash = $this.attr('href');
 				if (hash.length > 1) {
 					anchor = $(hash, $panels);
 					if (anchor.length) {
-						return $(this).on('click', function (e) {
+						return $this.on('click', function (e) {
 							var panel,
 								panelId;
 							panel = anchor.parents('[role="tabpanel"]:hidden');
 							if (panel) {
 								e.preventDefault();
-								panelId = panel.attr("id");
-								panel.parent().siblings(".tabs").find('a[href="#' + panelId + '"]').trigger('click');
+								panelId = panel.attr('id');
+								panel.parent().siblings('.tabs').find('a').filter('[href="#' + panelId + '"]').trigger('click');
 								return anchor.get(0).scrollIntoView(true);
 							}
 						});
 					}
 				}
-			});
-			return elm.attr("class", elm.attr("class").replace(/\bwidget-style-/, "style-"));
-		} // end of exec
+			});		
+	
+			
+			// Setup sliding panel behaviour
+			if (isSlider()) {	
+			
+				$(window).resize(positionPanels);
+				positionPanels();
+				
+				// Prevent focus event from prematurely showing the active panel
+				$panels.on('focus', function(e) {
+					if (!$(this).hasClass(opts.panelActiveClass)) {
+						e.preventDefault();
+					}
+				});					
+				
+				// Override the tab transition with our slide animation
+				// TODO: slide transitions should be added to easytabs lib
+				elm.on('easytabs:before', function(e, $tab) {
+					selectTab($tab, $tabs, $panels, opts, true);
+					return false;
+				});					
+			}				
+
+			return elm.attr('class', elm.attr('class').replace(/\bwidget-style-/, "style-"));
+		}, // end of exec
+
+		/**
+		 * Given an element, find the appropriate heading level for its content
+		 */
+		_get_heading_level : function(elm) {
+			var heading = elm.find(':header'),
+				hlevel,
+				parent;
+
+			if (heading.length !== 0) {
+				hlevel = parseInt(heading.prop('tagName').substr(1), 10);
+			} else {
+				parent = elm;
+				while (heading.length === 0) {
+					parent = parent.parent();
+					heading = parent.find(':header');
+				}
+				hlevel = parseInt(heading.prop('tagName').substr(1), 10) + 1;
+			}
+			return hlevel;
+		}
 	};
 	window.pe = _pe;
 	return _pe;

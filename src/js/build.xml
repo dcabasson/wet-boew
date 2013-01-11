@@ -1,180 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="jquery.core" default="default" basedir=".">
+<project name="wet-boew.core" default="default" basedir=".">
 	<description>Web Experience Toolkit Core Framework</description>
 
 	<property file="build.properties"/>
 	<import file="${build.dir}/../build-tasks.xml"/>
+	
+	<target name="default" depends="clean,build" description="Performs a clean and build when calling ant without any target"/>
 
-	<target name="default" depends="clean,build" description="Performs a Clean and Build when calling ant without any target"></target>
-
-	<target name="build" description="" depends="-init, -minify" />
-
-	<target name="-init" depends="-build-jruby"> <!-- Future depends: -can-nodejs-coffeescript -->
-		<mkdir dir="${build.dir}"/>
-	</target>
-
-	<target name = "-minify" depends="compile.sass, build-js, build-css">
-		<yui-compressor warn="false" munge="true" preserveAllSemiColons="false" fromDir="${build.dir}/premin" toDir="${build.dir}">
-			<include name="*.*" />
-			<include name="i18n/*.*" />
-			<include name="i18n/formvalid/*.*" />
-			<include name="dependencies/*.*"/>
-			<include name="dependencies/prettify/*.*"/>
-			<include name="polyfills/*.*"/>
-			<include name="css/*.*" />
-		</yui-compressor>
-		<delete dir="${build.dir}/premin"/>
-	</target>
-
-	<target name="build-js" depends="-build-pe">
-		<copy todir="${build.dir}">  
-			<resources>
-				<fileset dir="${src.dir}">
-					<include name="images/**"/>
-					<include name="bin/**"/>
-					<include name="jquery.mobile/*.min.js"/>
-					<include name="*.js"/>
-					<exclude name="pe-ap.js"/> 
-				</fileset>
-			</resources>  
+	<target name="copy-all" extensionOf="prepare-files" depends="-copy-css,-copy-images,-copy-js,-build-pe,-copy-binaries"/>
+	
+	<target name="-copy-binaries">
+		<copy todir="${dist.dir}">  
+			<fileset dir="${src.dir}">
+				<include name="binary/**"/>
+			</fileset>
 		</copy>
-		<copy todir="${build.dir}/premin">  
-			<resources>
-				<fileset dir="${src.dir}">
-					<include name="i18n/**"/>
-				</fileset>
-			</resources>  
-		</copy>
-		<copy todir="${build.dir}/premin">
-			<resources>
-				<fileset dir="${src.dir}">
-					<include name="dependencies/**"/>
-					<include name="polyfills/**"/>
-					<contains text="/*!" casesensitive="no"/>
-				</fileset>
-			</resources> 
-		</copy> 
-		<copy todir="${build.dir}/premin">
-			<filterchain>
-				<replaceregex byline="false" pattern="\/\*" replace="\/\*!"/>
-			</filterchain>
-			<resources>
-				<fileset dir="${src.dir}">
-					<include name="dependencies/**"/>
-					<include name="polyfills/**"/>
-					<not>
-						<contains text="/*!" casesensitive="no"/>
-					</not>
-				</fileset>
-			</resources> 
-		</copy> 
 	</target>
-
-	<target name="build-css" depends="-base64-encode" />
 
 	<!-- Build JS Tasks -->
-	<target name="-build-pe" depends="-merge-workers">
-		<concat dest="${build.dir}/premin/pe-ap.js" fixlastline="yes">
+	<target name="-build-pe" depends="-get-languages, -get-validation-languages">
+		<concat dest="${dist.dir}/pe-ap.js" fixlastline="yes">
 			<file file="${src.dir}/pe-ap.js"/>
-			<file file="${build.dir}/workers.js"/>
-		</concat>
-		<delete file="${build.dir}/workers.js"/>
-		<delete file="${build.dir}/dependencies.js"/>
-	</target>
-
-	<target name="-merge-workers">
-		<concat dest="${build.dir}/workers.js" fixlastline="yes">
 			<fileset dir="${src.dir}/workers" includes="**/**.js" />
-		</concat>
-		<replaceregexp flags="gis" file="${build.dir}/workers.js" match="/\*.*?\*/" replace="" encoding="utf8" />
-	</target>
-	<!--Build CSS Tasks -->
-	<target name="-base64-encode" depends="-merge-css">
-		<copy todir="${build.dir}/premin/images">
-			<fileset dir="${src.dir}/images"/>
-		</copy>
-		<cssurlembed skipMissing="true">
-			<fileset dir="${build.dir}/premin/css/">
-				<include name="pe-ap.css"/>
-			</fileset>
-		</cssurlembed>
-		<copy todir="${build.dir}/images">
-			<fileset dir="${src.dir}/images"/>
-		</copy>
-	</target>
-	<target name="-merge-css">
-		<copy todir="${build.dir}/premerge/css">
-			<fileset dir="${src.dir}/css"/>
-		</copy>
-		<replace dir="${build.dir}/premerge/css" token="@charset &quot;utf-8&quot;;" value=" "/>
-		<concat destfile="${build.dir}/premerge/css/pe-ap.css" fixlastline="yes" append="true">
-			<fileset dir="${build.dir}/premerge/css">
-				<include name="*.css"/>
-				<exclude name="*-ie7.css"/>
-				<exclude name="*-ie8.css"/>
-				<exclude name="pe-ap*.css"/>
-			</fileset>
-		</concat>
-		<concat destfile="${build.dir}/premerge/css/pe-ap-ie.css" fixlastline="yes" append="true">
-			<fileset dir="${build.dir}/premerge/css">
-				<include name="*.css"/>
-				<exclude name="pe-ap*.css"/>
-			</fileset>
-		</concat>
-		<copy todir="${build.dir}/premin/css">
-			<filelist dir="${build.dir}/premerge/css">
-				<file name="pe-ap.css"/>
-				<file name="pe-ap-ie.css"/>
-			</filelist>
 			<filterchain>
-				<concatfilter prepend="${src.dir}/../css-head.txt"/>
+				<replacetokens>
+					<token key="wet-boew-build.languagelist" value="${languagelist}"/>
+					<token key="wet-boew-build.validlanguagelist" value="${validlanguagelist}"/>
+					<token key="wet-boew-build.validlanguagemethod" value="${validlanguagemethod}"/>
+				</replacetokens>
 			</filterchain>
-		</copy>
-		<delete dir="${build.dir}/premerge"/>
+		</concat>
 	</target>
-
-	<target name="clean-css">
-		<delete dir="${src.dir}/css" />
-	</target>
-
-	<target name="clean">
-		<delete dir="${build.dir}" />
-		<delete dir="${dist.dir}" />
-	</target>
-
-	<target name="test" depends="-jshint"/>
 	
-	<target name="-jshint">
-		<jshint dir="${src.dir}" fail="${jshint.failbuild}" globalsFile="${jshint.globals.file}" options="strict:false">
-			<report type="xml" destfile="${build.dir}/jshint.out.xml" />
-			<include name="**/*.js"/>
-			<exclude name="**/*.min.js"/>
-			<exclude name="jquery.mobile/jquery.mobile.js"/>
-			<exclude name="polyfills/datalist.js"/>
-			<exclude name="polyfills/detailssummary.js"/>
-			<exclude name="polyfills/html5shiv.js"/>
-			<exclude name="polyfills/localstorage.js"/>
-			<exclude name="polyfills/slider.js"/>
-			<exclude name="workers/parser.table.js"/>
-			<exclude name="workers/webwidget.js"/>
-			<exclude name="dependencies/bookmark.js"/>
-			<exclude name="dependencies/browsertweaks.js"/>
-			<exclude name="dependencies/colorbox.js"/>
-			<exclude name="dependencies/easytabs.js"/>
-			<exclude name="dependencies/hashchange.js"/>
-			<exclude name="dependencies/hoverintent.js"/>
-			<exclude name="dependencies/json.js"/>
-			<exclude name="dependencies/matchMedia.js"/>
-			<exclude name="dependencies/metadata.js"/>
-			<exclude name="dependencies/outside.js"/>
-			<exclude name="dependencies/pie.js"/>
-			<exclude name="dependencies/prettify.js"/>
-			<exclude name="dependencies/prettify/**/*.js"/>
-			<exclude name="dependencies/raphael.js"/>
-			<exclude name="dependencies/resize.js"/>
-			<exclude name="dependencies/validate.js"/>
-			<exclude name="dependencies/validateAdditional.js"/>
-			<exclude name="dependencies/xregexp.js"/>
-		</jshint>
+	<target name="-get-languages">
+		<fileset id="languages" dir="${src.dir}/i18n" includes="*.js"/>
+		<pathconvert pathsep="','" property="languagelist" refid="languages">
+			<globmapper from="${basedir}${file.separator}i18n${file.separator}*.js" to="*" />
+		</pathconvert>
+		<echo message="Supported core languages: '${languagelist}'" level="info"/>
+	</target>
+	
+	<target name="-get-validation-languages">
+		<fileset id="validlanguages" dir="${src.dir}/i18n/formvalid" includes="messages_*.js"/>
+		<pathconvert pathsep="','" property="validlanguagelist" refid="validlanguages">
+			<globmapper from="${basedir}${file.separator}i18n${file.separator}formvalid${file.separator}messages_*.js" to="*" />
+		</pathconvert>
+		<fileset id="validlanguagesmethod" dir="${src.dir}/i18n/formvalid" includes="methods_*.js"/>
+		<pathconvert pathsep="','" property="validlanguagemethod" refid="validlanguagesmethod">
+			<globmapper from="${basedir}${file.separator}i18n${file.separator}formvalid${file.separator}methods_*.js" to="*" />
+		</pathconvert>
+		<echo message="Supported jQuery validation languages: '${validlanguagelist}'" level="info"/>
+	</target>
+	
+	<target name="fix-spanish-character" extensionOf="compress" depends="-minify">
+		<!-- Hack to fix http://yuilibrary.com/projects/yuicompressor/ticket/2528132 -->
+		<replace file="${dist.dir}/i18n/es-min.js" encoding="UTF-8" token="�?" value="Í" />
 	</target>
 </project>

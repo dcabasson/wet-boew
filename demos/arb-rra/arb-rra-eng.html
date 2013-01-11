@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
 <title>Accessibility responsibility breakdown (WCAG 2.0) - Working examples - Web Experience Toolkit (WET)</title>
 
-<link rel="shortcut icon" href="../../build/theme-gcwu-fegc/images/favicon.ico" />
+<link rel="shortcut icon" href="../../dist/theme-gcwu-fegc/images/favicon.ico" />
 <meta name="description" content="English description / Description en anglais" />
 <meta name="dcterms.creator" content="English name of the content author / Nom en anglais de l'auteur du contenu" />
 <meta name="dcterms.title" content="English title / Titre en anglais" />
@@ -20,28 +20,21 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../../build/js/jquery.min.js"></script>
+<script src="../../dist/js/jquery.min.js"></script>
 <!--[if lte IE 8]>
-<script src="../../build/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="../../build/grids/css/util-ie-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-ie-min.css" />
+<script src="../../dist/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="../../dist/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="../../build/grids/css/util-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-min.css" />
+<link rel="stylesheet" href="../../dist/grids/css/util-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-min.css" />
 <!--<![endif]-->
+<noscript><link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
 
-<!-- CustomScriptsCSSStart -->
-<style>
-#tsrw th, #tsrw td {border: 1px solid #CCC;}
-#tsrw th {color: #FFF; background-color: #B01523; text-shadow: none;}
-#tsrw tr.table-odd td {background-color:#F8F0DA}
-#tsrw tr.table-hover td, #tsrw tr.table-hover td a{background-color:#3F3F3F !important; color: #FFF;} 
-#tsrw td {text-align: center;}
-#toggle-level div, #toggle-phase div {float: left; width: 12em;}
-</style>
+<!-- CustomScriptsCSSStart --> 
 <!-- CustomScriptsCSSEnd -->
 </head>
 
@@ -56,7 +49,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
 <nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
-<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../build/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
 <ul>
 <li id="gcwu-gcnb1"><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></li>
 <li id="gcwu-gcnb2"><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
@@ -66,8 +59,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div></nav>
 
 <div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
-<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../build/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
-<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../docs/index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
 
 <section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
 <form action="#" method="post"><div id="gcwu-srchbx-in">
@@ -78,9 +71,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div>
 
 <nav role="navigation">
-<div id="gcwu-psnb"><h2><span>Site</span> menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.inc">
-<li><div><a href="http://wet-boew.github.com/wet-boew/docs/index-eng.html">WET project</a></div></li>
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.txt">
+<li><div><a href="http://wet-boew.github.com/wet-boew/index-eng.html">WET project</a></div></li>
 <li><div><a href="section2/index-eng.html">Section 2</a></div></li>
 <li><div><a href="#">Section 3</a></div></li>
 <li><div><a href="#">Section 4</a></div></li>
@@ -92,7 +85,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
-<li><a href="../../docs/index-eng.html">Home</a></li>
+<li><a href="../../index-eng.html">Home</a></li>
 <li><a href="../index-eng.html">Working examples</a></li>
 <li>Accessibility responsibility breakdown (WCAG 2.0)</li>
 </ol>
@@ -104,7 +97,12 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-core"><div id="wb-core-in" class="equalize">
 <div id="wb-main" role="main"><div id="wb-main-in">
 <!-- MainContentStart -->
-<h1 id="wb-cont">Accessibility responsibility breakdown (WCAG 2.0)</h1>
+<h1 id="wb-cont" class="inline-block">Accessibility responsibility breakdown (WCAG 2.0)</h1>
+
+<ul class="button-group">
+<li><a href="https://github.com/wet-boew/wet-boew/wiki/Accessibility-responsibility-breakdown" class="button button-info">Documentation</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new" class="button">Questions or comments?</a></li>
+</ul>
 
 <div class="span-8">
 <p>The Web Content Accessibility Guidelines (WCAG) 2.0 offer sixty one (61) success criteria incorporating best practices for promoting content accessibility for persons with disabilities. These success criteria affect all phases of a Web site project. The responsibilities associated with them must be assigned to the various individuals involved to ensure the success of the content accessibility project. This is especially true in the context of conformance obligations if such obligations are in place in your organization.</p>
@@ -160,17 +158,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>2</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>2</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"><span class="wb-invisible">Success Criterion </span>3.3.4</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.4</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>5</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -194,17 +192,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>2</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>3</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>4</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-located"><span class="wb-invisible">Success Criterion </span>3.1.4</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-located" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.4</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -228,17 +226,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>15</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>7</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"><span class="wb-invisible">Success Criterion </span>3.3.4</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.4</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>14</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"><span class="wb-invisible">Success Criterion </span>2.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements"><span class="wb-invisible">Success Criterion </span>3.1.5</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.5</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -262,17 +260,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>12</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>9</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>11</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -296,17 +294,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>12</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" rel="external"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>7</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"><span class="wb-invisible">Success Criterion </span>2.4.7</a> and <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.7</a> and <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>6</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"><span class="wb-invisible">Success Criterion </span>2.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a> and <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a> and <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -330,17 +328,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>11</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"><span class="wb-invisible">Success Criterion </span>2.4.4</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" rel="external"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.4</a> and <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>3</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.2</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>7</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements"><span class="wb-invisible">Success Criterion </span>3.1.5</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation"><span class="wb-invisible">Success Criterion </span>3.1.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.5</a> and <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.6</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -364,17 +362,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>24</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions"><span class="wb-invisible">Success Criterion </span>1.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign"><span class="wb-invisible">Success Criterion </span>1.2.6</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only"><span class="wb-invisible">Success Criterion </span>1.2.9</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a> and <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"><span class="wb-invisible">Success Criterion </span>2.1.3</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" rel="external"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.6</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.9</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a> and <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.3</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>13</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>22</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation"><span class="wb-invisible">Success Criterion </span>3.1.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"><span class="wb-invisible">Success Criterion </span>3.3.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -398,17 +396,17 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 							<tr>
 								<td>A</td>
 								<td>25</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions"><span class="wb-invisible">Success Criterion </span>1.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign"><span class="wb-invisible">Success Criterion </span>1.2.6</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only"><span class="wb-invisible">Success Criterion </span>1.2.9</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a> and <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"><span class="wb-invisible">Success Criterion </span>2.1.3</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" rel="external"><span class="wb-invisible">Success Criterion </span>1.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.6</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.7</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.8</a>, <a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.9</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.5</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.6</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a> and <a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.3</a>.</td>
 							</tr>
 							<tr>
 								<td>AA</td>
 								<td>13</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#seizure-three-times" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.1</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.3</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.4</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a> and <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a>.</td>
 							</tr>
 							<tr>
 								<td>AAA</td>
 								<td>23</td>
-								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements"><span class="wb-invisible">Success Criterion </span>3.1.5</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation"><span class="wb-invisible">Success Criterion </span>3.1.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"><span class="wb-invisible">Success Criterion </span>3.3.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
+								<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.7</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.9</a>, <a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.10</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.1</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.2</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-located" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.4</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-supplements" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.5</a>, <a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.6</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.2</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.3</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a>, <a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.4</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a>, <a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a>, <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.1</a> and <a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.2</a>.</td>
 							</tr>
 						</tbody>
 						</table>
@@ -442,7 +440,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 	</thead>
 	<tbody>
 		<tr id="a-wcag2-111">
-			<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all"><span class="wb-invisible">Success Criterion </span>1.1.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#text-equiv-all" rel="external"><span class="wb-invisible">Success Criterion </span>1.1.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -454,7 +452,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-121">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"><span class="wb-invisible">Success Criterion </span>1.2.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -466,7 +464,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-122">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions"><span class="wb-invisible">Success Criterion </span>1.2.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -478,7 +476,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-123">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"><span class="wb-invisible">Success Criterion </span>1.2.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.3</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -490,7 +488,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-124">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions"><span class="wb-invisible">Success Criterion </span>1.2.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.4</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -502,7 +500,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-125">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"><span class="wb-invisible">Success Criterion </span>1.2.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.5</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -514,7 +512,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-126">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign"><span class="wb-invisible">Success Criterion </span>1.2.6</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-sign" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.6</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -526,7 +524,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-127">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad"><span class="wb-invisible">Success Criterion </span>1.2.7</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-extended-ad" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.7</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -538,7 +536,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-128">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc"><span class="wb-invisible">Success Criterion </span>1.2.8</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-text-doc" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.8</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -550,7 +548,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-129">
-			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only"><span class="wb-invisible">Success Criterion </span>1.2.9</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only" rel="external"><span class="wb-invisible">Success Criterion </span>1.2.9</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -562,7 +560,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-131">
-			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"><span class="wb-invisible">Success Criterion </span>1.3.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td>X</td>
@@ -574,7 +572,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-132">
-			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"><span class="wb-invisible">Success Criterion </span>1.3.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-sequence" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -586,7 +584,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-133">
-			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"><span class="wb-invisible">Success Criterion </span>1.3.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#content-structure-separation-understanding" rel="external"><span class="wb-invisible">Success Criterion </span>1.3.3</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -598,7 +596,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-141">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"><span class="wb-invisible">Success Criterion </span>1.4.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -610,7 +608,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-142">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"><span class="wb-invisible">Success Criterion </span>1.4.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -622,7 +620,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-143">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"><span class="wb-invisible">Success Criterion </span>1.4.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.3</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -634,7 +632,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-144">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"><span class="wb-invisible">Success Criterion </span>1.4.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.4</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -646,7 +644,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-145">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"><span class="wb-invisible">Success Criterion </span>1.4.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.5</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -658,7 +656,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-146">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7"><span class="wb-invisible">Success Criterion </span>1.4.6</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast7" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.6</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -670,7 +668,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-147">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio"><span class="wb-invisible">Success Criterion </span>1.4.7</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.7</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -682,7 +680,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-148">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation"><span class="wb-invisible">Success Criterion </span>1.4.8</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.8</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -694,7 +692,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-149">
-			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images"><span class="wb-invisible">Success Criterion </span>1.4.9</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images" rel="external"><span class="wb-invisible">Success Criterion </span>1.4.9</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -706,7 +704,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-211">
-			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"><span class="wb-invisible">Success Criterion </span>2.1.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -718,7 +716,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-212">
-			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"><span class="wb-invisible">Success Criterion </span>2.1.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-trapping" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -730,7 +728,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-213">
-			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs"><span class="wb-invisible">Success Criterion </span>2.1.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs" rel="external"><span class="wb-invisible">Success Criterion </span>2.1.3</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -742,7 +740,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-221">
-			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"><span class="wb-invisible">Success Criterion </span>2.2.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-required-behaviors" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -754,7 +752,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-222">
-			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-pause"><span class="wb-invisible">Success Criterion </span>2.2.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-pause" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -766,7 +764,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-223">
-			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions"><span class="wb-invisible">Success Criterion </span>2.2.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-no-exceptions" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.3</a></td>
 			<td>AAA</td>
 			<td>X</td>
 			<td></td>
@@ -778,7 +776,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-224">
-			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed"><span class="wb-invisible">Success Criterion </span>2.2.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-postponed" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.4</a></td>
 			<td>AAA</td>
 			<td>X</td>
 			<td></td>
@@ -790,7 +788,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-225">
-			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout"><span class="wb-invisible">Success Criterion </span>2.2.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#time-limits-server-timeout" rel="external"><span class="wb-invisible">Success Criterion </span>2.2.5</a></td>
 			<td>AAA</td>
 			<td>X</td>
 			<td></td>
@@ -802,7 +800,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-231">
-			<td><a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate"><span class="wb-invisible">Success Criterion </span>2.3.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#seizure-does-not-violate" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -814,7 +812,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-232">
-			<td><a href="http://www.w3.org/TR/WCAG20/#seizure-three-times"><span class="wb-invisible">Success Criterion </span>2.3.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#seizure-three-times" rel="external"><span class="wb-invisible">Success Criterion </span>2.3.2</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -826,7 +824,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-241">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"><span class="wb-invisible">Success Criterion </span>2.4.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -838,7 +836,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-242">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"><span class="wb-invisible">Success Criterion </span>2.4.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-title" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td>X</td>
@@ -850,7 +848,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-243">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"><span class="wb-invisible">Success Criterion </span>2.4.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.3</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -862,7 +860,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-244">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"><span class="wb-invisible">Success Criterion </span>2.4.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.4</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -874,7 +872,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-245">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"><span class="wb-invisible">Success Criterion </span>2.4.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.5</a></td>
 			<td>AA</td>
 			<td></td>
 			<td>X</td>
@@ -886,7 +884,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-246">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"><span class="wb-invisible">Success Criterion </span>2.4.6</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.6</a></td>
 			<td>AA</td>
 			<td></td>
 			<td>X</td>
@@ -898,7 +896,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-247">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"><span class="wb-invisible">Success Criterion </span>2.4.7</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.7</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -910,7 +908,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-248">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location"><span class="wb-invisible">Success Criterion </span>2.4.8</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-location" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.8</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td>X</td>
@@ -922,7 +920,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-249">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link"><span class="wb-invisible">Success Criterion </span>2.4.9</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-link" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.9</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -934,7 +932,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-2410">
-			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings"><span class="wb-invisible">Success Criterion </span>2.4.10</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings" rel="external"><span class="wb-invisible">Success Criterion </span>2.4.10</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td>X</td>
@@ -946,7 +944,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-311">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-doc-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -958,7 +956,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-312">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id"><span class="wb-invisible">Success Criterion </span>3.1.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-other-lang-id" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.2</a></td>
 			<td>AA</td>
 			<td></td>
 			<td>X</td>
@@ -970,7 +968,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-313">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-idioms"><span class="wb-invisible">Success Criterion </span>3.1.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-idioms" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.3</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td>X</td>
@@ -982,7 +980,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-314">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-located"><span class="wb-invisible">Success Criterion </span>3.1.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-located" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.4</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td>X</td>
@@ -994,7 +992,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-315">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-supplements"><span class="wb-invisible">Success Criterion </span>3.1.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-supplements" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.5</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -1006,7 +1004,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-316">
-			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation"><span class="wb-invisible">Success Criterion </span>3.1.6</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#meaning-pronunciation" rel="external"><span class="wb-invisible">Success Criterion </span>3.1.6</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -1018,7 +1016,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-321">
-			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"><span class="wb-invisible">Success Criterion </span>3.2.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.1</a></td>
 			<td>A</td>
 			<td>X</td>
 			<td></td>
@@ -1030,7 +1028,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-322">
-			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"><span class="wb-invisible">Success Criterion </span>3.2.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -1042,7 +1040,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-323">
-			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"><span class="wb-invisible">Success Criterion </span>3.2.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.3</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -1054,7 +1052,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-324">
-			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"><span class="wb-invisible">Success Criterion </span>3.2.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.4</a></td>
 			<td>AA</td>
 			<td></td>
 			<td></td>
@@ -1066,7 +1064,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-325">
-			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context"><span class="wb-invisible">Success Criterion </span>3.2.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context" rel="external"><span class="wb-invisible">Success Criterion </span>3.2.5</a></td>
 			<td>AAA</td>
 			<td></td>
 			<td></td>
@@ -1078,7 +1076,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-331">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified"><span class="wb-invisible">Success Criterion </span>3.3.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-identified" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.1</a></td>
 			<td>A</td>
 			<td>X</td>
 			<td></td>
@@ -1090,7 +1088,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-332">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues"><span class="wb-invisible">Success Criterion </span>3.3.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-cues" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -1102,7 +1100,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-333">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions"><span class="wb-invisible">Success Criterion </span>3.3.3</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-suggestions" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.3</a></td>
 			<td>AA</td>
 			<td>X</td>
 			<td></td>
@@ -1114,7 +1112,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aa-wcag2-334">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible"><span class="wb-invisible">Success Criterion </span>3.3.4</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.4</a></td>
 			<td>AA</td>
 			<td>X</td>
 			<td></td>
@@ -1126,7 +1124,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-335">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help"><span class="wb-invisible">Success Criterion </span>3.3.5</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-context-help" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.5</a></td>
 			<td>AAA</td>
 			<td>X</td>
 			<td></td>
@@ -1138,7 +1136,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="aaa-wcag2-336">
-			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all"><span class="wb-invisible">Success Criterion </span>3.3.6</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#minimize-error-reversible-all" rel="external"><span class="wb-invisible">Success Criterion </span>3.3.6</a></td>
 			<td>AAA</td>
 			<td>X</td>
 			<td></td>
@@ -1150,7 +1148,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-411">
-			<td><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses"><span class="wb-invisible">Success Criterion </span>4.1.1</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-parses" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.1</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -1162,7 +1160,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 			<td>X</td>
 		</tr>
 		<tr id="a-wcag2-412">
-			<td><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv"><span class="wb-invisible">Success Criterion </span>4.1.2</a></td>
+			<td><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" rel="external"><span class="wb-invisible">Success Criterion </span>4.1.2</a></td>
 			<td>A</td>
 			<td></td>
 			<td></td>
@@ -1177,7 +1175,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 	</table>
 </section>
 <p><strong>Note:</strong> This breakdown offers a vision that may not correspond exactly to the reality of your own production chain and therefore you should adapt it as required.</p>
-<p>© <span lang="fr">Coopérative AccessibilitéWeb</span>, 2011. <a href="https://github.com/wet-boew/wet-boew/wiki/Accessibility-Responsibility-Breakdown---Web-Experience-Toolkit-%28WET%29---Terms-and-Conditions-of-Use">Terms and Conditions of Use</a>.</p>
+<p>© <span lang="fr">Coopérative AccessibilitéWeb</span>, 2011. <a href="https://github.com/wet-boew/wet-boew/wiki/Accessibility-Responsibility-Breakdown---Web-Experience-Toolkit-%28WET%29---Terms-and-Conditions-of-Use" rel="external">Terms and Conditions of Use</a>.</p>
 </div><div class="clear"></div>
 
 <dl id="gcwu-date-mod" role="contentinfo">
@@ -1234,7 +1232,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <li><a rel="external" href="http://www.voyage.gc.ca/index-eng.asp"><span>Travel</span><br />travel.gc.ca</a></li>
 <li><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span><br />servicecanada.gc.ca</a></li>
 <li><a rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span><br />jobbank.gc.ca</a></li>
-<li><a rel="external" href="http://actionplan.gc.ca/eng/index.asp"><span>Economy</span><br />actionplan.gc.ca</a></li>
+<li><a rel="external" href="http://actionplan.gc.ca/en"><span>Economy</span><br />actionplan.gc.ca</a></li>
 <li id="gcwu-gcft-ca"><div><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></div></li>
 </ul>
 </div></div></div></nav>
@@ -1243,9 +1241,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div>
 
 <!-- ScriptsStart -->
-<script src="../../build/theme-gcwu-fegc/js/theme-min.js"></script>
-<script src="../../build/js/settings.js"></script>
-<script src="../../build/js/pe-ap-min.js"></script>
+<script src="../../dist/theme-gcwu-fegc/js/theme-min.js"></script>
+<script src="../../dist/js/settings.js"></script>
+<script src="../../dist/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->
 </body>
 </html>

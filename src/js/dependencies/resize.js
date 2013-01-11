@@ -1,10 +1,10 @@
-/**
+/*!
 * Resize Events
 * @version 0.7
 * Changelog:
-*   * 0.5 Added API bind() function to make it easier to add listeners.
-*   * 0.6 Added support for window height changes
-*   * 0.7 Clean up outstanding bugs (duplicate event firing) and refactor.
+*	* 0.5 Added API bind() function to make it easier to add listeners.
+*	* 0.6 Added support for window height changes
+*	* 0.7 Clean up outstanding bugs (duplicate event firing) and refactor.
 *
 * There is no standard event for when a user resizes the text in their browser.
 * There is also no consistency between browser implementations of the window resize event
@@ -86,7 +86,7 @@ var ResizeEvents = {
 
 		// create text resize control element, and push it offscreen
 		ResizeEvents.textSizeTestElement = $(
-				'<span id="' + ResizeEvents.conf.textSizeTestElId + '" style="position: absolute; left: -9999px; bottom: 0; ' +
+				'<span id="' + ResizeEvents.conf.textSizeTestElId + '" style="position: absolute; ' + ((pe.rtl) ? "right" : "left") + ': -9999px; bottom: 0; ' +
 				'font-size: 100%; font-family: Courier New, mono; margin: 0; padding: 0;">&nbsp;</span>'
 			).get(0);
 

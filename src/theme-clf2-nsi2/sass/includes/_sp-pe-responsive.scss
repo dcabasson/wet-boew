@@ -1,0 +1,35 @@
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ */
+body {
+	min-width: 600px;
+}
+
+/** Box model - centered **/
+#wb-head, #wb-foot {
+	width: 100%;
+}
+%clf-sp-pe-responsive-margin-auto {
+	margin: auto;
+}
+#wb-core, #wb-core-in {
+	width: 600px;
+	@extend %clf-sp-pe-responsive-margin-auto;
+}
+#wb-head-in, #wb-foot-in {
+	width: 760px;
+	@extend %clf-sp-pe-responsive-margin-auto;
+}
+
+/** Centre column **/
+#wb-body {
+	width: 600px;
+	#wb-main {
+		//TODO: Is the nested ID selector important or can the above and below 600px rules be combined
+		width: 600px;
+	}
+}
+#cn-msg-space {
+	width: 600px;
+}

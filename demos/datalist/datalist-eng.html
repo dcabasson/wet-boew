@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
 <title>Auto-complete for text input fields (datalist polyfill) - Working examples - Web Experience Toolkit (WET)</title>
 
-<link rel="shortcut icon" href="../../build/theme-gcwu-fegc/images/favicon.ico" />
+<link rel="shortcut icon" href="../../dist/theme-gcwu-fegc/images/favicon.ico" />
 <meta name="description" content="English description / Description en anglais" />
 <meta name="dcterms.creator" content="English name of the content author / Nom en anglais de l'auteur du contenu" />
 <meta name="dcterms.title" content="English title / Titre en anglais" />
@@ -20,18 +20,19 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../../build/js/jquery.min.js"></script>
+<script src="../../dist/js/jquery.min.js"></script>
 <!--[if lte IE 8]>
-<script src="../../build/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="../../build/grids/css/util-ie-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-ie-min.css" />
+<script src="../../dist/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="../../dist/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="../../build/grids/css/util-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-min.css" />
+<link rel="stylesheet" href="../../dist/grids/css/util-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-min.css" />
 <!--<![endif]-->
+<noscript><link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
 
 <!-- CustomScriptsCSSStart -->
 <!-- CustomScriptsCSSEnd -->
@@ -48,7 +49,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
 <nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
-<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../build/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
 <ul>
 <li id="gcwu-gcnb1"><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></li>
 <li id="gcwu-gcnb2"><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
@@ -58,8 +59,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div></nav>
 
 <div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
-<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../build/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
-<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../docs/index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
 
 <section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
 <form action="#" method="post"><div id="gcwu-srchbx-in">
@@ -70,9 +71,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div>
 
 <nav role="navigation">
-<div id="gcwu-psnb"><h2><span>Site</span> menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.inc">
-<li><div><a href="http://wet-boew.github.com/wet-boew/docs/index-eng.html">WET project</a></div></li>
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.txt">
+<li><div><a href="http://wet-boew.github.com/wet-boew/index-eng.html">WET project</a></div></li>
 <li><div><a href="section2/index-eng.html">Section 2</a></div></li>
 <li><div><a href="#">Section 3</a></div></li>
 <li><div><a href="#">Section 4</a></div></li>
@@ -84,7 +85,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
-<li><a href="../../docs/index-eng.html">Home</a></li>
+<li><a href="../../index-eng.html">Home</a></li>
 <li><a href="../index-eng.html">Working examples</a></li>
 <li>Auto-complete for text input fields (datalist polyfill)</li>
 </ol>
@@ -98,46 +99,37 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <!-- MainContentStart -->
 <h1 id="wb-cont">Auto-complete for text input fields (datalist polyfill)</h1>
 
+<ul class="button-group">
+<li><a href="https://github.com/wet-boew/wet-boew/wiki/Auto-complete-for-text-input-fields-%28input-list---datalist-polyfill%29" class="button button-info">Documentation</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new" class="button">Questions or comments?</a></li>
+</ul>
+
 <p>The <code>datalist</code> tag specifies a list of pre-defined options for an <code>input</code> element.</p>
 
 <!-- Start of Datalist content -->
-<div class="span-8">
-<div class="span-4 row-start">
+<div class="span-3">
 	<section>
-		<h2 class="background-dark margin-bottom-medium">Usage</h2>
-		<pre class="wet-boew-prettify prettyprint linenums"><code>&lt;label for="city"&gt;City&lt;/label&gt;
-&lt;input type="text" id="city" name="city" list="suggestions" /&gt;
-&lt;datalist id="suggestions"&gt;
-	&lt;!--[if lte IE 9]&gt;&lt;select&gt;&lt;![endif]--&gt;
-	&lt;option label="" value="Calgary"&gt;&lt;/option&gt;
-	&lt;option label="" value="Edmonton"&gt;&lt;/option&gt;
-	&lt;option label="" value="Iqualuit"&gt;&lt;/option&gt;
-	&lt;option label="" value="Ottawa"&gt;&lt;/option&gt;
-	&lt;option label="" value="Montreal"&gt;&lt;/option&gt;
-	&lt;option label="" value="St. John"&gt;&lt;/option&gt;
-	&lt;option label="" value="St. John's"&gt;&lt;/option&gt;
-	&lt;option label="" value="Toronto"&gt;&lt;/option&gt;
-	&lt;option label="" value="Vancouver"&gt;&lt;/option&gt;
-	&lt;option label="" value="Whitehorse"&gt;&lt;/option&gt;
-	&lt;option label="" value="Winnipeg"&gt;&lt;/option&gt;
-	&lt;option label="" value="Yellowknife"&gt;&lt;/option&gt;
-	&lt;!--[if lte IE 9]&gt;&lt;/select&gt;&lt;![endif]--&gt;
-&lt;/datalist&gt;</code></pre>
-	</section>
-</div>
-<div class="span-4 row-end">
-	<section>
-		<h2 class="background-dark margin-bottom-medium">Examples</h2>
+		<h2 class="background-dark margin-bottom-medium">Example</h2>
 		<form action="#" method="get">
 			<label for="city">City</label>
     		<input type="text" id="city" name="city" list="suggestions" />
     		<datalist id="suggestions">
 				<!--[if lte IE 9]><select><![endif]-->
-        		<option label="" value="Calgary"></option>
-        		<option label="" value="Edmonton"></option>
-        		<option label="" value="Iqualuit"></option>
-        		<option label="" value="Ottawa"></option>
+				<option label="" value="Barrie"></option>
+				<option label="" value="Calgary"></option>
+				<option label="" value="Charlottetown"></option>
+				<option label="" value="Chibougamau"></option>
+				<option label="" value="Chilliwack"></option>
+				<option label="" value="Cold Lake"></option>
+				<option label="" value="Dorval"></option>
+				<option label="" value="Edmonton"></option>
+				<option label="" value="Flin Flon"></option>
+				<option label="" value="Hamilton"></option>
+				<option label="" value="Iqualuit"></option>
+				<option label="" value="Ottawa"></option>
+				<option label="" value="Miramichi"></option>
 				<option label="" value="Montreal"></option>
+				<option label="" value="Red Deer"></option>
 				<option label="" value="St. John"></option>
 				<option label="" value="St. John's"></option>
 				<option label="" value="Toronto"></option>
@@ -150,6 +142,38 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 		</form>
 	</section>
 </div>
+<div class="span-5 row-start">
+	<section>
+		<h2 class="background-dark margin-bottom-medium">Usage</h2>
+		<pre class="wet-boew-prettify prettyprint linenums"><code>&lt;label for="city"&gt;City&lt;/label&gt;
+&lt;input type="text" id="city" name="city" list="suggestions" /&gt;
+&lt;datalist id="suggestions"&gt;
+   &lt;!--[if lte IE 9]&gt;&lt;select&gt;&lt;![endif]--&gt;
+   &lt;option label="" value="Barrie"&gt;&lt;/option&gt;
+   &lt;option label="" value="Calgary"&gt;&lt;/option&gt;
+   &lt;option label="" value="Charlottetown"&gt;&lt;/option&gt;
+   &lt;option label="" value="Chibougamau"&gt;&lt;/option&gt;
+   &lt;option label="" value="Chilliwack"&gt;&lt;/option&gt;
+   &lt;option label="" value="Cold Lake"&gt;&lt;/option&gt;
+   &lt;option label="" value="Dorval"&gt;&lt;/option&gt;
+   &lt;option label="" value="Edmonton"&gt;&lt;/option&gt;
+   &lt;option label="" value="Flin Flon"&gt;&lt;/option&gt;
+   &lt;option label="" value="Hamilton"&gt;&lt;/option&gt;
+   &lt;option label="" value="Iqualuit"&gt;&lt;/option&gt;
+   &lt;option label="" value="Ottawa"&gt;&lt;/option&gt;
+   &lt;option label="" value="Miramichi"&gt;&lt;/option&gt;
+   &lt;option label="" value="Montreal"&gt;&lt;/option&gt;
+   &lt;option label="" value="Red Deer"&gt;&lt;/option&gt;
+   &lt;option label="" value="St. John"&gt;&lt;/option&gt;
+   &lt;option label="" value="St. John's"&gt;&lt;/option&gt;
+   &lt;option label="" value="Toronto"&gt;&lt;/option&gt;
+   &lt;option label="" value="Vancouver"&gt;&lt;/option&gt;
+   &lt;option label="" value="Whitehorse"&gt;&lt;/option&gt;
+   &lt;option label="" value="Winnipeg"&gt;&lt;/option&gt;
+   &lt;option label="" value="Yellowknife"&gt;&lt;/option&gt;
+   &lt;!--[if lte IE 9]&gt;&lt;/select&gt;&lt;![endif]--&gt;
+&lt;/datalist&gt;</code></pre>
+	</section>
 </div>
 <!-- End of Datalist content -->
 
@@ -207,7 +231,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <li><a rel="external" href="http://www.voyage.gc.ca/index-eng.asp"><span>Travel</span><br />travel.gc.ca</a></li>
 <li><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span><br />servicecanada.gc.ca</a></li>
 <li><a rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span><br />jobbank.gc.ca</a></li>
-<li><a rel="external" href="http://actionplan.gc.ca/eng/index.asp"><span>Economy</span><br />actionplan.gc.ca</a></li>
+<li><a rel="external" href="http://actionplan.gc.ca/en"><span>Economy</span><br />actionplan.gc.ca</a></li>
 <li id="gcwu-gcft-ca"><div><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></div></li>
 </ul>
 </div></div></div></nav>
@@ -216,9 +240,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div>
 
 <!-- ScriptsStart -->
-<script src="../../build/theme-gcwu-fegc/js/theme-min.js"></script>
-<script src="../../build/js/settings.js"></script>
-<script src="../../build/js/pe-ap-min.js"></script>
+<script src="../../dist/theme-gcwu-fegc/js/theme-min.js"></script>
+<script src="../../dist/js/settings.js"></script>
+<script src="../../dist/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->
 </body>
 </html>

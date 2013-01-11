@@ -1,5 +1,55 @@
 @charset "utf-8";
-/*
+/*!!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
+@import '../../base/sass/oldie-vendor-prefix';
+
+@import 'includes/archived';
+@import 'includes/calendar-base';
+@import 'includes/calendar-theme';
+@import 'includes/charts';
+@import 'includes/core';
+@import 'includes/datalist-ie7';
+@import 'includes/datalist';
+@import 'includes/datepicker';
+@import 'includes/details-ie7';
+@import 'includes/details';
+@import 'includes/events-calendar';
+@import 'includes/expandcollapseall';
+@import 'includes/feedback';
+@import 'includes/footnotes-ie7';
+@import 'includes/footnotes-ie8';
+@import 'includes/footnotes';
+@import 'includes/formvalid';
+@import 'includes/lightbox';
+@import 'includes/menubar-ie7';
+@import 'includes/menubar';
+@import 'includes/meter';
+@import 'includes/multimedia-ie7';
+@import 'includes/multimedia-ie8';
+@import 'includes/multimedia';
+@import 'includes/prettify';
+@import 'includes/progress';
+@import 'includes/sessiontimeout-ie7';
+@import 'includes/sessiontimeout-ie8';
+@import 'includes/sessiontimeout';
+@import 'includes/share-ie7';
+@import 'includes/share';
+@import 'includes/slideout';
+@import 'includes/slideout-ie7';
+@import 'includes/slider-ie';
+@import 'includes/slider';
+@import 'includes/tabbedinterface-ie7';
+@import 'includes/tabbedinterface-ie8';
+@import 'includes/tabbedinterface';
+@import 'includes/texthighlight';
+@import 'includes/wamethod-ie7';
+@import 'includes/wamethod';
+@import 'includes/webwidget';
+@import 'includes/zebra';
+@import 'includes/zebra-ie7';

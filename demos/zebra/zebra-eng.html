@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
 <title>Zebra striping - Working examples - Web Experience Toolkit (WET)</title>
 
-<link rel="shortcut icon" href="../../build/theme-gcwu-fegc/images/favicon.ico" />
+<link rel="shortcut icon" href="../../dist/theme-gcwu-fegc/images/favicon.ico" />
 <meta name="description" content="English description / Description en anglais" />
 <meta name="dcterms.creator" content="English name of the content author / Nom en anglais de l'auteur du contenu" />
 <meta name="dcterms.title" content="English title / Titre en anglais" />
@@ -20,18 +20,19 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<script src="../../build/js/jquery.min.js"></script>
+<script src="../../dist/js/jquery.min.js"></script>
 <!--[if lte IE 8]>
-<script src="../../build/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="../../build/grids/css/util-ie-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-ie-min.css" />
+<script src="../../dist/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="../../dist/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ie-min.css" />
 <![endif]-->
 <!--[if gt IE 8]><!-->
-<link rel="stylesheet" href="../../build/grids/css/util-min.css" />
-<link rel="stylesheet" href="../../build/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="../../build/theme-gcwu-fegc/css/theme-min.css" />
+<link rel="stylesheet" href="../../dist/grids/css/util-min.css" />
+<link rel="stylesheet" href="../../dist/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-min.css" />
 <!--<![endif]-->
+<noscript><link rel="stylesheet" href="../../dist/theme-gcwu-fegc/css/theme-ns-min.css" /></noscript>
 
 <!-- CustomScriptsCSSStart -->
 <!-- CustomScriptsCSSEnd -->
@@ -48,7 +49,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div id="wb-head"><div id="wb-head-in"><header>
 <!-- HeaderStart -->
 <nav role="navigation"><div id="gcwu-gcnb"><h2>Government of Canada navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-gcnb-fip">
-<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../build/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
 <ul>
 <li id="gcwu-gcnb1"><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></li>
 <li id="gcwu-gcnb2"><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
@@ -58,8 +59,8 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div></div></nav>
 
 <div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
-<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../build/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
-<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../docs/index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="../../dist/theme-gcwu-fegc/images/wmms.gif" width="126" height="30" alt="Symbol of the Government of Canada" /></div></div></div>
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="../../index-eng.html">Web Experience Toolkit&#160;(WET)</a></p></div>
 
 <section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
 <form action="#" method="post"><div id="gcwu-srchbx-in">
@@ -70,9 +71,9 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 </div></div>
 
 <nav role="navigation">
-<div id="gcwu-psnb"><h2><span>Site</span> menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.inc">
-<li><div><a href="http://wet-boew.github.com/wet-boew/docs/index-eng.html">WET project</a></div></li>
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="../includes/menu-eng.txt">
+<li><div><a href="http://wet-boew.github.com/wet-boew/index-eng.html">WET project</a></div></li>
 <li><div><a href="section2/index-eng.html">Section 2</a></div></li>
 <li><div><a href="#">Section 3</a></div></li>
 <li><div><a href="#">Section 4</a></div></li>
@@ -84,7 +85,7 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 
 <div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
 <ol>
-<li><a href="../../docs/index-eng.html">Home</a></li>
+<li><a href="../../index-eng.html">Home</a></li>
 <li><a href="../index-eng.html">Working examples</a></li>
 <li>Zebra striping - Web Experience Toolkit (WET)</li>
 </ol>
@@ -98,33 +99,40 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <!-- MainContentStart -->
 <h1 id="wb-cont">Zebra striping - Web Experience Toolkit (WET)</h1>
 
+<ul class="button-group">
+<li><a href="https://github.com/wet-boew/wet-boew/wiki/Zebra-striping" class="button button-info">Documentation</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new" class="button">Questions or comments?</a></li>
+</ul>
+
 <div class="grid-12">
 <section><h2>Table examples</h2>
 <div class="span-4"><section><h3>Default table appearance</h3>
 <table>
 <caption class="align-left">Example 1</caption>
+<colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">Header</th><th scope="col">Header</th></tr>
+<tr><th id="tbl5">Header</th><th id="tbl6">Header</th></tr>
 </thead>
 <tbody>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td class="wet-boew-zebra table-accent">Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
+<tr><td headers="tbl5">Data</td><td headers="tbl6">Data</td></tr>
 </tbody>
 </table>
 
 <table>
 <caption class="align-left">Example 2</caption>
+<colgroup><col /></colgroup><colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th></tr>
+<tr><th id="tbla5">1</th><th id="tbla6">2</th><th id="tbla7">3</th></tr>
 </thead>
 <tbody>
-<tr><th scope="row">A</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">B</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">C</th><td>-</td><td>-</td></tr>
+<tr><th id="tbla11" headers="tbla5">A</th><td headers="tbla6 tbla11">-</td><td headers="tbla7 tbla11">-</td></tr>
+<tr><th id="tbla22" headers="tbla5">B</th><td headers="tbla6 tbla22">-</td><td headers="tbla7 tbla22">-</td></tr>
+<tr><th id="tbla28" headers="tbla5">C</th><td headers="tbla6 tbla28">-</td><td headers="tbla7 tbla28">-</td></tr>
 </tbody>
 </table>
 </section></div>
@@ -132,28 +140,30 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div class="span-4"><section><h3>Tables with <code>wet-boew-zebra</code> class</h3>
 <table class="wet-boew-zebra">
 <caption class="align-left">Example 1</caption>
+<colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">Header</th><th scope="col">Header</th></tr>
+<tr><th id="tblb5">Header</th><th id="tblb6">Header</th></tr>
 </thead>
 <tbody>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td class="wet-boew-zebra table-accent">Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
+<tr><td headers="tblb5">Data</td><td headers="tblb6">Data</td></tr>
 </tbody>
 </table>
 
 <table class="wet-boew-zebra">
 <caption class="align-left">Example 2</caption>
+<colgroup><col /></colgroup><colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th></tr>
+<tr><th id="tblc5">1</th><th id="tblc6">2</th><th id="tblc7">3</th></tr>
 </thead>
 <tbody>
-<tr><th scope="row">A</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">B</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">C</th><td>-</td><td>-</td></tr>
+<tr><th id="tblc11" headers="tblc5">A</th><td headers="tblc6 tblc11">-</td><td headers="tblc7 tblc11">-</td></tr>
+<tr><th id="tblc22" headers="tblc5">B</th><td headers="tblc6 tblc22">-</td><td headers="tblc7 tblc22">-</td></tr>
+<tr><th id="tblc28" headers="tblc5">C</th><td headers="tblc6 tblc28">-</td><td headers="tblc7 tblc28">-</td></tr>
 </tbody>
 </table>
 </section></div>
@@ -161,28 +171,30 @@ www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions -->
 <div class="span-4"><section><h3>Tables with <code>wet-boew-zebra</code> and <code>table-accent</code> classes</h3>
 <table class="wet-boew-zebra table-accent">
 <caption class="align-left">Example 1</caption>
+<colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">Header</th><th scope="col">Header</th></tr>
+<tr><th id="tbld5">Header</th><th id="tbld6">Header</th></tr>
 </thead>
 <tbody>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
-<tr><td>Data</td><td>Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
+<tr><td headers="tbld5">Data</td><td headers="tbld6">Data</td></tr>
 </tbody>
 </table>
 
 <table class="wet-boew-zebra table-accent">
 <caption class="align-left">Example 2</caption>
+<colgroup><col /></colgroup><colgroup><col /><col /></colgroup>
 <thead>
-<tr><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th></tr>
+<tr><th id="tble5">1</th><th id="tble6">2</th><th id="tble7">3</th></tr>
 </thead>
 <tbody>
-<tr><th scope="row">A</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">B</th><td>-</td><td>-</td></tr>
-<tr><th scope="row">C</th><td>-</td><td>-</td></tr>
+<tr><th id="tble11" headers="tble5">A</th><td headers="tble6 tble11">-</td><td headers="tble7 tble11">-</td></tr>
+<tr><th id="tble22" headers="tble5">B</th><td headers="tble6 tble22">-</td><td headers="tble7 tble22">-</td></tr>
+<tr><th id="tble28" headers="tble5">C</th><td headers="tble6 tble28">-</td><td headers="tble7 tble28">-</td></tr>
 </tbody>
 </table>
 </section></div>
@@ -304,7 +316,7 @@ Donec iaculis diam eget sem bibendum consequat.
 </section></div>
 <div class="clear"></div>
 
-<div class="span-4"><section><h3>List with <code>wet-boew-zebra</code> class</h3>
+<div class="span-4"><section><h3>Ordered List with <code>wet-boew-zebra</code> class</h3>
 <ol class="wet-boew-zebra">
 <li>
 <div>Jessica</div>
@@ -360,7 +372,7 @@ Donec iaculis diam eget sem bibendum consequat.
 </ol>
 </section></div>
 
-<div class="span-4 module-comment"><section><h3>List with <code>wet-boew-zebra</code> and <code>module-comment</code> class</h3>
+<div class="span-4 module-comment"><section><h3>Ordered List with <code>wet-boew-zebra</code> and <code>module-comment</code> class</h3>
 <ol class="wet-boew-zebra">
 <li>
 <div>Jessica</div>
@@ -420,8 +432,8 @@ Donec iaculis diam eget sem bibendum consequat.
 
 
 
-<div class="span-4"><section><h3>List with <code>wet-boew-zebra</code> and <code>alterwg</code> class</h3>
-<ol class="wet-boew-zebra alterwg">
+<div class="span-4"><section><h3>Unordered List with <code>wet-boew-zebra</code> and <code>alterwg</code> class</h3>
+<ul class="wet-boew-zebra alterwg">
 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum massa quis velit rutrum commodo.</li>
 <li>Duis dictum lacus ac turpis gravida in interdum mauris adipiscing. Mauris leo lorem, lobortis eu malesuada a, molestie sed eros.</li>
 <li>Vestibulum et dui ut velit dictum iaculis. Curabitur auctor viverra rutrum. Quisque id quam urna. Mauris quis urna in leo accumsan ultricies vitae sit amet felis.</li>
@@ -429,13 +441,11 @@ Donec iaculis diam eget sem bibendum consequat.
 <li>Aliquam erat volutpat. Maecenas aliquam dignissim urna nec viverra. Nulla fringilla fringilla orci, eget consectetur massa vulputate in. Morbi consectetur aliquam lacus, nec sollicitudin lorem molestie ut. Pellentesque scelerisque nulla eget mauris eleifend ac rutrum ligula scelerisque.</li>
 <li>Aenean id elit in metus consectetur bibendum non at massa. Phasellus dictum varius nibh vel scelerisque. Curabitur sollicitudin purus urna, ac ullamcorper magna.</li>
 <li>Phasellus accumsan risus id lacus cursus vitae fringilla sapien pulvinar. Duis viverra consectetur quam vitae pellentesque. Donec iaculis diam eget sem bibendum consequat. Nullam rhoncus bibendum lobortis. Sed consequat sagittis pharetra. Pellentesque accumsan, felis ut venenatis semper, metus odio sollicitudin libero, nec vestibulum lectus nibh vel libero. Fusce iaculis lectus vel ipsum auctor porta. Proin nec lectus augue, varius cursus orci.</li>
-</ol>
+</ul>
 </section></div>
 
-
-
-<div class="span-4"><section><h3>List with <code>wet-boew-zebra</code>, <code>alterwg</code>, <code>nomargin</code> and <code>nohover</code> class</h3>
-<ol class="wet-boew-zebra alterwg nomargin nohover">
+<div class="span-4"><section><h3>Unordered List with <code>wet-boew-zebra</code>, <code>alterwg</code> and <code>nohover</code> class</h3>
+<ul class="wet-boew-zebra alterwg nohover">
 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum massa quis velit rutrum commodo.</li>
 <li>Duis dictum lacus ac turpis gravida in interdum mauris adipiscing. Mauris leo lorem, lobortis eu malesuada a, molestie sed eros.</li>
 <li>Vestibulum et dui ut velit dictum iaculis. Curabitur auctor viverra rutrum. Quisque id quam urna. Mauris quis urna in leo accumsan ultricies vitae sit amet felis.</li>
@@ -443,7 +453,7 @@ Donec iaculis diam eget sem bibendum consequat.
 <li>Aliquam erat volutpat. Maecenas aliquam dignissim urna nec viverra. Nulla fringilla fringilla orci, eget consectetur massa vulputate in. Morbi consectetur aliquam lacus, nec sollicitudin lorem molestie ut. Pellentesque scelerisque nulla eget mauris eleifend ac rutrum ligula scelerisque.</li>
 <li>Aenean id elit in metus consectetur bibendum non at massa. Phasellus dictum varius nibh vel scelerisque. Curabitur sollicitudin purus urna, ac ullamcorper magna.</li>
 <li>Phasellus accumsan risus id lacus cursus vitae fringilla sapien pulvinar. Duis viverra consectetur quam vitae pellentesque. Donec iaculis diam eget sem bibendum consequat. Nullam rhoncus bibendum lobortis. Sed consequat sagittis pharetra. Pellentesque accumsan, felis ut venenatis semper, metus odio sollicitudin libero, nec vestibulum lectus nibh vel libero. Fusce iaculis lectus vel ipsum auctor porta. Proin nec lectus augue, varius cursus orci.</li>
-</ol>
+</ul>
 </section></div>
   
 
@@ -490,10 +500,14 @@ Donec iaculis diam eget sem bibendum consequat.
 
 <h3>Special Note</h3>
 
-<p>The class <code>alterwg</code>, <code>nomargin</code> and <code>nohover</code> can be applied to unordered (<em>ul</em>), ordered (<em>ol</em>) and definition list (<em>dl</em>).</p>
+<p>The class <code>alterwg</code> and <code>nohover</code> can be applied to unordered (<em>ul</em>), ordered (<em>ol</em>) and definition list (<em>dl</em>).</p>
+
+<p>Prior to WxT 3.0.3 the class <code>nomargin</code> can be used to remove the default margin</p>
+
+</section>
 
 <dl id="gcwu-date-mod" role="contentinfo">
-<dt>Date modified:</dt><dd><span><time>2012-08-14</time></span></dd>
+<dt>Date modified:</dt><dd><span><time>2012-08-23</time></span></dd>
 </dl>
 <div class="clear"></div>
 <!-- MainContentEnd -->
@@ -546,7 +560,7 @@ Donec iaculis diam eget sem bibendum consequat.
 <li><a rel="external" href="http://www.voyage.gc.ca/index-eng.asp"><span>Travel</span><br />travel.gc.ca</a></li>
 <li><a rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml"><span>Service Canada</span><br />servicecanada.gc.ca</a></li>
 <li><a rel="external" href="http://www.jobbank.gc.ca/intro-eng.aspx"><span>Jobs</span><br />jobbank.gc.ca</a></li>
-<li><a rel="external" href="http://actionplan.gc.ca/eng/index.asp"><span>Economy</span><br />actionplan.gc.ca</a></li>
+<li><a rel="external" href="http://actionplan.gc.ca/en"><span>Economy</span><br />actionplan.gc.ca</a></li>
 <li id="gcwu-gcft-ca"><div><a rel="external" href="http://www.canada.gc.ca/menu-eng.html">Canada.gc.ca</a></div></li>
 </ul>
 </div></div></div></nav>
@@ -555,9 +569,9 @@ Donec iaculis diam eget sem bibendum consequat.
 </div></div></div>
 
 <!-- ScriptsStart -->
-<script src="../../build/theme-gcwu-fegc/js/theme-min.js"></script>
-<script src="../../build/js/settings.js"></script>
-<script src="../../build/js/pe-ap-min.js"></script>
+<script src="../../dist/theme-gcwu-fegc/js/theme-min.js"></script>
+<script src="../../dist/js/settings.js"></script>
+<script src="../../dist/js/pe-ap-min.js"></script>
 <!-- ScriptsEnd -->
 </body>
 </html>

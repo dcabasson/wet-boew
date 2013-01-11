@@ -1,21 +1,28 @@
 @charset "utf-8";
-/*!
+/*!!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
-/*!
- * Icons by Yusuke Kamiyamane (http://p.yusukekamiyamane.com/) - Creative Commons Attribution 3.0 License (http://creativecommons.org/licenses/by/3.0/)
+@import '../../base/sass/oldie-vendor-prefix';
+
+/*!!
+ * Icons by Yusuke Kamiyamane (http: //p.yusukekamiyamane.com/) - Creative Commons Attribution 3.0 License (http: //creativecommons.org/licenses/by/3.0/)
  */
-@media screen{
+@media screen {
 /* -----Build Include Section Start----- */
-@import url('includes/util-screen.css');
-@import url('includes/fix-ie7.css');
-@import url('includes/fix-ie8.css');
+@import 'includes/util-screen';
+@import 'includes/util-desktop-screen';
+@import 'includes/fix-ie7';
+@import 'includes/fix-ie8';
 /* -----Build Include Section End----- */
 }
 
-@media print{
+@media print {
 /* -----Build Include Section Start----- */
-@import url('includes/util-print.css');
+@import 'includes/util-print';
 /* -----Build Include Section End----- */
 }

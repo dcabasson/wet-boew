@@ -1,19 +1,37 @@
 @charset "utf-8";
-/*!
+/*!!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
-/*!
- * Icons by Yusuke Kamiyamane (http://p.yusukekamiyamane.com/) - Creative Commons Attribution 3.0 License (http://creativecommons.org/licenses/by/3.0/)
+@import '../../base/sass/modern-vendor-prefix';
+
+/*!!
+ * Icons by Yusuke Kamiyamane (http: //p.yusukekamiyamane.com/) - Creative Commons Attribution 3.0 License (http: //creativecommons.org/licenses/by/3.0/)
  */
-@media screen{
+@media screen {
 /* -----Build Include Section Start----- */
-@import url('includes/util-screen.css');
+@import 'includes/util-screen';
+/* -----Build Include Section End----- */
+}
+@media screen and (min-width: 768px) and (min-device-width: 768px) {
+/* -----Build Include Section Start----- */
+@import 'includes/util-desktop-screen';
 /* -----Build Include Section End----- */
 }
 
-@media print{
+/* Mobile view */
+@media screen and (max-width: 767px), screen and (max-device-width: 767px) {
 /* -----Build Include Section Start----- */
-@import url('includes/util-print.css');
+@import 'includes/util-mobile';
+/* -----Build Include Section End----- */
+}
+
+@media print {
+/* -----Build Include Section Start----- */
+@import 'includes/util-print';
 /* -----Build Include Section End----- */
 }

@@ -1,6 +1,10 @@
 /*!
+ *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
+ *
+ * Version: @wet-boew-build.version@
+ *
  */
 /*
  * Datepicker
@@ -34,13 +38,17 @@
 				wrapper,
 				elm = $(this);
 
+			if(elm.hasClass('picker-field')) {
+				return;
+			}
+
 			elm.addClass('picker-field');
 
 			createToggleIcon = function (fieldid, containerid) {
 				var fieldLabel = wrapper.find('label[for="' + fieldid + '"]').text(),
-					objToggle = $('<a id="' + containerid + '-toggle" class="picker-toggle-hidden" href="javascript:;"><img src="' + pe.add.liblocation + 'images/datepicker/icon.png" alt="' + pe.dic.get('%datepicker-show') + fieldLabel + '"/></a>');
+					objToggle = $('<a id="' + containerid + '-toggle" class="picker-toggle-hidden" href="javascript:;"><img class="image-actual" src="' + pe.add.liblocation + 'images/datepicker/calendar-month.png" alt="' + pe.dic.get('%datepicker-show') + fieldLabel + '"/></a>');
 
-				objToggle.on('click', function () {
+				objToggle.on('click vclick touchstart', function () {
 					toggle(fieldid, containerid);
 					return false;
 				});
@@ -50,8 +58,8 @@
 			};
 
 			addLinksToCalendar = function (fieldid, year, month, days, minDate, maxDate, format) {
-				minDate = calendar.getDateFromISOString(minDate);
-				maxDate = calendar.getDateFromISOString(maxDate);
+				minDate = pe.date.from_iso_format(minDate);
+				maxDate = pe.date.from_iso_format(maxDate);
 
 				var lLimit = (year === minDate.getFullYear() && month === minDate.getMonth()),
 					hLimit = (year === maxDate.getFullYear() && month === maxDate.getMonth());
@@ -124,7 +132,7 @@
 							}
 						});
 
-						link.bind('click', {fieldid: fieldid, year: year, month : month, day: index + 1, days: days, format: format}, function (event) {
+						link.on('click vclick touchstart', {fieldid: fieldid, year: year, month : month, day: index + 1, days: days, format: format}, function (event) {
 							addSelectedDateToField(event.data.fieldid, event.data.year, event.data.month + 1, event.data.day, event.data.format);
 							setSelectedDate(event.data.fieldid, event.data.year, event.data.month, event.data.days, event.data.format);
 							//Hide the calendar on selection
@@ -145,7 +153,7 @@
 				}
 
 				if (targetDate.getMonth() !== month || targetDate.getFullYear() !== year) {
-					calendar.create(calendarid, targetDate.getFullYear(), targetDate.getMonth(), true, calendar.getISOStringFromDate(minDate), calendar.getISOStringFromDate(maxDate));
+					calendar.create(calendarid, targetDate.getFullYear(), targetDate.getMonth(), true, minDate, maxDate);
 				}
 
 				pe.focus($('#' + calendarid).find('.cal-day-list').children('li:eq(' + (targetDate.getDate() - 1) + ')').children('a'));
@@ -271,9 +279,9 @@
 
 			formatDate = function (year, month, day, format) {
 				var output = format;
-				output = output.replace('DD', calendar.strPad(day, 2, '0'));
+				output = output.replace('DD', pe.string.pad(day, 2));
 				output = output.replace('D', day);
-				output = output.replace('MM', calendar.strPad(month, 2, '0'));
+				output = output.replace('MM', pe.string.pad(month, 2));
 				output = output.replace('M', month);
 				output = output.replace('YYYY', year);
 				output = output.replace('YY', year.toString().substr(2, 2));
@@ -283,14 +291,14 @@
 
 			if (elm.attr('id') !== undefined) {
 				id = elm.attr('id');
-				if (elm.attr('data-min-date') !== undefined) {
-					minDate = elm.attr('data-min-date');
+				if (elm.attr('min') !== undefined) {
+					minDate = elm.attr('min');
 				} else {
 					minDate = '1800-01-01';
 				}
 
-				if (elm.attr('data-max-date') !== undefined) {
-					maxDate = elm.attr('data-max-date');
+				if (elm.attr('max') !== undefined) {
+					maxDate = elm.attr('max');
 				} else {
 					maxDate = '2100-01-01';
 				}
@@ -316,7 +324,7 @@
 					addLinksToCalendar(id, year, month, days, minDate, maxDate, format);
 					setSelectedDate(id, year, month, days, format);
 
-					$this.on('click vclick', function (e) {
+					$this.on('click vclick touchstart', function (e) {
 						if (e.stopPropagation) {
 							e.stopImmediatePropagation();
 						} else {
@@ -332,7 +340,7 @@
 						}
 					});
 
-					$(document).on('click touchstart', function () {
+					$(document).on('click vclick touchstart', function () {
 						if (container.attr('aria-hidden') === 'false') {
 							hide($('#' + container.attr('id').slice(0, -7)));
 							return false;
@@ -342,6 +350,12 @@
 
 				calendar.create(containerid, year, month, true, minDate, maxDate);
 				createToggleIcon(id, containerid);
+				
+				// Close button
+				$('<a class="picker-close" role="button" href="javascript:;"><img src="' + pe.add.liblocation + 'images/datepicker/cross-button.png" alt="' + pe.dic.get('%datepicker-hide') + '" class="image-actual" /></a>').appendTo(container)
+					.click(function(){
+						toggle(id, containerid);
+					});
 
 				//Disable the tabbing of all the links when calendar is hidden
 				container.find('a').attr('tabindex', '-1');

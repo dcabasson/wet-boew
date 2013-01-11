@@ -1,6 +1,6 @@
-/*!
+/*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * www.tbs.gc.ca/ws-nw/wet-boew/terms / www.sct.gc.ca/ws-nw/wet-boew/conditions
+ * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
  */
 /*
  * Share widget plugin
@@ -16,7 +16,7 @@
 		type : 'plugin',
 		depends : ['metadata', 'bookmark', 'outside'],
 		_exec : function (elm) {
-			var opts, overrides, $popup, $popupText, $popupLinks, target, leftoffset, keychar, elmtext, matches, match;
+			var opts, overrides, $popup, $popupText, $popupLinks, popupLink, popupLinksLen, popupLinkSpan, target, leftoffset, keychar, elmtext, matches, match;
 
 			// Defaults
 			opts = {
@@ -27,7 +27,7 @@
 				sites: [], // List of site IDs or language selectors (lang:xx) or
 					// category selectors (category:xx) to use, empty for all
 				compact: false, // True if a compact presentation should be used, false for full
-				hint: pe.dic.get('%share-text') + pe.dic.get('%share-hint'), // Popup hint for links, {s} is replaced by display name
+				hint: pe.dic.get('%share-text') + pe.dic.get('%share-hint') + pe.dic.get('%new-window'), // Popup hint for links, {s} is replaced by display name
 				popup: true, // True to have it popup on demand, false to show always
 				popupTag: 'h2', // Parent tag for the popup link (should be either h2 or h3)
 				popupText: pe.dic.get('%share-text'), // Text for the popup trigger
@@ -55,16 +55,16 @@
 
 			// Class-based overrides - use undefined where no override of defaults or settings.js should occur
 			overrides = {
-				compact: elm.hasClass("compact") ? true : undefined,
-				popup: elm.hasClass("popup-none") ? false : undefined,
-				addFavorite: elm.hasClass("favourite") ? true : undefined,
-				addEmail: elm.hasClass("email") ? true : undefined,
-				addShowAll: elm.hasClass("showall") ? true : undefined,
+				compact: elm.hasClass('compact') ? true : undefined,
+				popup: elm.hasClass('popup-none') ? false : undefined,
+				addFavorite: elm.hasClass('favourite') ? true : undefined,
+				addEmail: elm.hasClass('email') ? true : undefined,
+				addShowAll: elm.hasClass('showall') ? true : undefined,
 				addAnalytics: elm.hasClass('analytics') ? true : undefined
 			};
 
 			// Extend the defaults with settings passed through settings.js (wet_boew_share), class-based overrides and the data attribute
-			$.metadata.setType("attr", "data-wet-boew");
+			$.metadata.setType('attr', 'data-wet-boew');
 			if (typeof wet_boew_share !== 'undefined' && wet_boew_share !== null) {
 				$.extend(opts, wet_boew_share, overrides, elm.metadata());
 			} else {
@@ -77,54 +77,74 @@
 				if (opts.popupTag.substring(0, 1) === 'h') { // If a heading element is used for the popup tag, then wrap the contents in a section element
 					elm.wrapInner('<section />');
 				}
-				$popup = elm.find('.bookmark_popup').attr('id', 'bookmark_popup').attr('aria-hidden', 'true').attr('role', 'menu').prepend('<p class="popup_title">' + opts.popupText + '</p>');
-				$popupLinks = $popup.find('li').attr('role', 'presentation').find('a').attr('role', 'menuitem').each(function () {
-					// TODO: Should work with authot to fix in bookmark.js rather than maintain this workaround (fix needed otherwise some screen readers read the link twice)
-					var $this = $(this),
-						$span = $this.children('span');
-					if ($span.length > 0) {
-						$this.attr('title', $span.attr('title'));
-						$span.removeAttr('title');
+				$popup = elm.find('.bookmark_popup').detach();
+				$popup.attr({'id': 'bookmark_popup', 'aria-hidden': 'true', 'role': 'menu'}).prepend('<p class="popup_title">' + opts.popupText + '</p>');
+				$popupLinks = $popup.find('ul').attr('role', 'presentation').find('a').get();
+				popupLinksLen = $popupLinks.length;
+				while (popupLinksLen--) {
+					popupLink = $popupLinks[popupLinksLen];
+					popupLink.setAttribute('role', 'menuitem');
+					popupLink.setAttribute('rel', 'external');
+					popupLink.parentNode.setAttribute('role', 'presentation');
+					// TODO: Should work with author to fix in bookmark.js rather than maintain this workaround (fix needed otherwise some screen readers read the link twice)
+					popupLinkSpan = popupLink.getElementsByTagName('span');
+					if (popupLinkSpan.length > 0) {
+						popupLinkSpan = popupLinkSpan[0];
+						popupLink.title = popupLinkSpan.title;
+						popupLinkSpan.removeAttribute('title');
 					}
-				});
-				if (opts.includeDisclaimer) {
+				}
+				if (opts.addEmail) { // Removes target attribute and opens in new window warning from email link
+					match = $popup.find('a[href*="mailto:"]').removeAttr('target').removeAttr('rel');
+					match.attr('title', match.attr('title').replace(pe.dic.get('%new-window'), ''));
+				}
+				if (opts.addFavorite) { // Removes target attribute and makes title more relevant for favorite link
+					match = $popup.find('a[href*="#"]').removeAttr('target').removeAttr('rel').attr('title', opts.favoriteText + pe.dic.get('%share-fav-title'));
+				}
+				if (opts.includeDisclaimer) { // Append the disclaimer
 					$popup.append('<p class="popup_disclaimer">' + opts.popupDisclaimer + '</p>');
 				}
+				elm.append($popup);
 
-				$popup.on("click vclick", function (e) {
+				$popup.on('click vclick touchstart', function (e) {
 					if (e.stopPropagation) {
 						e.stopImmediatePropagation();
 					} else {
 						e.cancelBubble = true;
 					}
+				}).on('click vclick touchstart', 'a', function () { // Workaround for some touchscreen devices that don't 
+					window.open(this.href, '_blank');
+					$popup.trigger('close');
+					return false;
 				});
-				$popupText = elm.find('.bookmark_popup_text').off('click vclick keydown').wrap('<' + opts.popupTag + ' />');
-				$popupText.attr('role', 'button').attr('aria-controls', 'bookmark_popup').on("click vclick keydown", function (e) {
+
+				$popupText = elm.find('.bookmark_popup_text').off('click vclick touchstart keydown').wrap('<' + opts.popupTag + ' />');
+				$popupText.attr({'role': 'button', 'aria-controls': 'bookmark_popup'}).on('click vclick touchstart keydown', function (e) {
 					if (e.type === "keydown") {
 						if (!(e.ctrlKey || e.altKey || e.metaKey)) {
 							if (e.keyCode === 13 || e.keyCode === 32) { // enter or space
 								e.preventDefault();
 								if ($popup.attr('aria-hidden') === 'true') {
-									$popup.trigger("open");
+									$popup.trigger('open');
 								} else {
-									$popup.trigger("close");
+									$popup.trigger('close');
 								}
 							} else if (e.keyCode === 38 || e.keyCode === 40) { // up or down arrow
 								e.preventDefault();
-								$popup.trigger("open");
+								$popup.trigger('open');
 							}
 						}
 					} else {
 						if ($popup.attr('aria-hidden') === 'true') {
-							$popup.trigger("open");
+							$popup.trigger('open');
 						} else {
-							$popup.trigger("close");
+							$popup.trigger('close');
 						}
 						return false;
 					}
 				});
-				$popup.on("keydown focusoutside open close closenofocus", function (e) {
-					if (e.type === "keydown") {
+				$popup.on('keydown focusoutside open close closenofocus', function (e) {
+					if (e.type === 'keydown') {
 						if (!(e.ctrlKey || e.altKey || e.metaKey)) {
 							switch (e.keyCode) {
 							case 27: // escape key (close the popup)
@@ -217,31 +237,32 @@
 								}
 							}
 						}
-					} else if (e.type === "focusoutside" && !$(e.target).is($popupText)) { // Close the popup menu if focus goes outside
+					} else if (e.type === 'focusoutside' && !$(e.target).is($popupText)) { // Close the popup menu if focus goes outside
 						if ($popup.attr('aria-hidden') === 'false') {
-							$popup.trigger("closenofocus");
+							$popup.trigger('closenofocus');
 						}
-					} else if (e.type === "open") { // Open the popup menu an put the focus on the first link
+					} else if (e.type === 'open') { // Open the popup menu an put the focus on the first link
 						$popupText.text(opts.hideText + opts.popupText);
 						$popup.attr('aria-hidden', 'false').show();
 						pe.focus($popup.show().find('li a').first());
-					} else if (e.type === "close" || e.type === "closenofocus") { // Close the popup menu
+					} else if (e.type === 'close' || e.type === 'closenofocus') { // Close the popup menu
 						$popupText.text(opts.popupText);
 						$popup.attr('aria-hidden', 'true').hide();
-						if (e.type === "close") {
+						if (e.type === 'close') {
 							pe.focus($popupText.first());
 						}
 					}
 				});
 
-				$(document).on("click vclick touchstart", function () {
+				$(document).on('click vclick touchstart', function () {
 					if ($popup.attr('aria-hidden') === 'false') {
-						$popup.trigger("close");
+						$popup.trigger('close');
 					}
 				});
 			} else {
 				elm.addClass('popup-none');
 			}
+
 			return elm;
 		} // end of exec
 	};
