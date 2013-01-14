@@ -168,7 +168,9 @@
 			$tabs.off('click vclick').on('keydown click', function (e) {
 				var $target = $(e.target),
 					$panel,
-					$link;
+					$link,
+					href,
+					hash;
 				if (e.type === 'keydown') {
 					if (e.keyCode === 13 || e.keyCode === 32) {
 						if (e.stopPropagation) {
@@ -180,7 +182,9 @@
 						if (!$target.is($tabs.filter('.' + opts.tabActiveClass))) {
 							selectTab($target, $tabs, $panels, opts, false);
 						} else {
-							_pe.focus($panels.filter($target.attr('href')));
+							href = $target.attr('href'),
+							hash = href.substring(href.indexOf('#'));
+							_pe.focus($panels.filter(hash));
 						}
 					} else if (e.keyCode === 37 || e.keyCode === 38) { // left or up
 						selectTab(getPrevTab($tabs), $tabs, $panels, opts, false);
@@ -192,6 +196,8 @@
 				} else {
 					// Make sure working with a link since it's possible for an image to be the target of a mouse click
 					$link = (e.target.tagName.toLowerCase() !== 'a') ? $target.closest('a') : $target;
+					href = $link.attr('href'),
+					hash = href.substring(href.indexOf('#'));
 
 					// Shift focus to the panel if the tab is already active
 					if ($link.is($tabs.filter('.' + opts.tabActiveClass))) {
@@ -203,7 +209,7 @@
 					$link.parents('a:first');		
 
 					// Get the panel to display
-					$panel = $panels.filter($link.attr('href'));
+					$panel = $panels.filter(hash);
 					if ($panel.data('easytabs') && !$panel.data('easytabs').lastHeight) {
 						$panel.data('easytabs').lastHeight = $panel.outerHeight();
 					}
@@ -219,12 +225,15 @@
 				return ($prev.length === 0 ? $tabs.last() : $prev.children('a'));
 			};
 			selectTab = function ($selection, $tabs, $panels, opts, keepFocus) {
-				var cycleButton, activePanel, nextPanel;
+				var cycleButton,
+					activePanel,
+					nextPanel,
+					href = $selection.attr('href'),
+					hash = href.substring(href.indexOf('#'));
 				$panels.stop(true, true);
 				if (opts.animate) {
-				
 					activePanel = $panels.filter('.' + opts.panelActiveClass).removeClass(opts.panelActiveClass).attr("aria-hidden", "true");
-					nextPanel = $panels.filter($selection.attr('href'));	
+					nextPanel = $panels.filter(hash);	
 					
 					if(isSlider()){
 						$panels.show();
@@ -243,7 +252,7 @@
 					
 				} else {
 					$panels.removeClass(opts.panelActiveClass).attr('aria-hidden', 'true').hide();
-					$panels.filter($selection.attr('href')).show().addClass(opts.panelActiveClass).attr('aria-hidden', 'false');
+					$panels.filter(hash).show().addClass(opts.panelActiveClass).attr('aria-hidden', 'false');
 				}
 				$tabs.removeClass(opts.tabActiveClass).attr('aria-selected', 'false').parent().removeClass(opts.tabActiveClass);
 				$selection.addClass(opts.tabActiveClass).attr('aria-selected', 'true').parent().addClass(opts.tabActiveClass);
@@ -409,8 +418,8 @@
 			elm.find('a').filter('[href^="#"]').each(function () {
 				var $this = $(this),
 					anchor,
-					hash;
-				hash = $this.attr('href');
+					href = $this.attr('href'),
+					hash = href.substring(href.indexOf('#'));
 				if (hash.length > 1) {
 					anchor = $(hash, $panels);
 					if (anchor.length) {
