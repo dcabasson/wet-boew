@@ -81,6 +81,8 @@
 				getNextTab,
 				getPrevTab,		
 				getSlideTo,
+				href,
+				hash,
 				isSlider,
 				positionPanels,
 				selectTab,
@@ -154,7 +156,9 @@
 				}
 			}
 			$default_tab.attr('aria-selected', 'true');
-			$panels.filter($default_tab.attr('href')).attr('aria-hidden', 'false');
+			href = $default_tab.attr('href'),
+			hash = href.substring(href.indexOf('#'));
+			$panels.filter(hash).attr('aria-hidden', 'false');
 
 			// easytabs IE7 bug: using images as tabs breaks easytabs.activateDefaultTab().
 			if(_pe.ie > 0 && _pe.ie < 8) {
